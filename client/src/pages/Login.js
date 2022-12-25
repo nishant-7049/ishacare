@@ -1,0 +1,44 @@
+import React from 'react'
+
+const Login = () => {
+  return (
+    <div className='center'>
+      <input type='checkbox' checked='checked' id='show' />
+      <label for='show' className='show-btn'>
+        View Form
+      </label>
+      <div className='container'>
+        <label
+          for='show'
+          className='close-btn fas fa-times'
+          title='close'
+        ></label>
+        <div className='text'>Login Form</div>
+        <form>
+          <div className='data'>
+            <label>Email or Phone</label>
+            <input type='text' name='email' required />
+          </div>
+          <div className='data'>
+            <label>Password</label>
+            <input type='password' name='pass' required />
+          </div>
+          <div className='forgot-pass'>
+            <a href='#'>Forgot Password?</a>
+          </div>
+          <div className='btn'>
+            <div className='inner'></div>
+            <button type='submit' name='submit'>
+              login
+            </button>
+          </div>
+          <div className='signup-link'>
+            Not a member? <a href='#'>Signup now</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default Login

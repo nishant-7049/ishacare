@@ -1,27 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const footer = () => {
-  return (
-    <footer className='footer'>
-      <div className='footer-container'>
-        <div className='footer-left'>
-          <p className='footer-text'>Copyright 2021</p>
-          <p className='footer-text'>All Rights Reserved</p>
-        </div>
-        <div className='footer-right'>
-          <a href='#' className='footer-link'>
-            Contact
-          </a>
-          <a href='#' className='footer-link'>
-            Privacy Policy
-          </a>
-          <a href='#' className='footer-link'>
-            Terms of Use
-          </a>
-        </div>
-      </div>
-    </footer>
-  )
+const Footer = () => {
+  return <Foo>
+    Footer
+  </Foo>
 }
 
-export default footer
+export default Footer
+
+const Foo = styled.div`
+  position: absolute;
+  bottom: 0;
+`

@@ -1,18 +1,28 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setpassword] = useState('')
 
+  const navigate = useNavigate()
+
+
   function registerUser(event) {
     event.preventDefault()
 
     axios
-      .post('http://localhost:3001/api/register', { email, password })
+      .post('http://localhost:3001/api/register', { email: email, password: password })
       .then((res) => {
-        console.log(res)
+        if(res.data.status === 'ok'){
+          // window.location.href = '/login'
+          navigate('/login')
+        }
+        else if(res.data.status === 'error'){
+          alert(res.data.error)
+        }
       })
       .catch((err) => console.log(err))
   }
@@ -51,6 +61,16 @@ const Register = () => {
           <button type='submit'>Submit</button>
         </Button>
       </form>
+      <p>
+        Already have an account - &nbsp;
+        <a
+          onClick={() => {
+            navigate('/login')
+          }}
+        >
+          Login
+        </a>
+      </p>
     </Container>
   )
 }
@@ -99,6 +119,17 @@ const Container = styled.div`
     border: none;
     border-radius: 3px;
     margin: 0.5rem 0;
+  }
+
+  p {
+    font-size: 15px;
+    text-align: center;
+    align-items: center;
+
+    a {
+      color: blue;
+      cursor: pointer;
+    }
   }
 
   @media screen and (max-width: 680px) {

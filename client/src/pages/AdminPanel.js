@@ -31,7 +31,7 @@ const AdminPanel = () => {
     const token = localStorage.getItem('token')
     if (token) {
       axios
-        .post('http://localhost:3001/api/verify', { token })
+        .post('http://localhost:3001/api/decode', { token })
         .then((res) => {
           const user = res.data.user
           if (!user) {
@@ -47,7 +47,7 @@ const AdminPanel = () => {
     } else {
       navigate('/login')
     }
-  }, [])
+  }, [navigate])
 
   return <div>The user admin email is :{adminEmail || 'No admin found !!'}</div>
 }

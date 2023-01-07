@@ -10,6 +10,6 @@ const Footer = () => {
 export default Footer
 
 const Foo = styled.div`
-  position: absolute;
   bottom: 0;
+  z-index: 10;
 `

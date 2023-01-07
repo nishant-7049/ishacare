@@ -63,13 +63,13 @@ const Register = () => {
       </form>
       <p>
         Already have an account - &nbsp;
-        <a
+        <button
           onClick={() => {
             navigate('/login')
           }}
         >
           Login
-        </a>
+        </button>
       </p>
     </Container>
   )
@@ -126,7 +126,7 @@ const Container = styled.div`
     text-align: center;
     align-items: center;
 
-    a {
+    button {
       color: blue;
       cursor: pointer;
     }

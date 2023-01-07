@@ -16,64 +16,56 @@ const SliderImg = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
-  }
+    arrow: true,
+  };
   return (
     <Container>
       <Slider {...settings}>
+
         <Items>
-          <div className='disc-contain'>
-            <h3>Dr. Lorem, ipsum. </h3>
-            <div className='disc'>
-              <MdWork />
-              <p>Lorem ipsum dolor sit amet.</p>
+          <div className="the-details">
+            <div className="the-con">
+              <h3 className="the-name">Dr. Name Lastname</h3>
+              <spam className="the-exp">
+                <MdWork />
+                <p className="the-para">5 Years of Experience</p>
+              </spam>
+              <spam className="the-edu">
+                <MdSchool />
+                <p className="the-para">This College of Science</p>
+              </spam>
             </div>
-            <div className='disc'>
-              <MdSchool />
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+          <div className="the-image">
+            <img src="/images/doc1.png" alt="" />
           </div>
-          <div className='doc-img'>
-            <img src='/images/doc1.png' alt='' />
           </div>
         </Items>
         <Items>
-          <div className='disc-contain'>
-            <h3>Dr. Lorem, ipsum. </h3>
-            <div className='disc'>
-              <MdWork />
-              <p>Lorem ipsum dolor sit amet.</p>
+          <div className="the-details">
+            <div className="the-con">
+              <h3 className="the-name">Dr. Name Lastname</h3>
+              <spam className="the-exp">
+                <MdWork />
+                <p className="the-para">5 Years of Experience</p>
+              </spam>
+              <spam className="the-edu">
+                <MdSchool />
+                <p className="the-para">This College of Science</p>
+              </spam>
             </div>
-            <div className='disc'>
-              <MdSchool />
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+          <div className="the-image">
+            <img src="/images/doc1.png" alt="" />
           </div>
-          <div className='doc-img'>
-            <img src='/images/doc1.png' alt='' />
-          </div>
-        </Items>
-        <Items>
-          <div className='disc-contain'>
-            <h3>Dr. Lorem, ipsum. </h3>
-            <div className='disc'>
-              <MdWork />
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div className='disc'>
-              <MdSchool />
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-          <div className='doc-img'>
+          <div>
             <img src='/images/doc1.png' alt='' />
           </div>
         </Items>
       </Slider>
     </Container>
-  )
-}
+  );
+};
 
-export default SliderImg
+export default SliderImg;
 
 const Container = styled.div`
   margin: 2rem 5rem;
@@ -83,27 +75,42 @@ const Container = styled.div`
   }
 `
 const Items = styled.div`
-  display: flex;
-
-  .disc-contain {
-    max-width: 50%;
+margin: 0 1rem;
+  .slick-prev:before,
+  .slick-next:before {
+    color: black;
   }
-
-  .disc {
+  .slick-arrow  {
+    display: inline;
+  }
+  .the-details {
     display: flex;
-    margin: 1rem;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
   }
-
-  .disc p {
-    margin-left: 0.5rem;
+  .the-name {
+    margin-bottom: 1.2rem;
+    color: #1c75bc;
   }
-
-  .doc-img img {
-    scale: 0.5;
+  .the-image {
+    width: 40%;
+  }
+  .the-image img {
     width: 100%;
   }
-
-  .doc-img {
-    max-width: 50%;
+  .the-exp,
+  .the-edu {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5rem;
+    -ms-flex-align: start;
+    align-items: center;
   }
-`
+ 
+  .the-para {
+    margin-left: 0.5rem;
+  }
+`;

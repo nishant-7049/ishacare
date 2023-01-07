@@ -1,19 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const [email, setEmail] = useState('')
+  const [password, setpassword] = useState('')
+
+  const navigate = useNavigate()
+
+  function loginUser(event) {
+    event.preventDefault()
+
+    axios
+      .post('http://localhost:3001/api/login', { email, password })
+      .then((res) => {
+        if (res.data.user) {
+          localStorage.setItem('token', res.data.user)
+          alert('Login Success')
+          navigate('/adminPanel')
+        } else {
+          console.log('Please check your email and password')
+        }
+      })
+      .catch((err) => console.log(err))
+  }
+
   return (
     <Container>
       <h2>Login</h2>
-      <form>
+      <form onSubmit={loginUser}>
         <div>
           <label>Email</label>
           <br />
           <input
             type='email'
-            name='email'
+            value={email}
             placeholder='Type your name'
             autoComplete='email'
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
           />
         </div>
         <div>
@@ -21,9 +48,12 @@ const Login = () => {
           <br />
           <input
             type='password'
-            name='password'
+            value={password}
             placeholder='Type your password'
             autoComplete='current-password'
+            onChange={(e) => {
+              setpassword(e.target.value)
+            }}
           />
         </div>
         <Button>

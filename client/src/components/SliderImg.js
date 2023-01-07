@@ -12,75 +12,108 @@ const SliderImg = () => {
     infinite: true,
     speed: 200,
     slidesToShow: 2,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
-    arrow: true,
-  };
+    arrows: false,
+  }
   return (
     <Container>
       <Slider {...settings}>
-
         <Items>
-          <div className="the-details">
-            <div className="the-con">
-              <h3 className="the-name">Dr. Name Lastname</h3>
-              <spam className="the-exp">
+          <div className='the-details'>
+            <div className='the-con'>
+              <h3 className='the-name'>Dr. Name Lastname</h3>
+              <spam className='the-exp'>
                 <MdWork />
-                <p className="the-para">5 Years of Experience</p>
+                <p className='the-para'>5 Years of Experience</p>
               </spam>
-              <spam className="the-edu">
+              <spam className='the-edu'>
                 <MdSchool />
-                <p className="the-para">This College of Science</p>
+                <p className='the-para'>This College of Science</p>
               </spam>
             </div>
-          <div className="the-image">
-            <img src="/images/doc1.png" alt="" />
-          </div>
+            <div className='the-image'>
+              <img src='/images/doc1.png' alt='' />
+            </div>
           </div>
         </Items>
         <Items>
-          <div className="the-details">
-            <div className="the-con">
-              <h3 className="the-name">Dr. Name Lastname</h3>
-              <spam className="the-exp">
+          <div className='the-details'>
+            <div className='the-con'>
+              <h3 className='the-name'>Dr. Name Lastname</h3>
+              <spam className='the-exp'>
                 <MdWork />
-                <p className="the-para">5 Years of Experience</p>
+                <p className='the-para'>5 Years of Experience</p>
               </spam>
-              <spam className="the-edu">
+              <spam className='the-edu'>
                 <MdSchool />
-                <p className="the-para">This College of Science</p>
+                <p className='the-para'>This College of Science</p>
               </spam>
             </div>
-          <div className="the-image">
-            <img src="/images/doc1.png" alt="" />
+            <div className='the-image'>
+              <img src='/images/doc1.png' alt='' />
+            </div>
           </div>
-          <div>
-            <img src='/images/doc1.png' alt='' />
+        </Items>
+        <Items>
+          <div className='the-details'>
+            <div className='the-con'>
+              <h3 className='the-name'>Dr. Name Lastname</h3>
+              <spam className='the-exp'>
+                <MdWork />
+                <p className='the-para'>5 Years of Experience</p>
+              </spam>
+              <spam className='the-edu'>
+                <MdSchool />
+                <p className='the-para'>This College of Science</p>
+              </spam>
+            </div>
+            <div className='the-image'>
+              <img src='/images/doc1.png' alt='' />
+            </div>
+          </div>
+        </Items>
+        <Items>
+          <div className='the-details'>
+            <div className='the-con'>
+              <h3 className='the-name'>Dr. Name Lastname</h3>
+              <spam className='the-exp'>
+                <MdWork />
+                <p className='the-para'>5 Years of Experience</p>
+              </spam>
+              <spam className='the-edu'>
+                <MdSchool />
+                <p className='the-para'>This College of Science</p>
+              </spam>
+            </div>
+            <div className='the-image'>
+              <img src='/images/doc1.png' alt='' />
+            </div>
           </div>
         </Items>
       </Slider>
     </Container>
-  );
-};
+  )
+}
 
-export default SliderImg;
+export default SliderImg
 
 const Container = styled.div`
   margin: 2rem 5rem;
-  .slick-prev:before,
-  .slick-next:before {
-    color: black !important;
+
+  .slick-track {
+    width: 80%;
   }
 `
 const Items = styled.div`
-margin: 0 1rem;
+  margin: 0 1rem;
   .slick-prev:before,
   .slick-next:before {
     color: black;
   }
-  .slick-arrow  {
+  .slick-arrow {
     display: inline;
   }
   .the-details {
@@ -109,8 +142,8 @@ margin: 0 1rem;
     -ms-flex-align: start;
     align-items: center;
   }
- 
+
   .the-para {
     margin-left: 0.5rem;
   }
-`;
+`

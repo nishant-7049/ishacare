@@ -23,7 +23,7 @@ const SliderImg = () => {
 
         <Items>
           <div>
-            <h3>Dr. John Williams</h3>
+            <h3>Dr. 1 </h3>
             <div>
               <MdWork />
               <p>Lorem ipsum dolor sit amet.</p>

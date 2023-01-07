@@ -5,13 +5,16 @@ const inchargeSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   password: String,
-  Phone: Number,
-  Experience: Number,
-  clinicsUnder: String,
-  clincsUnder: [String],
+  phone: Number,
+  experience: Number,
+  clinicsUnder: [
+    {
+      name: String,
+    },
+  ],
 })
 
 const Incharge = mongoose.model('Incharge', inchargeSchema)

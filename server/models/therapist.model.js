@@ -10,7 +10,7 @@ const therapistSchema = new mongoose.Schema({
   password: String,
   Phone: Number,
   Experience: Number,
-  monitoringPatient: Patient,
+  // monitoringPatient: Patient,
 })
 
 const Therapist = mongoose.model('Therapist', therapistSchema)

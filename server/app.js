@@ -1,9 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
 const mongoose = require('mongoose')
 const Admin = require('./models/admin.model')
-const bcrypt = require('bcryptjs')
 
 mongoose.set('strictQuery', false)
 mongoose.connect('mongodb://0.0.0.0:27017/ishaDB')
@@ -30,8 +30,8 @@ app.post('/api/login', async (req, res) => {
     email: req.body.email,
   })
 
-  if(!adminUser){
-    return res.json({ststus: 'error', error: 'Invalid Login'})
+  if (!adminUser) {
+    return res.json({ status: 'error', error: 'Invalid Login' })
   }
 
   const isPasswordValid = await bcrypt.compare(
@@ -43,7 +43,6 @@ app.post('/api/login', async (req, res) => {
     const token = jwt.sign(
       {
         email: req.body.email,
-        password: req.body.password,
       },
       'secret123'
     )
@@ -69,7 +68,7 @@ app.get('/api/adminData', async (req, res) => {
   }
 })
 
-app.post('/api/verify', async (req, res) => {
+app.post('/api/decode', async (req, res) => {
   const token = req.body.token
   // console.log(token);
   const user = jwt.decode(token)

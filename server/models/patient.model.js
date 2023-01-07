@@ -11,7 +11,7 @@ const patientSchema = new mongoose.Schema({
   password: String,
   age: Number,
   phone: Number,
-  EmergencyContact: Number,
+  emergencyContact: Number,
   problem: String,
   duration: Number,
   //   attendingFacilitator: facilitatorSchema

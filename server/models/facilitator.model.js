@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const PatientModel = require('./patient.model')
 
 //Facilitator
 const facilitatorSchema = new mongoose.Schema({
@@ -11,7 +12,7 @@ const facilitatorSchema = new mongoose.Schema({
   password: String,
   Phone: Number,
   Experience: Number,
-  monitoringPatient: Patient,
+  monitoringPatient: PatientModel,
 })
 
 const Facilitator = mongoose.model('Facilitator', facilitatorSchema)

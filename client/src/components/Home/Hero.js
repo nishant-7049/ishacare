@@ -9,9 +9,11 @@ const Hero = () => {
           <div className='hero-con'>
             <h1 className='hero-head'>Isha Wellness Center</h1>
             <p className='hero-para'>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Recusandae, amet nisi? Quo reiciendis tempore deserunt, est
-              delectus cum recusandae soluta.
+              An innovative holistic treatment program
+              which focus on strengthening of all aspects of wellness in your
+              life. Primary objective of developing this system is to avail
+              wellness therapy services through wellness facilitators all over
+              the globe.
             </p>
           </div>
         </div>
@@ -82,5 +84,11 @@ const Container = styled.div`
   }
   .hero-head {
     margin-bottom: 10px;
+    color: #f4c9db;
+  }
+  .hero-para {
+    font-size: 22px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
   }
 `

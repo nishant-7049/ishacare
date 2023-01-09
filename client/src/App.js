@@ -8,6 +8,8 @@ import Login from './pages/Login'
 import Admin from './pages/AdminPanel'
 import { Route, Routes } from 'react-router-dom'
 
+// pages to be defined: home, blogs, services, about
+
 const App = () => {
   return (
     <>

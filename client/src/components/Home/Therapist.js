@@ -11,8 +11,7 @@ const Therapist = () => {
             Physiotherapists at your service
           </h2>
           <p className='therapists-para con-para'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quod
-            ipsum recusandae,
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde velit exercitationem ex expedita, nesciunt ullam officia obcaecati ad magni ratione!
           </p>
           <SliderTherapist />
         </div>
@@ -38,17 +37,16 @@ const Container = styled.div`
   }
 
   .container {
-    min-height: 100vh;
     padding: 3rem 0;
   }
   .con-head {
-    text-decoration: underline #f480b1 2px;
     text-align: center;
-    font-weight: 500;
-    margin-bottom: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
   }
   .con-para {
-    width: 60%;
+    max-width: 70%;
     margin: 0 20%;
     text-align: center;
     margin-bottom: 2rem;
@@ -56,6 +54,6 @@ const Container = styled.div`
 
   .therapists {
     position: relative;
-    background-color: #efefef;
+    background-color: #f4c9db;
   }
 `

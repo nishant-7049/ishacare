@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import SliderBlogs from "./Slider-blogs";
+import React from 'react'
+import styled from 'styled-components'
+import SliderBlogs from './Slider-blogs'
 
 const Blogs = () => {
   return (
@@ -18,9 +18,9 @@ const Blogs = () => {
       </div>
     </Container>
   )
-};
+}
 
-export default Blogs;
+export default Blogs
 
 const Container = styled.div`
   padding: 3rem 2rem;

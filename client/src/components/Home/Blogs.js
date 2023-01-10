@@ -22,7 +22,7 @@ export default Blogs;
 
 const Container = styled.div`
   height: 90vh;
-  margin: 2rem 5rem;
+  margin: 2rem auto;
   padding: 2rem 0;
 
   .blog-h {

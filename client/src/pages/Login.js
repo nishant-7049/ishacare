@@ -69,38 +69,27 @@ export default Login
 const Container = styled.div`
   display: flex;
   margin: auto;
+  letter-spacing: 1px;
   padding: 1rem;
   align-items: center;
   margin-top: 10rem;
   margin-bottom: 10rem;
-  width: 20%;
+  width: 22%;
   justify-content: space-around;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: rgb(141, 246, 255);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(141, 246, 255, 1) 0%,
-    rgba(236, 145, 255, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(141, 246, 255, 1) 0%,
-    rgba(236, 145, 255, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(141, 246, 255, 1) 0%,
-    rgba(236, 145, 255, 1) 100%
-  );
+  background-color: #f4b9d2;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8df6ff",endColorstr="#ec91ff",GradientType=1);
 
   h2 {
     text-align: center;
     align-items: center;
     margin: 1rem auto;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
+
   form,
   form div {
     margin: 1rem auto;
@@ -110,9 +99,16 @@ const Container = styled.div`
     border: none;
     border-radius: 3px;
     margin: 0.5rem 0;
+    background: transparent;
     width: 100%;
     height: 30px;
     text-transform: lowercase;
+    background: linear-gradient(#000, #000) center bottom 1px / calc(100% - 0px)
+      2px no-repeat;
+  }
+
+  input:focus {
+    outline: none;
   }
 
   @media screen and (max-width: 680px) {
@@ -132,10 +128,10 @@ const Button = styled.div`
     padding: 0.5rem 1rem;
     transition: 0.2s ease-in-out;
     cursor: pointer;
-    background: rgba(141, 246, 255, 1);
+    background: transparent;
   }
 
   button:hover {
-    background: rgba(236, 145, 255, 1);
+    background: #fff;
   }
 `

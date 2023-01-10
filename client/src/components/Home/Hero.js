@@ -87,7 +87,7 @@ const Container = styled.div`
     color: #f4c9db;
   }
   .hero-para {
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 1px;
     word-spacing: 2px;
   }

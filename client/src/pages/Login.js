@@ -70,7 +70,9 @@ const Container = styled.div`
   display: flex;
   margin: auto;
   padding: 1rem;
-  margin-top: 5rem;
+  align-items: center;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
   width: 20%;
   justify-content: space-around;
   flex-direction: column;
@@ -108,6 +110,9 @@ const Container = styled.div`
     border: none;
     border-radius: 3px;
     margin: 0.5rem 0;
+    width: 100%;
+    height: 30px;
+    text-transform: lowercase;
   }
 
   @media screen and (max-width: 680px) {

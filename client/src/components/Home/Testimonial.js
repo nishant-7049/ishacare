@@ -5,9 +5,15 @@ import SliderTestimonial from './Slider_testimonial'
 const Testimonial = () => {
   return (
     <Container>
-      <h2>Testimonials</h2>
-      <p className='con-para'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum numquam repellendus eum mollitia suscipit excepturi nulla molestiae, natus id velit.</p>
-      <SliderTestimonial />
+      <div className='contain'>
+        <h2>Testimonials</h2>
+        <p className='con-para'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+          numquam repellendus eum mollitia suscipit excepturi nulla molestiae,
+          natus id velit.
+        </p>
+        <SliderTestimonial />
+      </div>
     </Container>
   )
 }
@@ -16,9 +22,13 @@ export default Testimonial
 
 const Container = styled.div`
   align-items: center;
-  margin: 2rem 5rem;
   text-align: center;
   padding: 2rem 0;
+  background-color: #f4c9db;
+
+  .contain {
+    margin: 2rem 5rem;
+  }
 
   h2,
   p,
@@ -32,6 +42,6 @@ const Container = styled.div`
 
   h2 {
     text-transform: capitalize;
-    color: #f4b9d2;
+    color: #fff;
   }
 `

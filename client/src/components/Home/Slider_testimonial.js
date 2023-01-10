@@ -72,12 +72,17 @@ const Container = styled.div`
   }
 
   .slider {
-    margin: 2rem 5rem;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
     cursor: grab;
+    background-color: #fff;
+    max-width: 40%;
+    border-radius: 1rem;
+    height: 75vh;
   }
 `
 const Item = styled.div`
-  margin: 1rem auto;
+  margin: 1.5rem auto 1rem auto;
 `
 
 const Image = styled.div`

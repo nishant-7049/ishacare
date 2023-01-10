@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 const Slider_testimonial = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -76,9 +76,8 @@ const Container = styled.div`
     padding: 2rem 1rem;
     cursor: grab;
     background-color: #fff;
-    max-width: 40%;
+    max-width: 35%;
     border-radius: 1rem;
-    height: 75vh;
   }
 `
 const Item = styled.div`

@@ -100,7 +100,7 @@ const Container = styled.div`
   .blog-item {
     background-color: #F8C7DC;
     border-radius: 0.5rem;
-    padding: 3rem 2rem;
+    padding: 5% 0 5% 3rem;
     display: flex;
     justify-content: space-around;
     align-items: center;

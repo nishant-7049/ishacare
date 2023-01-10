@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import axios from 'axios'
+import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -9,18 +9,19 @@ const Register = () => {
 
   const navigate = useNavigate()
 
-
   function registerUser(event) {
     event.preventDefault()
 
     axios
-      .post('http://localhost:3001/api/register', { email: email, password: password })
+      .post('http://localhost:3001/api/register', {
+        email: email,
+        password: password,
+      })
       .then((res) => {
-        if(res.data.status === 'ok'){
+        if (res.data.status === 'ok') {
           // window.location.href = '/login'
           navigate('/login')
-        }
-        else if(res.data.status === 'error'){
+        } else if (res.data.status === 'error') {
           alert(res.data.error)
         }
       })
@@ -29,48 +30,50 @@ const Register = () => {
 
   return (
     <Container>
-      <h2>Register</h2>
-      <form onSubmit={registerUser}>
-        <div>
-          <label>Email</label>
-          <br />
-          <input
-            type='email'
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
+      <div>
+        <h2>Register</h2>
+        <form onSubmit={registerUser}>
+          <div>
+            <label>Email</label>
+            <br />
+            <input
+              type='email'
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
+              placeholder='Type your name'
+              autoComplete='email'
+            />
+          </div>
+          <div>
+            <label>Password</label>
+            <br />
+            <input
+              type='password'
+              value={password}
+              onChange={(e) => {
+                setpassword(e.target.value)
+              }}
+              placeholder='Type your password'
+              autoComplete='current-password'
+            />
+          </div>
+          <Button>
+            <button type='submit'>Submit</button>
+          </Button>
+        </form>
+        <p>
+          Already have an account - &nbsp;
+          <button
+            onClick={() => {
+              navigate('/login')
             }}
-            placeholder='Type your name'
-            autoComplete='email'
-          />
-        </div>
-        <div>
-          <label>Password</label>
-          <br />
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => {
-              setpassword(e.target.value)
-            }}
-            placeholder='Type your password'
-            autoComplete='current-password'
-          />
-        </div>
-        <Button>
-          <button type='submit'>Submit</button>
-        </Button>
-      </form>
-      <p>
-        Already have an account - &nbsp;
-        <button
-          onClick={() => {
-            navigate('/login')
-          }}
-        >
-          Login
-        </button>
-      </p>
+          >
+            Login
+          </button>
+        </p>
+      </div>
     </Container>
   )
 }
@@ -80,8 +83,10 @@ export default Register
 const Container = styled.div`
   display: flex;
   margin: auto;
+  align-items: center;
   padding: 1rem;
-  margin-top: 5rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
   width: 20%;
   justify-content: space-around;
   flex-direction: column;
@@ -119,16 +124,25 @@ const Container = styled.div`
     border: none;
     border-radius: 3px;
     margin: 0.5rem 0;
+    width: 100%;
+    height: 30px;
+    text-transform: lowercase;
   }
 
   p {
-    font-size: 15px;
+    font-size: 18px;
     text-align: center;
     align-items: center;
+    text-transform: lowercase;
 
     button {
       color: blue;
       cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      padding: 5px 10px;
+      color: black;
+      text-transform: lowercase;
     }
   }
 

@@ -10,17 +10,27 @@ const SliderImg = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 200,
+    speed: 500,
     slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
   }
   return (
     <Container>
-      <Slider {...settings}>
+      <Slider className='slider' {...settings}>
         <Items>
           <div className='the-details'>
             <div className='the-con'>
@@ -36,6 +46,24 @@ const SliderImg = () => {
             </div>
             <div className='the-image'>
               <img src='/images/doc1.png' alt='' />
+            </div>
+          </div>
+        </Items>
+        <Items>
+          <div className='the-details'>
+            <div className='the-con'>
+              <h3 className='the-name'>Dr. Name Lastname</h3>
+              <spam className='the-exp'>
+                <MdWork />
+                <p className='the-para'>5 Years of Experience</p>
+              </spam>
+              <spam className='the-edu'>
+                <MdSchool />
+                <p className='the-para'>This College of Science</p>
+              </spam>
+            </div>
+            <div className='the-image'>
+              <img src='/images/doc2.png' alt='' />
             </div>
           </div>
         </Items>
@@ -71,25 +99,7 @@ const SliderImg = () => {
               </spam>
             </div>
             <div className='the-image'>
-              <img src='/images/doc1.png' alt='' />
-            </div>
-          </div>
-        </Items>
-        <Items>
-          <div className='the-details'>
-            <div className='the-con'>
-              <h3 className='the-name'>Dr. Name Lastname</h3>
-              <spam className='the-exp'>
-                <MdWork />
-                <p className='the-para'>5 Years of Experience</p>
-              </spam>
-              <spam className='the-edu'>
-                <MdSchool />
-                <p className='the-para'>This College of Science</p>
-              </spam>
-            </div>
-            <div className='the-image'>
-              <img src='/images/doc1.png' alt='' />
+              <img src='/images/doc2.png' alt='' />
             </div>
           </div>
         </Items>
@@ -101,14 +111,34 @@ const SliderImg = () => {
 export default SliderImg
 
 const Container = styled.div`
-  margin: 2rem 5rem;
+  margin: 5rem 10rem;
 
-  .slick-track {
-    width: 80%;
+  .slider {
+    cursor: grab;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .the-con {
+      font-size: 15px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .the-details {
+      flex-direction: column-reverse;
+      justify-content: center;
+
+      .the-image {
+        margin: 1rem;
+      }
+    }
   }
 `
 const Items = styled.div`
-  margin: 0 1rem;
+  background-color: #f4c9db;
+
   .slick-prev:before,
   .slick-next:before {
     color: black;
@@ -118,9 +148,16 @@ const Items = styled.div`
   }
   .the-details {
     display: flex;
-    width: 100%;
+    width: 90%;
+    margin: 1rem auto;
     justify-content: space-evenly;
     align-items: center;
+    background-color: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+  }
+  .the-details:hover {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   }
   .the-name {
     margin-bottom: 1.2rem;

@@ -29,6 +29,7 @@ const Contain = styled.div`
   width: 100%;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  top: 0;
 `
 
 const Nav = styled.div`
@@ -44,7 +45,6 @@ const Nav = styled.div`
   top: 0;
 
   * {
-    font-size: 18px;
     text-align: center;
     align-items: center;
   }
@@ -54,6 +54,8 @@ const Logo = styled.img`
   border-radius: 50%;
 `
 const Links = styled.div`
+  font-size: 18px;
+  letter-spacing: 0.5px;
   a {
     text-decoration: none;
     color: black;
@@ -67,7 +69,8 @@ const Links = styled.div`
     border: none;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-    background-color: rgb(209, 209, 209);
+    background-color: #f4dbe5;
+    border: 1px solid transparent;
   }
 
   button:hover {

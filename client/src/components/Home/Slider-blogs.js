@@ -18,7 +18,7 @@ const SliderBlogs = () => {
   };
   return (
     <Container>
-      <Slider {...settings}>
+      <Slider {...settings} className='slider'>
         <div className="blog container">
           <div className="blog-item">
             <div className="blog-img">
@@ -100,12 +100,11 @@ const Container = styled.div`
   .blog-item {
     background-color: #F8C7DC;
     border-radius: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 3rem 2rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 90%;
-    height: 20rem;
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2 )
   }
 
@@ -160,5 +159,8 @@ const Container = styled.div`
       text-decoration: none;
       font-size: smaller;
     }
+  }
+  .slider {
+    margin: 1rem auto;
   }
 `;

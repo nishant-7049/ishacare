@@ -32,7 +32,6 @@ const SliderImg = () => {
     <Container>
       <Slider className='slider' {...settings}>
         <Items>
-          
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
@@ -112,11 +111,11 @@ const SliderImg = () => {
 export default SliderImg
 
 const Container = styled.div`
-  margin: 5rem 10rem;
+  margin: 2rem auto;
 
   .slider {
     cursor: grab;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
   }
 
@@ -138,7 +137,7 @@ const Container = styled.div`
   }
 `
 const Items = styled.div`
-    background-color: #f4c9db;
+  background-color: #f4c9db;
   .the-details {
     display: flex;
     width: 90%;

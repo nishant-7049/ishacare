@@ -14,7 +14,7 @@ const Slider_testimonial = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    arrows: false,
+    arrows: true,
   }
   return (
     <Container>
@@ -66,14 +66,9 @@ const Slider_testimonial = () => {
 export default Slider_testimonial
 
 const Container = styled.div`
-  .slick-next:before,
-  .slick-prev:before {
-    color: black;
-  }
-
   .slider {
     margin: 2rem auto;
-    padding: 2rem 1rem;
+    padding: 1rem;
     cursor: grab;
     background-color: #fff;
     max-width: 35%;
@@ -81,7 +76,7 @@ const Container = styled.div`
   }
 `
 const Item = styled.div`
-  margin: 1.5rem auto 1rem auto;
+  margin: 1.5rem auto;
 `
 
 const Image = styled.div`

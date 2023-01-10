@@ -61,6 +61,8 @@ const ProcessCards = () => {
 export default ProcessCards
 
 const Container = styled.div`
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   .process-grid {
     margin: 6rem auto;
     display: grid;

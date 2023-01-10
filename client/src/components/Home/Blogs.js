@@ -21,9 +21,8 @@ const Blogs = () => {
 export default Blogs;
 
 const Container = styled.div`
-  height: 90vh;
-  margin: 2rem 5rem;
-  padding: 2rem 0;
+  height: 100vh;
+  padding: 3rem 2rem;
 
   .blog-h {
     color: #f4b9d2;

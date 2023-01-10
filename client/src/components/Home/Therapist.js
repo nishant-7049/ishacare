@@ -23,6 +23,7 @@ const Therapist = () => {
 export default Therapist
 
 const Container = styled.div`
+
   * {
     padding: 0;
     margin: 0;

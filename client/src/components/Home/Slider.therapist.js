@@ -32,6 +32,7 @@ const SliderImg = () => {
     <Container>
       <Slider className='slider' {...settings}>
         <Items>
+          
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
@@ -137,15 +138,7 @@ const Container = styled.div`
   }
 `
 const Items = styled.div`
-  background-color: #f4c9db;
-
-  .slick-prev:before,
-  .slick-next:before {
-    color: black;
-  }
-  .slick-arrow {
-    display: inline;
-  }
+    background-color: #f4c9db;
   .the-details {
     display: flex;
     width: 90%;

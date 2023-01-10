@@ -23,7 +23,7 @@ export default Testimonial
 const Container = styled.div`
   align-items: center;
   text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
   background-color: #f4c9db;
 
   .contain {

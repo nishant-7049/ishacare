@@ -36,14 +36,14 @@ const SliderImg = () => {
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
-              <spam className='the-exp'>
+              <span className='the-exp'>
                 <MdWork />
                 <p className='the-para'>5 Years of Experience</p>
-              </spam>
-              <spam className='the-edu'>
+              </span>
+              <span className='the-edu'>
                 <MdSchool />
                 <p className='the-para'>This College of Science</p>
-              </spam>
+              </span>
             </div>
             <div className='the-image'>
               <img src='/images/doc1.png' alt='' />
@@ -54,14 +54,14 @@ const SliderImg = () => {
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
-              <spam className='the-exp'>
+              <span className='the-exp'>
                 <MdWork />
                 <p className='the-para'>5 Years of Experience</p>
-              </spam>
-              <spam className='the-edu'>
+              </span>
+              <span className='the-edu'>
                 <MdSchool />
                 <p className='the-para'>This College of Science</p>
-              </spam>
+              </span>
             </div>
             <div className='the-image'>
               <img src='/images/doc2.png' alt='' />
@@ -72,14 +72,14 @@ const SliderImg = () => {
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
-              <spam className='the-exp'>
+              <span className='the-exp'>
                 <MdWork />
                 <p className='the-para'>5 Years of Experience</p>
-              </spam>
-              <spam className='the-edu'>
+              </span>
+              <span className='the-edu'>
                 <MdSchool />
                 <p className='the-para'>This College of Science</p>
-              </spam>
+              </span>
             </div>
             <div className='the-image'>
               <img src='/images/doc1.png' alt='' />
@@ -90,14 +90,14 @@ const SliderImg = () => {
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
-              <spam className='the-exp'>
+              <span className='the-exp'>
                 <MdWork />
                 <p className='the-para'>5 Years of Experience</p>
-              </spam>
-              <spam className='the-edu'>
+              </span>
+              <span className='the-edu'>
                 <MdSchool />
                 <p className='the-para'>This College of Science</p>
-              </spam>
+              </span>
             </div>
             <div className='the-image'>
               <img src='/images/doc2.png' alt='' />

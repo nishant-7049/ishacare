@@ -46,7 +46,7 @@ const Container = styled.div`
   }
   .con-head {
     text-align: center;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 1rem;
     text-transform: capitalize;
   }

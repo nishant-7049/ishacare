@@ -22,6 +22,7 @@ const SliderImg = () => {
     <Container>
       <Slider {...settings}>
         <Items>
+          
           <div className='the-details'>
             <div className='the-con'>
               <h3 className='the-name'>Dr. Name Lastname</h3>
@@ -106,8 +107,9 @@ const Container = styled.div`
   .slick-track {
     width: 80%;
   }
-`
-const Items = styled.div`
+  `
+  const Items = styled.div`
+  padding: 1rem 1.5rem;
   margin: 0 1rem;
   .slick-prev:before,
   .slick-next:before {

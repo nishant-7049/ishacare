@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Blogs from '../components/Home/Blogs'
 import Hero from '../components/Home/Hero'
 import Process from '../components/Home/Process'
 import Therapist from '../components/Home/Therapist'
-
 const Home = () => {
   return (
     <Container>
@@ -11,6 +11,7 @@ const Home = () => {
         <Hero />
         <Process />
         <Therapist />
+        <Blogs />
       </div>
     </Container>
   )

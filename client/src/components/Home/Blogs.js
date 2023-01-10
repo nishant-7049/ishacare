@@ -38,7 +38,7 @@ const Container = styled.div`
   }
 
   .slides {
-    margin: 12vh 0;
+    margin: 12vh auto;
   }
     
 `

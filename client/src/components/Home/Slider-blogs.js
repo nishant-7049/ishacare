@@ -4,6 +4,41 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
+const data = [
+  {
+    id: 0,
+    title: `Dr. Name Lastname`,
+    date: `5 Years of Experience`,
+    detail: `This College of Science`,
+    img: `/images/blog-img1.jpg`,
+    link: `/`,
+  },
+  {
+    id: 1,
+    title: `Dr. Name Lastname`,
+    date: `5 Years of Experience`,
+    detail: `This College of Science`,
+    img: `/images/blog-img1.jpg`,
+    link: `/`,
+  },
+  {
+    id: 2,
+    title: `Dr. Name Lastname`,
+    date: `5 Years of Experience`,
+    detail: `This College of Science`,
+    img: `/images/blog-img1.jpg`,
+    link: `/`,
+  },
+  {
+    id: 3,
+    title: `Dr. Name Lastname`,
+    date: `5 Years of Experience`,
+    detail: `This College of Science`,
+    img: `/images/blog-img1.jpg`,
+    link: `/`,
+  },
+]
+
 const SliderBlogs = () => {
   const settings = {
     dots: true,
@@ -20,69 +55,27 @@ const SliderBlogs = () => {
   return (
     <Container>
       <Slider {...settings} className='slider'>
-        <div className='blog container'>
-          <div className='blog-item'>
-            <div className='blog-img'>
-              <img src='/images/blog-img1.jpg' alt='' />
-            </div>
-            <div className='blog-con'>
-              <div className='blog-head'>
-                <h3 className='blog-title'>Back Pain</h3>
-                <p className='blog-date'>2020 dec 14</p>
-              </div>
-              <p className='blog-para'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                nam, aspernatur quisquam commodi ullam neque. Eos nesciunt vel
-                quam unde.
-              </p>
-              <div className='blog-button'>
-                <a href='Blogs'>Read more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='blog container'>
-          <div className='blog-item'>
-            <div className='blog-img'>
-              <img src='/images/blog-img1.jpg' alt='' />
-            </div>
-            <div className='blog-con'>
-              <div className='blog-head'>
-                <h3 className='blog-title'>Shoulder Pain</h3>
-                <p className='blog-date'>2020 dec 14</p>
-              </div>
-              <p className='blog-para'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                nam, aspernatur quisquam commodi ullam neque. Eos nesciunt vel
-                quam unde.
-              </p>
-              <div className='blog-button'>
-                <a href='Blogs'>Read more</a>
+        {data.map((data) => {
+          return (
+            <div key={data.id} className='blog container'>
+              <div className='blog-item'>
+                <div className='blog-img'>
+                  <img src={data.img} alt='' />
+                </div>
+                <div className='blog-con'>
+                  <div className='blog-head'>
+                    <h3 className='blog-title'>{data.title}</h3>
+                    <p className='blog-date'>{data.date}</p>
+                  </div>
+                  <p className='blog-para'>{data.detail}</p>
+                  <div className='blog-button'>
+                    <a href={data.link}>Read more</a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className='blog container'>
-          <div className='blog-item'>
-            <div className='blog-img'>
-              <img src='/images/blog-img1.jpg' alt='' />
-            </div>
-            <div className='blog-con'>
-              <div className='blog-head'>
-                <h3 className='blog-title'>Leg Pain</h3>
-                <p className='blog-date'>2020 dec 14</p>
-              </div>
-              <p className='blog-para'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                nam, aspernatur quisquam commodi ullam neque. Eos nesciunt vel
-                quam unde.
-              </p>
-              <div className='blog-button'>
-                <a href='Blogs'>Read more</a>
-              </div>
-            </div>
-          </div>
-        </div>
+          )
+        })}
       </Slider>
     </Container>
   )

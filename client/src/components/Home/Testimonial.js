@@ -27,7 +27,7 @@ const Container = styled.div`
   background-color: #f4c9db;
 
   .contain {
-    margin: 2rem 5rem;
+    margin: 1rem 5rem;
   }
 
   h2,

@@ -11,7 +11,9 @@ const Therapist = () => {
             Physiotherapists at your service
           </h2>
           <p className='therapists-para con-para'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde velit exercitationem ex expedita, nesciunt ullam officia obcaecati ad magni ratione!
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde velit
+            exercitationem ex expedita, nesciunt ullam officia obcaecati ad
+            magni ratione!
           </p>
           <SliderTherapist />
         </div>
@@ -23,6 +25,9 @@ const Therapist = () => {
 export default Therapist
 
 const Container = styled.div`
+  height: 100vh;
+  background-color: #f4c9db;
+
   * {
     padding: 0;
     margin: 0;
@@ -54,6 +59,5 @@ const Container = styled.div`
 
   .therapists {
     position: relative;
-    background-color: #f4c9db;
   }
 `

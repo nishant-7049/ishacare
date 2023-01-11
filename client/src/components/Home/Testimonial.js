@@ -29,13 +29,13 @@ const Container = styled.div`
   background-color: #f4c9db;
 
   .contain {
-    margin: 1rem 5rem;
+    margin: 1.5rem 5rem !important;
   }
 
   h2,
   p,
   SliderTestimonial {
-    margin: 1rem auto;
+    margin: 1rem auto !important;
   }
 
   .con-para {

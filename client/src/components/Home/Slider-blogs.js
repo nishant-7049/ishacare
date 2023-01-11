@@ -15,6 +15,7 @@ const SliderBlogs = () => {
     autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: false,
+    centerMode: true,
   };
   return (
     <Container>

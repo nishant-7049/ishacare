@@ -21,9 +21,11 @@ const Testimonial = () => {
 export default Testimonial
 
 const Container = styled.div`
+  margin-top: 5rem;
+  z-index: 100;
   align-items: center;
   text-align: center;
-  padding: 3rem 0;
+  padding: 2rem 0;
   background-color: #f4c9db;
 
   .contain {

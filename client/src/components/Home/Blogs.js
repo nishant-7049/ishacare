@@ -41,7 +41,7 @@ const Container = styled.div`
     max-width: 70%;
   }
 
-  .slides {
-    margin: 12vh auto;
+  .slides div{
+    margin: 1% auto;
   }
 `

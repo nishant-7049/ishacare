@@ -28,8 +28,8 @@ const Footer = () => {
                   <span>+007 9089 6767</span>
                 </a>
               </div>
-              <div className="email">
-                <a href="#">
+              <div className='email'>
+                <a href='/'>
                   <FiMail />
                   <span>abc@gmail.com</span>
                 </a>
@@ -39,34 +39,34 @@ const Footer = () => {
           <div className='middle box'>
             <div className='topic'>Our services</div>
             <div>
-              <a href="#">Web Design, Development</a>
+              <a href='/'>Web Design, Development</a>
             </div>
             <div>
-              <a href="#">Web UX Design, Reasearch</a>
+              <a href='/'>Web UX Design, Reasearch</a>
             </div>
             <div>
-              <a href="#">Web User Interface Design</a>
+              <a href='/'>Web User Interface Design</a>
             </div>
             <div>
-              <a href="#">Theme Development, Design</a>
+              <a href='/'>Theme Development, Design</a>
             </div>
             <div>
-              <a href="#">Wire raming & Prototyping</a>
+              <a href='/'>Wire raming & Prototyping</a>
             </div>
           </div>
-          <div className="right box">
-            <div className="topic">Subscribe us</div>
-            <form action="#">
-              <input type="text" placeholder="Enter email address" />
-              <input type="submit" name="" value="Send" />
-              <div className="media-icons">
-                <a href="#">
+          <div className='right box'>
+            <div className='topic'>Subscribe us</div>
+            <form action='/'>
+              <input type='text' placeholder='Enter email address' />
+              <input type='submit' name='' value='Send' />
+              <div className='media-icons'>
+                <a href='/'>
                   <AiFillFacebook />
                 </a>
-                <a href="#">
+                <a href='/'>
                   <AiFillYoutube />
                 </a>
-                <a href="#">
+                <a href='/'>
                   <AiFillLinkedin />
                 </a>
               </div>
@@ -86,7 +86,8 @@ const Footer = () => {
 export default Footer
 
 const Foo = styled.div`
-
+  padding: 1rem 0;
+  margin: 2rem auto;
   color: black;
   width: 100%;
   overflow-x: hidden;

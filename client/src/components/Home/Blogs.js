@@ -24,7 +24,8 @@ export default Blogs
 
 const Container = styled.div`
   margin: 2rem 5rem;
-  padding: 2rem 0;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
 
   .blog-h {
     color: #f4b9d2;

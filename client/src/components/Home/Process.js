@@ -6,7 +6,7 @@ const Process = () => {
   return (
     <Container>
       <div className='process container'>
-        <h2>Our Process</h2>
+        <h2>Our Services</h2>
         <p className='process-para con-para'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vitae
           fugiat tempore fugit animi? Beatae a neque porro impedit aperiam.

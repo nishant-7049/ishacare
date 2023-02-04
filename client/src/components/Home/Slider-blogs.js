@@ -94,11 +94,11 @@ const Container = styled.div`
   .blog-item {
     background-color: #f8c7dc;
     border-radius: 0.5rem;
-    padding: 5% 0 5% 3rem;
+    padding: 3rem 1rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
+    width: 80%;
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
   }
 

@@ -9,7 +9,6 @@ function Navbar() {
         <Logo src='/images/nav-logo.png' alt='img' />
         <Links>
           <Link to='/'> Home</Link>
-          <Link to='/'> Services</Link>
           <Link to='/'> Blogs</Link>
           <Link to='/'> About</Link>
           <Link to='/register'>

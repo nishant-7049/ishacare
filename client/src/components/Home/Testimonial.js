@@ -8,9 +8,7 @@ const Testimonial = () => {
       <div className='contain'>
         <h2>Testimonials</h2>
         <p className='con-para'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-          numquam repellendus eum mollitia suscipit excepturi nulla molestiae,
-          natus id velit.
+          Here are some of the good things people have talked about.
         </p>
         <SliderTestimonial />
       </div>

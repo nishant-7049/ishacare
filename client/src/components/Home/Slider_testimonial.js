@@ -8,23 +8,20 @@ const data = [
   {
     id: 0,
     image: `/images/img (1).png`,
-    name: `Maria Kate`,
-    title: `Web Developer`,
-    review: `"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti nesciunt sint eligendi reprehenderit reiciendis."`,
+    name: `NEEL TC`,
+    review: `"So glad that I joined here. The atmosphere is very friendly and my results personally feels so good."`,
   },
   {
     id: 1,
     image: `/images/img (2).png`,
-    name: `Maria Kate`,
-    title: `Web Developer`,
-    review: `"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti nesciunt sint eligendi reprehenderit reiciendis."`,
+    name: `KAVITA CHAWLA`,
+    review: `"I am KAVITA CHAWLA I lived in Ahmedabad I have back pain & foot pain for that I visited many doctors in Ratlam as well as in Ahmedabad but I don't get... read more"`,
   },
   {
     id: 2,
     image: `/images/img (3).png`,
-    name: `Maria Kate`,
-    title: `Web Developer`,
-    review: `"Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti nesciunt sint eligendi reprehenderit reiciendis."`,
+    name: `SANJAY SONI`,
+    review: `"Best therapy centre with very nice atmosphere and careable staff.They cure my back pain in very less time."`,
   },
 ]
 
@@ -46,13 +43,10 @@ const Slider_testimonial = () => {
         {data.map((data) => {
           return (
             <Item key={data.id}>
-              <Image>
-                <img src={data.image} alt='' />
-              </Image>
               <Content>
-                <h3>{data.name}</h3>
-                <h5>{data.title}</h5>
                 <p>{data.review}</p>
+                <h3>{data.name}</h3>
+                <h5>&#9733; &#9733; &#9733; &#9733; &#9733;</h5>
               </Content>
             </Item>
           )
@@ -68,9 +62,9 @@ const Container = styled.div`
   .slider {
     margin: 2rem auto;
     padding: 1rem;
-    cursor: grab;
+    cursor: pointer;
     background-color: #fff;
-    max-width: 35%;
+    max-width: 60%;
     border-radius: 1rem;
   }
 `
@@ -78,23 +72,20 @@ const Item = styled.div`
   margin: 1.5rem auto;
 `
 
-const Image = styled.div`
-  img {
-    border-radius: 50%;
-    max-width: 8rem;
-    margin: 0 auto 2rem auto;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  }
-`
-
 const Content = styled.div`
   p,
   h5 {
     max-width: 25rem;
-    margin: 1rem auto;
+    margin: auto;
   }
 
   h3 {
     color: #f4b9d2;
+  }
+
+  h5 {
+    color: pink;
+    font-size: x-large;
+    margin: 1rem auto;
   }
 `

@@ -66,7 +66,7 @@ const BlogPage = () => {
                 <p className="blog-date">{data.sentDate}</p>
               </div>
               <p className="blog-text">{data.blogText}</p>
-              <a href="">
+              <a href="/">
                 <button>Read more.</button>
               </a>
             </div>

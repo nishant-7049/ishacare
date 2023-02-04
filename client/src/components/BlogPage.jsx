@@ -110,9 +110,14 @@ const Container = styled.div`
       height: 150px;
       object-fit: cover;
     }
-    > h3 {
-        color: #f480b1;
-        font-size: 3rem;
     }
+  }
+  .blog-head {
+    color: #f480b1;
+    font-size: 2rem;
+  }
+  .blog-date {
+    font-size: 10px;
+    align-text: right:
   }
 `;

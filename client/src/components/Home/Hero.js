@@ -10,10 +10,11 @@ const Hero = () => {
       autoPlay
       infiniteLoop
       showStatus={false} 
-      showArrows={false} 
+      showArrows={false}
+      showIndicators={false} 
       // stopOnHover={true}
       interval={2500}>
-      <div className='hero container'>
+      <div className='hero container hero1'>
         <div className='hero-con'>
           <h1 className='hero-head'>Isha Wellness Center</h1>
           <p className='hero-para'>
@@ -24,7 +25,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className='hero container'>
+      <div className='hero container hero2'>
         <div className='hero-con'>
           <h1 className='hero-head'>Isha Wellness Center</h1>
           <p className='hero-para'>
@@ -35,7 +36,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className='hero container'>
+      <div className='hero container hero3'>
         <div className='hero-con'>
           <h1 className='hero-head'>Isha Wellness Center</h1>
           <p className='hero-para'>
@@ -71,6 +72,15 @@ const Container = styled.div`
     background-position: top center;
     position: relative;
     z-index: 3;
+  }
+  .hero1{
+    background-image: url(/images/hero-background.jpg)
+  }
+  .hero2{
+    background-image: url(/images/process1.jpg)
+  }
+  .hero3{
+    background-image: url(/images/process2.jpg)
   }
   .hero::after {
     content: '';

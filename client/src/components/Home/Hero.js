@@ -1,51 +1,53 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Carousel} from 'react-responsive-carousel'
+import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 const Hero = () => {
   return (
     <Container>
-      <Carousel 
-      autoPlay
-      infiniteLoop
-      showStatus={false} 
-      showArrows={false} 
-      // stopOnHover={true}
-      interval={2500}>
-      <div className='hero container'>
-        <div className='hero-con'>
-          <h1 className='hero-head'>Isha Wellness Center</h1>
-          <p className='hero-para'>
-            An innovative holistic treatment program which focus on
-            strengthening of all aspects of wellness in your life. Primary
-            objective of developing this system is to avail wellness therapy
-            services through wellness facilitators all over the globe.
-          </p>
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showArrows={true}
+        stopOnHover={false}
+        interval={2000}
+        showIndicators={false}
+      >
+        <div className='hero container'>
+          <div className='hero-con'>
+            <h1 className='hero-head'>Isha Wellness Center</h1>
+            <p className='hero-para'>
+              An innovative holistic treatment program which focus on
+              strengthening of all aspects of wellness in your life. Primary
+              objective of developing this system is to avail wellness therapy
+              services through wellness facilitators all over the globe.
+            </p>
+          </div>
         </div>
-      </div>
-      <div className='hero container'>
-        <div className='hero-con'>
-          <h1 className='hero-head'>Isha Wellness Center</h1>
-          <p className='hero-para'>
-            An innovative holistic treatment program which focus on
-            strengthening of all aspects of wellness in your life. Primary
-            objective of developing this system is to avail wellness therapy
-            services through wellness facilitators all over the globe.
-          </p>
+        <div className='hero container'>
+          <div className='hero-con'>
+            <h1 className='hero-head'>Isha Wellness Center</h1>
+            <p className='hero-para'>
+              An innovative holistic treatment program which focus on
+              strengthening of all aspects of wellness in your life. Primary
+              objective of developing this system is to avail wellness therapy
+              services through wellness facilitators all over the globe.
+            </p>
+          </div>
         </div>
-      </div>
-      <div className='hero container'>
-        <div className='hero-con'>
-          <h1 className='hero-head'>Isha Wellness Center</h1>
-          <p className='hero-para'>
-            An innovative holistic treatment program which focus on
-            strengthening of all aspects of wellness in your life. Primary
-            objective of developing this system is to avail wellness therapy
-            services through wellness facilitators all over the globe.
-          </p>
+        <div className='hero container'>
+          <div className='hero-con'>
+            <h1 className='hero-head'>Isha Wellness Center</h1>
+            <p className='hero-para'>
+              An innovative holistic treatment program which focus on
+              strengthening of all aspects of wellness in your life. Primary
+              objective of developing this system is to avail wellness therapy
+              services through wellness facilitators all over the globe.
+            </p>
+          </div>
         </div>
-      </div>
       </Carousel>
     </Container>
   )
@@ -110,7 +112,7 @@ const Container = styled.div`
     letter-spacing: 1px;
     word-spacing: 2px;
   }
-  .carousel > .control-dots .dot{
+  .carousel > .control-dots .dot {
     background: #f4c9db;
   }
 `

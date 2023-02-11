@@ -40,4 +40,18 @@ const Container = styled.div`
     text-align: center;
     margin-bottom: 2rem;
   }
+
+  @media (max-width: 480px) {
+    .container {
+      min-height: fit-content;
+      padding: 1rem 0;
+      margin-top: 4rem;
+    }
+
+    .con-para {
+      max-width: 95%;
+      margin: 0 1rem;
+      margin-bottom: 1rem;
+    }
+  }
 `

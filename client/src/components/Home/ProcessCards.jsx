@@ -126,4 +126,15 @@ const Container = styled.div`
     font-size: 0.7rem;
     text-align: center;
   }
-`;
+  
+  @media screen and (max-width: 720px) {
+    .process-grid {
+      grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .process-grid {
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+  }
+`

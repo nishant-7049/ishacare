@@ -29,13 +29,23 @@ const Slider_testimonial = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 500, 
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          dots: false,
+          arrows: false,
+          pauseOnHover: false,
+        },
+      },
+    ],
   }
   return (
     <Container>
@@ -66,10 +76,21 @@ const Container = styled.div`
     background-color: #fff;
     max-width: 60%;
     border-radius: 1rem;
+
+    @media (max-width: 480px) {
+      margin: 1rem auto;
+      padding: 0rem;
+      max-width: 90%;
+      border-radius: 0.5rem;
+    }
   }
 `
 const Item = styled.div`
   margin: 1.5rem auto;
+
+  @media (max-width: 480px) {
+    margin: 1rem auto;
+  }
 `
 
 const Content = styled.div`
@@ -87,5 +108,17 @@ const Content = styled.div`
     color: pink;
     font-size: x-large;
     margin: 1rem auto;
+  }
+
+  @media (max-width: 480px) {
+    p,
+    h5 {
+      max-width: 100%;
+      font-size: small;
+    }
+
+    h5 {
+      margin: 0.5rem auto;
+    }
   }
 `

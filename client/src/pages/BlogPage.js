@@ -172,7 +172,6 @@ const Container = styled.div`
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
         overflow: hidden;
-        text-overflow: ellipsis;
         margin: 20px 0;
       }
       > a {

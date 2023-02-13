@@ -59,12 +59,10 @@ const Container = styled.div`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   .container {
-    min-height: 100vh;
-    padding: 3rem 0;
+    height: 100vh;
   }
 
   .hero {
-    position: absolute;
     height: 100vh;
     width: 100%;
     margin-bottom: 30px;
@@ -123,5 +121,51 @@ const Container = styled.div`
   }
   .carousel > .control-dots .dot {
     background: #f4c9db;
+  }
+
+  @media (max-width: 820px) {
+    .container {
+      max-height: 50vh;
+    }
+
+    .hero-con {
+      font-weight: 400;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: x-large;
+      margin: auto;
+      width: 95%;
+      top: 25%;
+      right: 0;
+      left: 0;
+    }
+
+    .hero-para {
+      font-size: large;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      max-height: 50vh;
+    }
+
+    .hero-con {
+      font-weight: 400;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.8rem;
+      margin: auto;
+      width: 95%;
+      top: 25%;
+      right: 0;
+      left: 0;
+    }
+
+    .hero-para {
+      font-size: 0.7rem;
+    }
   }
 `

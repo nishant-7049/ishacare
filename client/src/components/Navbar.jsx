@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
+  const [toggle, setToggle] = useState(true)
+
   return (
     <Contain>
       <Nav>
@@ -10,13 +12,58 @@ function Navbar() {
         <Links>
           <Link to='/'> Home</Link>
           <Link to='/blogs'> Blogs</Link>
-          <Link to='/about'> Locate Us</Link>
-          <Link to='/about#Location'> About</Link>
+          <Link to='/about'> About</Link>
           <Link to='/register'>
             <button>Book Now</button>
           </Link>
         </Links>
+        <Button>
+          <button onClick={() => setToggle(!toggle)}>
+            <p className=''>{toggle ? '=' : 'x'}</p>
+          </button>
+        </Button>
       </Nav>
+      {!toggle && (
+        <NavSmall>
+          <LinksSmall>
+            <Link
+              onClick={() => {
+                setToggle(!toggle)
+              }}
+              to='/'
+            >
+              {' '}
+              Home
+            </Link>
+            <Link
+              onClick={() => {
+                setToggle(!toggle)
+              }}
+              to='/blogs'
+            >
+              {' '}
+              Blogs
+            </Link>
+            <Link
+              onClick={() => {
+                setToggle(!toggle)
+              }}
+              to='/about'
+            >
+              {' '}
+              About
+            </Link>
+            <Link
+              onClick={() => {
+                setToggle(!toggle)
+              }}
+              to='/register'
+            >
+              <button>Book Now</button>
+            </Link>
+          </LinksSmall>
+        </NavSmall>
+      )}
     </Contain>
   )
 }
@@ -46,6 +93,10 @@ const Nav = styled.div`
     text-align: center;
     align-items: center;
   }
+
+  @media (max-width: 480px) {
+    margin: 0 1rem;
+  }
 `
 const Logo = styled.img`
   max-width: 70px;
@@ -58,6 +109,61 @@ const Links = styled.div`
     text-decoration: none;
     color: black;
     margin: 0 1rem;
+    transition: 0.1s ease-in-out;
+  }
+
+  button {
+    border-radius: 50px;
+    padding: 7px 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    background-color: #f4dbe5;
+    border: 1px solid transparent;
+  }
+
+  button:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+`
+
+const Button = styled.div`
+  button {
+    width: 50px;
+    height: 50px;
+    font-size: x-large;
+    border-radius: 50%;
+    border: none;
+    font-weight: 800;
+  }
+
+  @media (min-width: 480px) {
+    display: none;
+  }
+`
+const NavSmall = styled.div`
+  background: white;
+  height: 100vh;
+`
+
+const LinksSmall = styled.div`
+  font-size: large;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    margin: 1rem auto;
     transition: 0.1s ease-in-out;
   }
 

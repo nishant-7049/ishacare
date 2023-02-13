@@ -81,21 +81,19 @@ function LocateUs() {
 export default LocateUs;
 
 const Container = styled.div`
-  .centers{
+  .centers {
     text-align: center;
-    color:#f8c7dc; 
-    font-size:2rem;
-    
+    color: #f8c7dc;
+    font-size: 2rem;
   }
   .container {
     margin: 2rem 5rem;
     font-size: large;
-    
 
     .content {
       display: none;
     }
-  
+
     .active-content {
       display: block;
     }
@@ -129,11 +127,9 @@ const Container = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    border: 4px solid #f8c7dc;
     padding: 2rem;
-    border-radius: 1.5rem;
   }
-  
+
   .address {
     width: 50%;
     font-size: x-large;
@@ -144,7 +140,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    p{
+    p {
       color: white;
       font-weight: 700;
     }
@@ -153,16 +149,16 @@ const Container = styled.div`
       color: white;
     }
   }
-  
+
   @media screen and (max-width: 1300px) {
     .address {
       width: 100%;
-      > p{
+      > p {
         font-size: 1rem;
       }
     }
-    .map{
-      > iframe{
+    .map {
+      > iframe {
         width: 400px;
         height: 300px;
         margin-left: 1rem;
@@ -170,21 +166,21 @@ const Container = styled.div`
     }
   }
   @media screen and (max-width: 840px) {
-    .container{
+    .container {
       margin: 2rem 2.5rem;
     }
-    .flex-row{
+    .flex-row {
       flex-direction: column;
       padding: 0.7rem;
       gap: 1rem;
     }
-    .address{
+    .address {
       width: 100%;
       height: 200px;
       text-align: center;
     }
-    .map{
-      > iframe{
+    .map {
+      > iframe {
         width: 100%;
         height: 300px;
         margin-top: 1rem;
@@ -192,5 +188,33 @@ const Container = styled.div`
       }
     }
   }
-  
-`;
+
+  @media (max-width: 480px) {
+    .locations {
+      display: flex;
+
+      .btn {
+        font-size: small;
+      }
+    }
+
+    .centers {
+      font-size: 1.5rem;
+    }
+
+    .flex-row {
+      justify-content: center;
+      padding: 0;
+      gap: 0;
+    }
+
+    .address {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+
+      p {
+        font-size: small;
+      }
+    }
+  }
+`

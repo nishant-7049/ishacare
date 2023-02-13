@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import LocateUs from "../components/About/LocateUs";
 
 const About = () => {
   return (
@@ -175,9 +174,6 @@ const About = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div id='Location'>
-      <LocateUs />
       </div>
     </Container>
   );

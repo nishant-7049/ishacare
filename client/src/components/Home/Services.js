@@ -25,6 +25,7 @@ const Container = styled.div`
   .container {
     min-height: 100vh;
     padding: 3rem 0;
+    padding-bottom: 0;
   }
 
   h2 {

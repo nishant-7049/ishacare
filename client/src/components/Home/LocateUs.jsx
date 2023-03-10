@@ -24,7 +24,7 @@ function LocateUs() {
   const [toggle, setToggle] = useState('1')
 
   return (
-    <Container>
+    <Container className='mx-8'>
       <div className='container' itemID='Location'>
         <h2 className='centers'>Our Centers</h2>
         <div className='locations'>

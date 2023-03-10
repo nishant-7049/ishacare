@@ -10,6 +10,7 @@ const Home = lazy(() => import('./pages/Home'))
 const Admin = lazy(() => import('./pages/AdminPanel'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const About = lazy(() => import('./pages/About'))
+const SingleBlog = lazy(() => import('./pages/SingleBlog'))
 
 // pages to be defined: home, blogs, services, about
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path={'/adminPanel'} element={<Admin />} />
           <Route exact path={'/about'} element={<About />} />
           <Route exact path={'/blogs'} element={<BlogPage />} />
+          <Route exact path={'/singleblog'} element={<SingleBlog />} />
           <Route path={'/*'} element={<div>404 PAGE NOT FOUND !</div>} />
         </Routes>
       </Suspense>

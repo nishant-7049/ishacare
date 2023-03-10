@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -12,7 +11,7 @@ import { Route, Routes } from 'react-router-dom'
 
 // pages to be defined: home, blogs, services, about
 
-const App = () => {
+function App() {
   return (
     <>
       <Navbar />
@@ -29,5 +28,4 @@ const App = () => {
     </>
   )
 }
-
 export default App

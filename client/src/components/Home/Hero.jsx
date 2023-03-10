@@ -12,6 +12,7 @@ const Hero = () => {
         showStatus={false}
         showArrows={false}
         showIndicators={false}
+        showThumbs={false}
         // stopOnHover={true}
         interval={2500}
       >
@@ -58,13 +59,9 @@ export default Hero
 const Container = styled.div`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-  .container {
-    height: 100vh;
-  }
-
   .hero {
     height: 100vh;
-    width: 100%;
+    min-width: 100vw;
     margin-bottom: 30px;
     background-image: url(/images/hero-background.jpg);
     background-size: cover;
@@ -87,12 +84,13 @@ const Container = styled.div`
     top: 0;
     left: 0;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     background-color: black;
     opacity: 0.3;
     z-index: -1;
   }
   .hero img {
+    width: 100vw;
     position: absolute;
     top: 5px;
     left: 4px;

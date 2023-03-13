@@ -1,9 +1,11 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import styled from "styled-components";
+
 
 const data = [
   {
-    id: 0,
+    id: '0',
     blogImg: "/images/process.jpg",
     senderName: "Sender1",
     sentDate: "15 jan 2020",
@@ -66,7 +68,23 @@ const data = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
   },
 ];
+const BlogCard = ({id,img,sender,date,topic,text})=>{
+  return(
+  <><div className="image">
+      <img src={img} alt="" />
+    </div><div className="blog-text">
+        <span>{sender} | {date}</span>
+        <Link to={'/blogs/${id}'} target={'_blank'}>
+          <h2>{topic}</h2>
+        </Link>
+        <p>{text}</p>
+        <Link to={'/blogs/${id}'} target={"_blank"}>Read more.</Link>
+      </div>
+  </>
+  )     
+}
 const BlogPage = () => {
+  
   return (
     <Container>
       <div className="blog">
@@ -75,17 +93,18 @@ const BlogPage = () => {
       </div>
       <div className="card-con">
         {data.map((data) => {
+
+
           return (
             <div className="card" key={data.id}>
-              <div className="image">
-                <img src={data.blogImg} alt="" />
-              </div>
-              <div className="blog-text">
-                <span>{data.senderName} | {data.sentDate}</span>
-                <h2>{data.topic}</h2>
-                <p>{data.blogText}</p>
-                <a href="/" target="_blank">Read more.</a>
-              </div>
+              <BlogCard
+              id={data.id}
+              img={data.blogImg}
+              sender={data.senderName}
+              date={data.sentDate}
+              topic={data.topic}
+              text={data.blogText}
+              />
             </div>
           );
         })}
@@ -93,6 +112,8 @@ const BlogPage = () => {
     </Container>
   );
 };
+
+
 
 export default BlogPage;
 

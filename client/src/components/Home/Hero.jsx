@@ -3,6 +3,30 @@ import styled from 'styled-components'
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
+const data = [
+  {
+    id: 1,
+    desc: ` An innovative holistic treatment program which focus on
+              strengthening of all aspects of wellness in your life. Primary
+              objective of developing this system is to avail wellness therapy
+              services through wellness facilitators all over the globe.`,
+  },
+  {
+    id: 2,
+    desc: ` An innovative holistic treatment program which focus on
+              strengthening of all aspects of wellness in your life. Primary
+              objective of developing this system is to avail wellness therapy
+              services through wellness facilitators all over the globe.`,
+  },
+  {
+    id: 3,
+    desc: ` An innovative holistic treatment program which focus on
+              strengthening of all aspects of wellness in your life. Primary
+              objective of developing this system is to avail wellness therapy
+              services through wellness facilitators all over the globe.`,
+  },
+]
+
 const Hero = () => {
   return (
     <Container>
@@ -13,42 +37,20 @@ const Hero = () => {
         showArrows={false}
         showIndicators={false}
         showThumbs={false}
-        // stopOnHover={true}
         interval={2500}
       >
-        <div className='hero container hero1'>
-          <div className='hero-con'>
-            <h1 className='hero-head'>Isha Wellness Center</h1>
-            <p className='hero-para'>
-              An innovative holistic treatment program which focus on
-              strengthening of all aspects of wellness in your life. Primary
-              objective of developing this system is to avail wellness therapy
-              services through wellness facilitators all over the globe.
-            </p>
-          </div>
-        </div>
-        <div className='hero container hero2'>
-          <div className='hero-con'>
-            <h1 className='hero-head'>Isha Wellness Center</h1>
-            <p className='hero-para'>
-              An innovative holistic treatment program which focus on
-              strengthening of all aspects of wellness in your life. Primary
-              objective of developing this system is to avail wellness therapy
-              services through wellness facilitators all over the globe.
-            </p>
-          </div>
-        </div>
-        <div className='hero container hero3'>
-          <div className='hero-con'>
-            <h1 className='hero-head'>Isha Wellness Center</h1>
-            <p className='hero-para'>
-              An innovative holistic treatment program which focus on
-              strengthening of all aspects of wellness in your life. Primary
-              objective of developing this system is to avail wellness therapy
-              services through wellness facilitators all over the globe.
-            </p>
-          </div>
-        </div>
+        {data.map((item) => {
+          return (
+            <div key={item.id} className={`hero container hero${item.id}`}>
+              <div className='hero-con'>
+                <h1 className='hero-head text-2xl font-extrabold'>
+                  Isha Wellness Center
+                </h1>
+                <p className='hero-para'>{item.desc}</p>
+              </div>
+            </div>
+          )
+        })}
       </Carousel>
     </Container>
   )
@@ -63,7 +65,6 @@ const Container = styled.div`
     height: 100vh;
     min-width: 100vw;
     margin-bottom: 30px;
-    background-image: url(/images/hero-background.jpg);
     background-size: cover;
     background-position: top center;
     position: relative;

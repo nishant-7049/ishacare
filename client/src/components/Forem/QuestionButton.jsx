@@ -31,14 +31,13 @@ const QuestionButton = () => {
       >
         <div className="h-[40vh] w-[40vw] flex flex-col justify-around">
           <div className="flex gap-8">
-            <h5>Add Question</h5>
-            <h5>Share Link</h5>
+            <h5 className="text-2xl">Add Question</h5>
             <hr />
           </div>
           <div className="flex flex-col">
             <RxAvatar className="text-3xl text-[#f480b1]" />
             <input
-              className="bg-white mt-2 "
+              className="bg-white mt-2 p-2"
               type="text"
               placeholder="Start your question with 'What', 'How', 'Why' etc"
             />

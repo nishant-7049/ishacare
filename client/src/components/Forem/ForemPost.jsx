@@ -17,7 +17,7 @@ const ForemPost = ({ item }) => {
     } else {
       await axios
         .post('http://localhost:5000/api/forum/postAnswer', {
-          user: item.user,
+          user: localStorage.getItem('userName'),
           questionId: item._id,
           answer: answerState,
         })

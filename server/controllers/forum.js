@@ -10,39 +10,41 @@ exports.postQuestion = async (req, res, next) => {
   }
 
   try {
-    const postedQuestion = await QuestionModel.create({
+    await QuestionModel.create({
       user,
       question,
     })
     res.status(201).send({
       status: true,
-      message: "posted Question",
+      message: 'posted Question',
     })
   } catch (error) {
     next(error)
   }
 }
 
-exports.getQuestions = async (req, res, next) => {
+exports.getForumData = async (req, res, next) => {
   try {
     await QuestionModel.aggregate([
       {
         $lookup: {
-          from : "answermodels", 
-          localField : "_id",
-          foreignField : "questionId",
-          as : "allAnswers" 
-        }
-      }
-    ]).exec().then((doc) => {
-      res.status(200).send(doc)
-    }).catch((error) => {
-      res.status(500).send({
-        status: false,
-        message: "unable to get question"
+          from: 'answermodels',
+          localField: '_id',
+          foreignField: 'questionId',
+          as: 'allAnswers',
+        },
+      },
+    ])
+      .exec()
+      .then((doc) => {
+        res.status(200).send(doc)
       })
-    })
-
+      .catch((error) => {
+        res.status(404).send({
+          status: false,
+          message: 'unable to get question',
+        })
+      })
   } catch (error) {
     next(error)
   }
@@ -51,27 +53,21 @@ exports.getQuestions = async (req, res, next) => {
 exports.postAnswer = async (req, res, next) => {
   const { answer, questionId, user } = req.body
 
-  if (!answer ) {
+  if (!answer) {
     return next(new ErrorResponse('Please provide data', 400))
   }
 
   try {
-    const postedAnswer = await AnswerModel.create({
+    await AnswerModel.create({
       user,
       answer,
-      questionId
+      questionId,
     })
     res.status(201).send({
       status: true,
-      message: "posted Answer",
+      message: 'posted Answer',
     })
   } catch (error) {
     next(error)
   }
-}
-
-exports.getAnswers = (req, res, next) => {
-  res.status(200).send({
-    success: true,
-  })
 }

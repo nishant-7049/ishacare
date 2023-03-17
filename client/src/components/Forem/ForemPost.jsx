@@ -4,11 +4,14 @@ import { AiFillCloseSquare } from 'react-icons/ai'
 import { BiCommentDetail } from 'react-icons/bi'
 import Modal from 'react-responsive-modal'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const ForemPost = ({ item }) => {
   const [isModelOpen, setIsModelOpen] = useState(false)
   const [answerState, setAnswerState] = useState('')
   const close = <AiFillCloseSquare className='text-2xl text-[#f480b1]' />
+  const navigate = useNavigate()
+
   // console.log(item)
   const postAnswer = async (e) => {
     e.preventDefault()
@@ -28,6 +31,8 @@ const ForemPost = ({ item }) => {
           console.log(error)
         })
       setIsModelOpen(false)
+      navigate('/')
+
       location.reload()
     }
   }

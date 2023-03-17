@@ -8,7 +8,7 @@ const QuestionButton = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const close = <AiFillCloseSquare className="text-2xl text-[#f480b1]" />;
   return (
-    <div className="p-8  bg-white h-[10rem] flex flex-col justify-between items-center shadow-xl sticky top-[8rem] bottom-0 md:hidden">
+    <div className="p-8  bg-white h-[10rem] flex flex-col justify-between items-center shadow-xl sticky top-[8rem]   sm:relative sm:top-0 ">
       <p>Click to ask Question</p>
       <button
         className="bg-[#f480b1] p-3 rounded-3xl text-white"
@@ -17,7 +17,6 @@ const QuestionButton = () => {
         Add Question
       </button>
       <Modal
-        classNames=" h-[80vh] w-[80vw]"
         open={isModelOpen}
         closeIcon={close}
         onClose={() => setIsModelOpen(false)}
@@ -29,11 +28,10 @@ const QuestionButton = () => {
           },
         }}
       >
-        <div className="h-[40vh] w-[40vw] flex flex-col justify-around">
-          <div className="flex gap-8">
-            <h5 className="text-2xl">Add Question</h5>
-            <hr />
-          </div>
+        <div className="h-[500px] w-[700px] flex flex-col justify-around sm:h-[250px] sm:w-[280px]">
+          <h5  className="text-2xl border-b border-1 border-[#6d6d6d]">
+            Add Question
+          </h5>
           <div className="flex flex-col">
             <RxAvatar className="text-3xl text-[#f480b1]" />
             <input
@@ -42,9 +40,9 @@ const QuestionButton = () => {
               placeholder="Start your question with 'What', 'How', 'Why' etc"
             />
           </div>
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 items-center">
             <button
-              className="bg-[#f480b1] rounded-xl  py-1 text-white"
+              className="w-[50%] bg-[#f480b1] rounded-xl  py-2 text-white"
               onClick={() => {
                 setIsModelOpen(false);
               }}
@@ -52,7 +50,7 @@ const QuestionButton = () => {
               Add Question
             </button>
             <button
-              className="bg-[#f480b1] rounded-xl px-3 py-1 text-white"
+              className="w-[50%] bg-[#f480b1] rounded-xl py-2 text-white"
               onClick={() => {
                 setIsModelOpen(false);
               }}

@@ -19,6 +19,7 @@ const ForumQuestionSchema = new mongoose.Schema({
   }
 })
 
+
 const QuestionModel = mongoose.model('QuestionModel', ForumQuestionSchema)
 
 module.exports = QuestionModel

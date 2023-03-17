@@ -41,6 +41,7 @@ const RegisterScreen = () => {
       )
 
       localStorage.setItem('authToken', data.token)
+      localStorage.setItem('userName', username)
 
       navigate('/')
       location.reload()

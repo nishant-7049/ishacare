@@ -32,6 +32,7 @@ const LoginScreen = () => {
       )
 
       localStorage.setItem('authToken', data.token)
+      localStorage.setItem('userName', data.userName)
 
       navigate('/')
       location.reload()

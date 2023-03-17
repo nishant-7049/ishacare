@@ -41,24 +41,29 @@ const ForemPost = () => {
             },
           }}
         >
-          <div className="h-[40vh] w-[40vw] flex flex-col justify-around">
-            <h6 className="text-2xl">Answer here</h6> 
+          <div className="h-[500px] w-[700px] flex flex-col justify-around sm:h-[250px] sm:w-[280px]">
+            <h6 className="text-2xl border-b border-1 border-[#6d6d6d]">Answer here</h6>
             <div>
-
-            <RxAvatar className="text-3xl text-[#f480b1]"/>
-            <input className="mt-2 bg-white w-[100%] p-2" type="text" placeholder="Type your Answer here." />
+              <RxAvatar className="text-3xl text-[#f480b1]" />
+              <input
+                className="mt-2 bg-white w-[100%] p-2"
+                type="text"
+                placeholder="Type your Answer here."
+              />
             </div>
-            <button className="bg-[#f480b1] rounded-xl  py-1 text-white">
-              Add Answer
-            </button>
-            <button
-              className="bg-[#f480b1] rounded-xl px-3 py-1 text-white"
-              onClick={() => {
-                setIsModelOpen(false);
-              }}
-            >
-              Cancel
-            </button>
+            <div className="flex flex-col gap-5 items-center">
+              <button className="w-[50%] bg-[#f480b1] rounded-xl  py-2 text-white">
+                Add Answer
+              </button>
+              <button
+                className="w-[50%] bg-[#f480b1] rounded-xl  py-2 text-white"
+                onClick={() => {
+                  setIsModelOpen(false);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </Modal>
       </div>

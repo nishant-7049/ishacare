@@ -13,6 +13,10 @@ const ForumQuestionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  answers : {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Answers"
+  }
 })
 
 const QuestionModel = mongoose.model('QuestionModel', ForumQuestionSchema)

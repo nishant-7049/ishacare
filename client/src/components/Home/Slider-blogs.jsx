@@ -104,7 +104,7 @@ const Container = styled.div`
   }
 
   .blog-item {
-    background-color: #f8c7dc;
+    background-color: #84adea;
     border-radius: 0.5rem;
     padding: 3rem 1rem;
     display: flex;

@@ -52,7 +52,7 @@ const ProcessCards = () => {
       <IconContext.Provider
         value={{
           size: '4rem',
-          color: '#f4b9d2',
+          color: '#84adea',
         }}
       >
         <div className='process-grid'>
@@ -117,7 +117,7 @@ const Container = styled.div`
   }
 
   .card-head {
-    color: #f480b1;
+    color: #84adea;
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;

@@ -81,7 +81,7 @@ export default LocateUs
 const Container = styled.div`
   .centers {
     text-align: center;
-    color: #f8c7dc;
+    color: #84adea;
     font-size: 2rem;
   }
   .container {
@@ -107,18 +107,18 @@ const Container = styled.div`
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       color: black;
-      border: 2px solid #f480b1;
+      border: 2px solid #84adea;
       transition: 0.2s ease-in-out;
       text-transform: capitalize;
 
       &:hover {
-        background-color: #f8c7dc;
+        background-color: #84adea;
       }
     }
   }
 
   .locations .active-btn {
-    background-color: #f8c7dc;
+    background-color: #84adea;
   }
 
   .flex-row {
@@ -132,7 +132,7 @@ const Container = styled.div`
     width: 50%;
     font-size: x-large;
     text-transform: capitalize;
-    background-color: #f8c7dc;
+    background-color: #84adea;
     border-radius: 1.5rem;
     padding: 3rem;
     display: flex;

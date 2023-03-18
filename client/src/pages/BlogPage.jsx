@@ -72,15 +72,12 @@ const BlogPage = () => {
 
   return (
     <Container>
-      
       <div className='blog'>
         <span>Out Recent Blogs</span>
         <h3>Our Blogs</h3>
       </div>
       <div className='card-con'>
         {data.map((data) => {
-
-
           return (
             <div className='card' key={data.id}>
               <div className='image'>
@@ -90,19 +87,22 @@ const BlogPage = () => {
                 <span>
                   {data.senderName} | {data.sentDate}
                 </span>
-                <h2 className='cursor-pointer'
+                <h2
+                  className='cursor-pointer'
                   onClick={() => {
-                    navigate(`/blogs/${data.id}`, { state: { data:data } })
+                    navigate(`/blogs/${data.id}`, { state: { data: data } })
                   }}
                 >
                   {data.topic}
                 </h2>
                 <p className='blog-para '>{data.blogText}</p>
-                <p className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#f480b1]'
-                onClick={() => {
-                  navigate(`/blogs/${data.id}`, { state: { data:data } })
-                }}>
-                Read more...
+                <p
+                  className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#84adea]'
+                  onClick={() => {
+                    navigate(`/blogs/${data.id}`, { state: { data: data } })
+                  }}
+                >
+                  Read more...
                 </p>
               </div>
             </div>
@@ -133,7 +133,7 @@ const Container = styled.div`
     padding: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     > span{
-      color: #f480b1;
+      color: #84adea;
     }
     > h3{
       font-size: 2rem;
@@ -174,20 +174,20 @@ const Container = styled.div`
       padding: 2rem;
       > span {
         font-size: 0.8rem;
-        color: #f480b1;
+        color: #84adea;
       }
       > h2 {
         font-size: 1.4rem;
         font-weight: 600;
         color: #272727;
         &:hover{
-          color: #f480b1;
+          color: #84adea;
         }
       }
       > a {
         color: #0f0f0f;
         &:hover{
-          color: #f480b1;
+          color: #84adea;
           transition: all ease 0.3;
         }
       }

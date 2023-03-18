@@ -23,7 +23,7 @@ const ForemPage = () => {
 
   return (
     <div>
-      <h3 className='text-[#f480b1] mt-[4.5rem] pt-4 bg-gray-200 text-center text-2xl'>
+      <h3 className='text-[#84adea] mt-[4.5rem] pt-4 bg-gray-200 text-center text-2xl'>
         Forem
       </h3>
 

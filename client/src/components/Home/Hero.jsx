@@ -111,7 +111,7 @@ const Container = styled.div`
   }
   .hero-head {
     margin-bottom: 10px;
-    color: #f4c9db;
+    color: #84adea;
   }
   .hero-para {
     font-size: 17px;
@@ -119,7 +119,7 @@ const Container = styled.div`
     word-spacing: 2px;
   }
   .carousel > .control-dots .dot {
-    background: #f4c9db;
+    background: #84adea;
   }
 
   @media (max-width: 820px) {

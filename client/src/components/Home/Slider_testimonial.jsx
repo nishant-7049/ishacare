@@ -101,7 +101,7 @@ const Content = styled.div`
   }
 
   h3 {
-    color: #f4b9d2;
+    color: #84adea;
   }
 
   h5 {

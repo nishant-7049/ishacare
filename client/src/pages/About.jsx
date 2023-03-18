@@ -192,7 +192,7 @@ const Container = styled.div`
     margin: 5rem 0 2rem 0;
     font-size: 3rem;
     text-align: center;
-    color: #f480b1;
+    color: #84adea;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
   }
   .vision {
@@ -200,7 +200,7 @@ const Container = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-around;
-    background-color: #ffb5d4;
+    background-color: #84adea;
     > div {
       display: flex;
       flex-direction: column;
@@ -226,7 +226,7 @@ const Container = styled.div`
     text-align: center;
     font-weight: 700;
     margin: 1rem;
-    color: #f480b1;
+    color: #84adea;
     font-size: 1.5rem;
   }
   .isha-head {
@@ -254,7 +254,7 @@ const Container = styled.div`
     width: 90%;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #ffb5d4;
+    background-color: #84adea;
   }
   .founder-text {
     display: flex;
@@ -283,7 +283,7 @@ const Container = styled.div`
   .isha-con {
     width: 90%;
     margin: 3rem auto;
-    background-color: #ffb5d4;
+    background-color: #84adea;
     padding: 2rem;
   }
   .isha-info {
@@ -315,7 +315,7 @@ const Container = styled.div`
     gap: 0.5rem;
     align-items: center;
     text-align: center;
-    background-color: #f8c7dc;
+    background-color: #84adea;
     height: 10rem;
     border-radius: 0.8rem;
     > h4 {

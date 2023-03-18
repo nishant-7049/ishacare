@@ -111,7 +111,6 @@ const Container = styled.div`
   }
   .hero-head {
     margin-bottom: 10px;
-    color: #84adea;
   }
   .hero-para {
     font-size: 17px;

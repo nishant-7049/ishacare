@@ -57,7 +57,11 @@ const BookNow = () => {
                 </div>
                 <div className='flex flex-col'>
                   <label for=''>Address</label>
-                  <input type='address' name='my address' />
+                  <textarea
+                    className='bg-[#eee]'
+                    type='address'
+                    name='my address'
+                  />
                 </div>
                 <div className='flex flex-col'>
                   <label for='ocupation'> ocupation</label>
@@ -82,10 +86,11 @@ const BookNow = () => {
                   </select>
                 </div>
                 <div className='flex flex-col'>
-                  <label for='pacakage'> pacakages purchages</label>
-                  <select name='pacakage' id='pacakage'>
-                    <option value='pacakages'>pacakage 1</option>
-                    <option value='pacakage'> pacakage 2 </option>
+                  <label for='package'> packages</label>
+                  <select name='package' id='package'>
+                    <option value='package'>package 1</option>
+                    <option value='package'> package 2 </option>
+                    <option value='package'> package 3 </option>
                   </select>
                 </div>
               </div>
@@ -130,30 +135,34 @@ const BookNow = () => {
                 <label for=''>Please specify if not above</label>
                 <input type='address' name='my address' />
                 <br />
-                <h1 className='info'>How you get to known about IWC</h1>
-
-                <select name='choose now' id='choose'>
-                  <option value='choose'> choose </option>
-                  <option value='news paper'> news paper</option>
-                  <option value='google'> google</option>
-                  <option value='facilater'> facilater</option>
-                  <option value='pempplates'> pempplates</option>
-                  <option value='social media'> social media</option>
-                  <option value='patient'> patients</option>
-                  <option value='doctor'>doctor</option>
-                  <option value='relative or friends'>
-                    relatives or friends
-                  </option>
-                </select>
-                <label for='batch'> batch</label>
-                <select name='batch' id='batch'>
-                  <option value='time'> 8:30-10:30</option>
-                  <option value='time'> 10:30-12:30 </option>
-                  <option value='time'> 2:00-4:00</option>
-                  <option value='time'> 4:00-6:00</option>
-                  <option value='time'> 6:00-8:00</option>
-                </select>
-                <label for=''></label>
+                <div className='flex flex-col'>
+                  <label className='info'>How you get to known about IWC</label>
+                  <select name='choose now' id='choose'>
+                    <option value='choose'> choose </option>
+                    <option value='news paper'> news paper</option>
+                    <option value='google'> google</option>
+                    <option value='facilater'> facilater</option>
+                    <option value='pempplates'> pempplates</option>
+                    <option value='social media'> social media</option>
+                    <option value='patient'> patients</option>
+                    <option value='doctor'>doctor</option>
+                    <option value='relative or friends'>
+                      relatives or friends
+                    </option>
+                  </select>
+                </div>
+                <br />
+                <div className='flex flex-col'>
+                  <label for='batch'> batch</label>
+                  <select name='batch' id='batch'>
+                    <option value='time'> 8:30-10:30</option>
+                    <option value='time'> 10:30-12:30 </option>
+                    <option value='time'> 2:00-4:00</option>
+                    <option value='time'> 4:00-6:00</option>
+                    <option value='time'> 6:00-8:00</option>
+                  </select>
+                </div>
+                <br />
                 <label for='payment'> payment</label>
                 <input type='payment' name='payment' />
               </div>

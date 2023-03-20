@@ -1,7 +1,15 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components'
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 const About = () => {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+  useEffect(() => {
+    const animation = animate(count, 20, { duration: 2 });
+
+    return animation.stop;
+  }, []);
   return (
     <Container>
       <h3 className='main-head'>About Us</h3>
@@ -69,19 +77,19 @@ const About = () => {
         <div className='ach-cards'>
           <div className='ach-card'>
             <h4>Trained Wellness Facilitators</h4>
-            <p>20+</p>
+            <motion.h1>{rounded}+</motion.h1>
           </div>
           <div className='ach-card'>
             <h4>Imparted wellness Education through camps</h4>
-            <p>12000+</p>
+            <motion.p>12000+</motion.p>
           </div>
           <div className='ach-card'>
             <h4>Wellness consultation</h4>
-            <p>15000+</p>
+            <motion.p>15000+</motion.p>
           </div>
           <div className='ach-card'>
             <h4>Wellness therapy sessions</h4>
-            <p>60000+</p>
+            <motion.p>60000+</motion.p>
           </div>
         </div>
       </div>

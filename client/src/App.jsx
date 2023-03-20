@@ -10,6 +10,7 @@ const PageNotFound = lazy(() => import('./components/PageNotFound'))
 const Admin = lazy(() => import('./pages/AdminPanel'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const About = lazy(() => import('./pages/About'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const SingleBlog = lazy(() => import('./pages/SingleBlog'))
 const Register = lazy(() => import('./auth/RegisterScreen'))
 const Login = lazy(() => import('./auth/LoginScreen'))
@@ -42,6 +43,7 @@ function App() {
           />
           <Route exact path='/ForgotPassword' element={<ForgotPassword />} />
           <Route exact path='/about' element={<About />} />
+          <Route exact path='/services' element={<ServicesPage />} />
           <Route exact path='/blogs' element={<BlogPage />} />
           <Route exact path='/forem' element={<ForemPage />} />
           <Route exact path='/booknow' element={<BookNow />} />

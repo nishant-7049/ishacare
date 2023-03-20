@@ -6,24 +6,23 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 const data = [
   {
     id: 1,
-    desc: ` An innovative holistic treatment program which focus on
-              strengthening of all aspects of wellness in your life. Primary
-              objective of developing this system is to avail wellness therapy
-              services through wellness facilitators all over the globe.`,
+    img: '/images/hero-background.jpg',
+    desc: ` Where Healthy & Happy Life Begins…`,
   },
   {
     id: 2,
-    desc: ` An innovative holistic treatment program which focus on
-              strengthening of all aspects of wellness in your life. Primary
-              objective of developing this system is to avail wellness therapy
-              services through wellness facilitators all over the globe.`,
+    img: '/images/process1.jpg',
+    desc: ` Improving lives through Holistic wellness Model - The Integrative Therapeutic Approach  `,
   },
   {
     id: 3,
-    desc: ` An innovative holistic treatment program which focus on
-              strengthening of all aspects of wellness in your life. Primary
-              objective of developing this system is to avail wellness therapy
-              services through wellness facilitators all over the globe.`,
+    img: '/images/process2.jpg',
+    desc: ` Empowering you towards a pain-free Life`,
+  },
+  {
+    id: 4,
+    img: '/images/process3.jpg',
+    desc: ` Transforming healthcare, One person at a time`,
   },
 ]
 
@@ -36,7 +35,7 @@ const Hero = () => {
         showStatus={false}
         showArrows={false}
         showIndicators={false}
-        showThumbs={false}
+        showThumbs={true}
         interval={2500}
       >
         {data.map((item) => {
@@ -69,6 +68,9 @@ const Container = styled.div`
     background-position: top center;
     position: relative;
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .hero1 {
     background-image: url(/images/hero-background.jpg);
@@ -79,6 +81,34 @@ const Container = styled.div`
   .hero3 {
     background-image: url(/images/process2.jpg);
   }
+  .hero4 {
+    background-image: url(/images/process3.jpg);
+  }
+  .hero-con {
+    color: inherit;
+    font-weight: 400;
+    margin-left: 20px;
+    z-index: 2;
+    color: white;
+    width: 42%;
+    margin-right: 5rem;
+    text-align: center;
+  }
+  .hero-con:hover {
+    display: block;
+  }
+  .hero1:hover {
+    background-image: url(/images/hero-background.jpg);
+  }
+  .hero2:hover {
+    background-image: url(/images/process1.jpg);
+  }
+  .hero3:hover {
+    background-image: url(/images/process2.jpg);
+  }
+  .hero4:hover {
+    background-image: url(/images/process3.jpg);
+  }
   .hero::after {
     content: '';
     position: absolute;
@@ -87,7 +117,7 @@ const Container = styled.div`
     height: 100%;
     width: 100vw;
     background-color: black;
-    opacity: 0.3;
+    opacity: 0.5;
     z-index: -1;
   }
   .hero img {
@@ -97,24 +127,14 @@ const Container = styled.div`
     left: 4px;
   }
 
-  .hero-con {
-    font-weight: 400;
-    margin-left: 20px;
-    z-index: 2;
-    color: white;
-    width: 42%;
-    position: absolute;
-    top: 45%;
-    right: 0;
-    margin-right: 5rem;
-    text-align: right;
-  }
+  
   .hero-head {
     margin-bottom: 10px;
     color: #f4c9db;
+    font-size: 2rem;
   }
   .hero-para {
-    font-size: 17px;
+    font-size: 20px;
     letter-spacing: 1px;
     word-spacing: 2px;
   }

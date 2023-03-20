@@ -5,7 +5,7 @@ import ServicesCards from './ServicesCards'
 const Process = () => {
   return (
     <Container className='process'>
-      <h2>Our Services</h2>
+      <h2 className='text-3xl'>Our Services</h2>
       <ServicesCards />
     </Container>
   )

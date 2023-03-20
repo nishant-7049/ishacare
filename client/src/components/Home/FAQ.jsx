@@ -45,7 +45,7 @@ function FAQ() {
       <div className='faq'>
         <div className='content'>
           <div className='heading'>
-            <h2>FAQs</h2>
+            <h2 className='text-3xl'>FAQs</h2>
           </div>
           {data.map((item) => {
             return (

@@ -6,7 +6,7 @@ const Therapist = () => {
   return (
     <Container>
       <div className='therapists container'>
-        <h2 className='therapists-head con-head'>
+        <h2 className='therapists-head con-head text-3xl'>
           Physiotherapists at your service
         </h2>
         <p className='therapists-para con-para'>

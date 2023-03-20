@@ -1,10 +1,16 @@
+import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 
 function SingleBlog() {
   const { state } = useLocation()
 
   return (
-    <div className='mt-20'>
+    <motion.div
+      className='mt-20'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h3 className='text-[#84adea] text-2xl text-center'>Blog</h3>
       <div className='flex m-20 gap-5'>
         <div className='flex-0 w-1/2 object-contain'>
@@ -20,7 +26,7 @@ function SingleBlog() {
           <p>{state.data.blogText}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

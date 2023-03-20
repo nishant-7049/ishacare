@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 function Vision() {
+  const { ref, inView } = useInView({ threshold: 0.2 })
+  const animation = useAnimation()
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+      })
+    } else {
+      animation.start({ opacity: 0, y: 100 })
+    }
+  }, [inView])
+
   return (
-    <div className='vision my-8 mx-20 sm:m-4'>
+    <motion.div
+      ref={ref}
+      animate={animation}
+      className='vision my-8 mx-20 sm:m-4'
+    >
       <div className='heading text-center text-lg text-white p-8 sm:text-sm sm:p-0'>
         <h2 className='text-2xl my-1 mx-0 pb-4 font-bold text-[#84adea]'>
           Our Vision & Mission
@@ -14,7 +35,7 @@ function Vision() {
           therapy services through wellness facilitators all over the globe.
         </p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

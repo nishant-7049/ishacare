@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import ServicesCards from './ServicesCards'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 const Process = () => {
+  const { ref, inView } = useInView({ threshold: 0.5 })
+  const animation = useAnimation()
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1 },
+      })
+    } else {
+      animation.start({ opacity: 0, y: 100 })
+    }
+  }, [inView])
+
   return (
-    <Container className='process'>
-      <h2 className='text-3xl'>Our Services</h2>
-      <ServicesCards />
-    </Container>
+    <motion.div ref={ref} animate={animation}>
+      <Container className='process'>
+        <h2 className='text-3xl'>Our Services</h2>
+        <ServicesCards />
+      </Container>
+    </motion.div>
   )
 }
 

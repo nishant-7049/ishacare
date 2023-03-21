@@ -43,7 +43,7 @@ const Therapist = () => {
 export default Therapist
 
 const Container = styled.div`
-  // background-color: #84adea;
+  // background-color: #50acfb;
 
   .container {
     padding: 5rem 0;

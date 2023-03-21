@@ -102,7 +102,7 @@ const Faq = styled.div`
   }
 
   .heading {
-    color: #84adea;
+    color: #50acfb;
     font-size: x-large;
     text-align: center;
     font-weight: 700;
@@ -123,7 +123,7 @@ const Faq = styled.div`
 
   .question {
     position: relative;
-    background: #84adea;
+    background: #50acfb;
     margin: 0;
     padding: 10px 10px 10px 50px;
     display: block;

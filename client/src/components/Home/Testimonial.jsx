@@ -38,7 +38,7 @@ const Testimonial = () => {
 export default Testimonial
 
 const Container = styled.div`
-  // background-color: #84adea;
+  // background-color: #50acfb;
 
   .contain {
     margin: 1.5rem 5rem !important;

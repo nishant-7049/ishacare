@@ -39,7 +39,7 @@ const Container = styled.div`
   h2 {
     text-align: center;
     margin-bottom: 1rem;
-    // color: #84adea;
+    // color: #50acfb;
     text-transform: capitalize;
   }
 

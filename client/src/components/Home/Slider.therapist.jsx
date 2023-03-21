@@ -120,7 +120,7 @@ const Container = styled.div`
   }
 `
 const Items = styled.div`
-  // background-color: #84adea;
+  // background-color: #50acfb;
   .the-details {
     display: flex;
     width: 90%;

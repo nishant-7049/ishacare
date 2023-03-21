@@ -45,7 +45,7 @@ const Container = styled.div`
   }
 
   .blog-h {
-    color: #84adea;
+    color: #50acfb;
     text-align: center;
     margin: 1rem;
   }

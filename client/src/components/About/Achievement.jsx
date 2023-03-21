@@ -53,7 +53,7 @@ const Container = styled.div`
     text-align: center;
     font-weight: 700;
     margin: 1rem 0;
-    color: #84adea;
+    color: #50acfb;
     font-size: 1.5rem;
   }
 
@@ -75,7 +75,7 @@ const Container = styled.div`
     gap: 0.5rem;
     align-items: center;
     text-align: center;
-    background-color: #84adea;
+    background-color: #50acfb;
     height: 10rem;
     border-radius: 0.8rem;
     > h4 {
@@ -99,4 +99,4 @@ const Container = styled.div`
       grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
   }
-`;
+`

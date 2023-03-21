@@ -126,7 +126,7 @@ const Links = styled.div`
     border: none;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-    background-color: #84adea;
+    background-color: #50acfb;
     border: 1px solid transparent;
   }
 
@@ -181,7 +181,7 @@ const LinksSmall = styled.div`
     border: none;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-    background-color: #84adea;
+    background-color: #50acfb;
     border: 1px solid transparent;
   }
 

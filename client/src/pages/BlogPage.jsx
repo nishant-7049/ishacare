@@ -103,7 +103,7 @@ const BlogPage = () => {
                   </h2>
                   <p className='blog-para '>{data.blogText}</p>
                   <p
-                    className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#84adea]'
+                    className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#50acfb]'
                     onClick={() => {
                       navigate(`/blogs/${data.id}`, { state: { data: data } })
                     }}
@@ -140,7 +140,7 @@ const Container = styled.div`
     padding: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     > span{
-      color: #84adea;
+      color: #50acfb;
     }
     > h3{
       font-size: 2rem;
@@ -181,20 +181,20 @@ const Container = styled.div`
       padding: 2rem;
       > span {
         font-size: 0.8rem;
-        color: #84adea;
+        color: #50acfb;
       }
       > h2 {
         font-size: 1.4rem;
         font-weight: 600;
         color: #272727;
         &:hover{
-          color: #84adea;
+          color: #50acfb;
         }
       }
       > a {
         color: #0f0f0f;
         &:hover{
-          color: #84adea;
+          color: #50acfb;
           transition: all ease 0.3;
         }
       }

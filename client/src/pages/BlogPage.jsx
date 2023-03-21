@@ -77,8 +77,8 @@ const BlogPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Container>
-        <div className='blog'>
+      <Container className=''>
+        <div className='blog '>
           <span>Out Recent Blogs</span>
           <h3>Our Blogs</h3>
         </div>
@@ -89,7 +89,7 @@ const BlogPage = () => {
                 <div className='image'>
                   <img src={data.blogImg} alt='' />
                 </div>
-                <div className='blog-text'>
+                <div className='blog-text   bg-fixed bg-cover bg-center bg-opacity-50 bg-[url("/images/blog-bg.jpg")]'>
                   <span>
                     {data.senderName} | {data.sentDate}
                   </span>
@@ -179,6 +179,8 @@ const Container = styled.div`
       align-items: flex-left;
       justify-content: space-between;
       padding: 2rem;
+      background: black;
+      opacity: 0.5;
       > span {
         font-size: 0.8rem;
         color: #84adea;

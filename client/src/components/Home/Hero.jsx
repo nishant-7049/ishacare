@@ -35,7 +35,7 @@ const Hero = () => {
         showStatus={false}
         showArrows={false}
         showIndicators={false}
-        showThumbs={true}
+        showThumbs={false}
         interval={4000}
       >
         {data.map((item) => {

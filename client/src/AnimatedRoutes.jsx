@@ -8,6 +8,7 @@ const PageNotFound = lazy(() => import('./pages/PageNotFound'))
 const Admin = lazy(() => import('./pages/AdminPanel'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const About = lazy(() => import('./pages/About'))
+const SurvivePage = lazy(() => import('./pages/ServivePage'))
 const SingleBlog = lazy(() => import('./pages/SingleBlog'))
 const Register = lazy(() => import('./auth/RegisterScreen'))
 const Login = lazy(() => import('./auth/LoginScreen'))
@@ -32,6 +33,7 @@ const AnimatedRoutes = () => {
         />
         <Route exact path='/ForgotPassword' element={<ForgotPassword />} />
         <Route exact path='/about' element={<About />} />
+        <Route exact path='/service' element={<SurvivePage />} />
         <Route exact path='/blogs' element={<BlogPage />} />
         <Route exact path='/forem' element={<ForemPage />} />
         <Route exact path='/booknow' element={<BookNow />} />

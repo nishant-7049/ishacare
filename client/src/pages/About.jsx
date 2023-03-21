@@ -5,7 +5,9 @@ import Achievement from "../components/About/Achievement";
 const About = () => {
   return (
     <Container>
-      <h1>about us</h1>
+      <h1>
+        a<span>bou</span>t us
+      </h1>
       <section className="about">
         <div className="main">
           <img
@@ -56,8 +58,9 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Achievement />
-
+      <div className="founder ">
+        Founder of<span> Ishawellness center</span>
+      </div>
       <section className="hum">
         <div className="tum">
           <div className="job">
@@ -110,7 +113,9 @@ const About = () => {
           </div>
         </div>
       </section>
-
+      <div className="daada">
+        About <span>ishawellness center</span>
+      </div>
       <div className="papa">
         <h3>
           Isha Wellness Centre is a leading provider of holistic wellness
@@ -145,6 +150,7 @@ const About = () => {
         </h3>
       </div>
 
+      <Achievement />
     </Container>
   );
 };
@@ -157,12 +163,12 @@ const Container = styled.div`
   margin: 5rem;
   h1 {
     text-align: center;
-    background-color: rgb(151, 184, 247);
     width: 100%;
-    color: white;
+    color: black;
+    border-bottom: 3px solid blue;
     font-size: 3rem;
     border-radius: 2px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
   }
   .about {
     width: 100%;
@@ -171,9 +177,9 @@ const Container = styled.div`
     border-radius: 1rem;
   }
   .about img {
-    padding: 0.5rem;
     width: 350px;
-    box-shadow: 6px 8px white;
+    box-shadow: 10px 13px white;
+    padding:1rem;
   }
 
   .main {
@@ -197,12 +203,20 @@ const Container = styled.div`
     color: black;
     font-weight: 500;
   }
+  .founder {
+    text-align: center;
+    font-size: 2rem;
+    color: black;
+    margin-top: 4rem;
+
+    margin-bottom: 2rem;
+  }
   .hum {
     background-color: rgb(153, 203, 236);
     padding: 3rem;
     margin-top: 3rem;
     border-radius: 1rem;
-    box-shadow: inset 3px 300px rgb(48, 93, 240);
+    box-shadow: inset 3px 300px blue;
   }
   .job {
     width: fit-content;
@@ -210,11 +224,10 @@ const Container = styled.div`
     border-radius: 50%;
   }
   .tum img {
-    object-fit: cover ;
-    border-radius: 100%;
+    border-radius: 80%;
     height: 350px;
     width: 350px;
-    box-shadow: 0 10px 13px 10px rgba(0,0,0,0.5);
+    box-shadow: 10px 13px green;
   }
   .kon h5 {
     margin: 1rem auto;
@@ -234,14 +247,18 @@ const Container = styled.div`
     width: 80%;
     margin: auto;
   }
-
+  .daada {
+    text-align: center;
+    font-size: 2rem;
+    color: black;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
   .papa {
     font-size: large;
-    background-color: rgb(218, 224, 230);
+    width:80%
     padding: 2rem;
     margin-top: 2rem;
-
-    box-shadow: 10px 13px 20px 14px rgb(173, 224, 240);
     margin-bottom: 5rem;
   }
 

@@ -29,13 +29,13 @@ const Slider_testimonial = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500, 
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    pauseOnHover: true,
-    arrows: true,
+    pauseOnHover: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 800,
@@ -71,10 +71,10 @@ export default Slider_testimonial
 const Container = styled.div`
   .slider {
     margin: 2rem auto;
-    padding: 1rem;
+    padding: 0rem;
     cursor: pointer;
     background-color: #fff;
-    max-width: 60%;
+    max-width: 45%;
     border-radius: 1rem;
 
     @media (max-width: 480px) {

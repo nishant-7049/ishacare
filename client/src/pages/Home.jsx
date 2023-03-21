@@ -18,11 +18,17 @@ const Home = () => {
     >
       <Hero />
       <Vision />
-      <Services />
+      <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <Services />
+      </div>
       <LocateUs />
-      <Therapist />
+      <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <Therapist />
+      </div>
       <Blogs />
-      <Testimonial />
+      <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <Testimonial />
+      </div>
       <FAQ />
     </motion.div>
   )

@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 function Vision() {
-  const { ref, inView } = useInView({ threshold: 0.2 })
+  const { ref, inView } = useInView({ threshold: 0.5 })
   const animation = useAnimation()
 
   useEffect(() => {
@@ -11,16 +11,15 @@ function Vision() {
       animation.start({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5 },
+        transition: { duration: 1 },
       })
-    } else {
-      animation.start({ opacity: 0, y: 100 })
     }
   }, [inView])
 
   return (
     <motion.div
       ref={ref}
+      initial={{ opacity: 0, y: 100 }}
       animate={animation}
       className='vision my-8 mx-20 sm:m-4'
     >

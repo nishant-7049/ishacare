@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion'
 import styled from 'styled-components'
+import { useInView } from 'react-intersection-observer'
 
 const data = [
   {
@@ -70,6 +71,18 @@ const data = [
 ]
 const BlogPage = () => {
   const navigate = useNavigate()
+  const { ref, inView } = useInView({ threshold: 0 })
+  const animation = useAnimation()
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1 },
+      })
+    }
+  }, [inView])
 
   return (
     <motion.div
@@ -77,48 +90,54 @@ const BlogPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Container className=''>
-        <div className='blog '>
-          <span>Out Recent Blogs</span>
-          <h3>Our Blogs</h3>
-        </div>
-        <div className='card-con'>
-          {data.map((data) => {
-            return (
-              <div
-                className='card bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'
-                key={data.id}
-              >
-                <div className='image'>
-                  <img src={data.blogImg} alt='' />
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 100 }}
+        animate={animation}
+      >
+        <Container>
+          <div className='blog'>
+            <span>Out Recent Blogs</span>
+            <h3>Our Blogs</h3>
+          </div>
+          <div className='card-con'>
+            {data.map((data) => {
+              return (
+                <div
+                  className='card bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'
+                  key={data.id}
+                >
+                  <div className='image'>
+                    <img src={data.blogImg} alt='' />
+                  </div>
+                  <div className='blog-text bg-black bg-opacity-50 text-white'>
+                    <span>
+                      {data.senderName} | {data.sentDate}
+                    </span>
+                    <h2
+                      className='cursor-pointer'
+                      onClick={() => {
+                        navigate(`/blogs/${data.id}`, { state: { data: data } })
+                      }}
+                    >
+                      {data.topic}
+                    </h2>
+                    <p className='blog-para tracking-wider'>{data.blogText}</p>
+                    <p
+                      className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#50acfb]'
+                      onClick={() => {
+                        navigate(`/blogs/${data.id}`, { state: { data: data } })
+                      }}
+                    >
+                      Read more...
+                    </p>
+                  </div>
                 </div>
-                <div className='blog-text bg-black bg-opacity-30 text-white'>
-                  <span>
-                    {data.senderName} | {data.sentDate}
-                  </span>
-                  <h2
-                    className='cursor-pointer'
-                    onClick={() => {
-                      navigate(`/blogs/${data.id}`, { state: { data: data } })
-                    }}
-                  >
-                    {data.topic}
-                  </h2>
-                  <p className='blog-para tracking-wider'>{data.blogText}</p>
-                  <p
-                    className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#50acfb]'
-                    onClick={() => {
-                      navigate(`/blogs/${data.id}`, { state: { data: data } })
-                    }}
-                  >
-                    Read more...
-                  </p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </Container>
+              )
+            })}
+          </div>
+        </Container>
+      </motion.div>
     </motion.div>
   )
 }

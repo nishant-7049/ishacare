@@ -201,6 +201,8 @@ const Container = styled.div`
       align-items: flex-left;
       justify-content: space-between;
       padding: 2rem;
+      background: black;
+      opacity: 0.5;
       > span {
         font-size: 0.8rem;
         color: #50acfb;

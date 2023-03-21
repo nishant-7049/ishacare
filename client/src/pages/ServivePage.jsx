@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 function ServivePage() {
   const data = [
@@ -41,12 +40,12 @@ function ServivePage() {
     },
   ];
   return (
-    <Container className="bg-[url(/images/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8">
+    <div className="bg-[url(/images/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8">
       <div className="  pt-20 mx-20 ">
         <h3 className="text-white text-5xl text-center my-8">Our Services</h3>
         {data.map((data) => {
           return (
-            <div className="border-[1px] border-[white]] border-solid-50 m-4 ">
+            <div className="border-[1px] border-[white]] border-solid-50 m-4 " key={data.id}>
               <div className="flex  gap-5 items-center bg-black bg-opacity-50 px-20 py-8">
                 <h2 className="text-[3rem] font-bold text-[#84adea] text-center">
                   {data.topic}
@@ -61,10 +60,9 @@ function ServivePage() {
           );
         })}
       </div>
-    </Container>
+    </div>
   );
 }
 
 export default ServivePage;
 
-const Container = styled.div``;

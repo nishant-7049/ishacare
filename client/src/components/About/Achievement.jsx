@@ -25,7 +25,7 @@ const Achievement = () => {
       <div className="ach-cards">
         <div className="ach-card">
           <h4>Trained Wellness Facilitators</h4>
-          <p data-target="20" class="count">
+          <p data-target="20" className="count">
             20+
           </p>
         </div>

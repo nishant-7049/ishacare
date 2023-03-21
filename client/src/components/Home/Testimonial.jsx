@@ -6,7 +6,7 @@ const Testimonial = () => {
   return (
     <Container>
       <div className='contain'>
-        <h2>Testimonials</h2>
+        <h2 className='text-3xl'>Testimonials</h2>
         <p className='con-para'>
           Here are some of the good things people have talked about.
         </p>
@@ -19,7 +19,7 @@ const Testimonial = () => {
 export default Testimonial
 
 const Container = styled.div`
-  background-color: #f4c9db;
+  background-color: #84adea;
 
   .contain {
     margin: 1.5rem 5rem !important;

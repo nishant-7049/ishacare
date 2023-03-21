@@ -77,19 +77,19 @@ const About = () => {
         <div className='ach-cards'>
           <div className='ach-card'>
             <h4>Trained Wellness Facilitators</h4>
-            <motion.h1>{rounded}+</motion.h1>
+            <p>20+</p>
           </div>
           <div className='ach-card'>
             <h4>Imparted wellness Education through camps</h4>
-            <motion.p>12000+</motion.p>
+            <p>12000+</p>
           </div>
           <div className='ach-card'>
             <h4>Wellness consultation</h4>
-            <motion.p>15000+</motion.p>
+            <p>15000+</p>
           </div>
           <div className='ach-card'>
             <h4>Wellness therapy sessions</h4>
-            <motion.p>60000+</motion.p>
+            <p>60000+</p>
           </div>
         </div>
       </div>
@@ -133,57 +133,59 @@ const About = () => {
         </div>
       </div>
 
-      <div className='isha'>
-        <div className='isha-con'>
-          <div className='isha-info'>
-            <h3 className='isha-head'>About Ishawellness Center</h3>
-            <p>
-              Isha Wellness Centre is a leading provider of holistic wellness
-              services. The centre offers a wide range of services aimed at
-              promoting physical, mental, and emotional well-being. With a team
-              of highly trained and experienced wellness facilitators, Isha
-              Wellness Centre is dedicated to helping people lead healthier and
-              happier lives.
-            </p>
-            <p>
-              At Isha Wellness Centre, a personalized approach is taken to meet
-              the unique needs of each individual. Whether it's through yoga,
-              meditation, nutrition, or any other aspect of wellness, the
-              centre's goal is to empower people to take control of their health
-              and happiness. With a focus on both prevention and healing, the
-              services offered at Isha Wellness Centre are designed to support
-              individuals in all stages of their wellness journey.
-            </p>
-            <p>
-              In addition to one-on-one consultations, Isha Wellness Centre also
-              offers group classes, workshops, and retreats. These programs
-              provide opportunities for individuals to learn, grow, and connect
-              with others who share a similar commitment to wellness. With a
-              commitment to education and research, Isha Wellness Centre stays
-              at the forefront of the latest developments in the field of
-              holistic wellness.
-            </p>
-            <p>
-              In addition to one-on-one consultations, Isha Wellness Centre also
-              offers group classes, workshops, and retreats. These programs
-              provide opportunities for individuals to learn, grow, and connect
-              with others who share a similar commitment to wellness. With a
-              commitment to education and research, Isha Wellness Centre stays
-              at the forefront of the latest developments in the field of
-              holistic wellness.
-            </p>
-            <p>
-              Overall, Isha Wellness Centre is a dynamic and thriving hub for
-              wellness that offers a comprehensive and holistic approach to
-              health and happiness. Whether you're looking to improve your
-              physical health, manage stress, or simply cultivate a deeper sense
-              of inner peace, Isha Wellness Centre is the perfect place to
-              start.
-            </p>
+        <div className='isha'>
+          <div className='isha-con'>
+            <div className='isha-info'>
+              <h3 className='isha-head'>About Ishawellness Center</h3>
+              <p>
+                Isha Wellness Centre is a leading provider of holistic wellness
+                services. The centre offers a wide range of services aimed at
+                promoting physical, mental, and emotional well-being. With a
+                team of highly trained and experienced wellness facilitators,
+                Isha Wellness Centre is dedicated to helping people lead
+                healthier and happier lives.
+              </p>
+              <p>
+                At Isha Wellness Centre, a personalized approach is taken to
+                meet the unique needs of each individual. Whether it's through
+                yoga, meditation, nutrition, or any other aspect of wellness,
+                the centre's goal is to empower people to take control of their
+                health and happiness. With a focus on both prevention and
+                healing, the services offered at Isha Wellness Centre are
+                designed to support individuals in all stages of their wellness
+                journey.
+              </p>
+              <p>
+                In addition to one-on-one consultations, Isha Wellness Centre
+                also offers group classes, workshops, and retreats. These
+                programs provide opportunities for individuals to learn, grow,
+                and connect with others who share a similar commitment to
+                wellness. With a commitment to education and research, Isha
+                Wellness Centre stays at the forefront of the latest
+                developments in the field of holistic wellness.
+              </p>
+              <p>
+                In addition to one-on-one consultations, Isha Wellness Centre
+                also offers group classes, workshops, and retreats. These
+                programs provide opportunities for individuals to learn, grow,
+                and connect with others who share a similar commitment to
+                wellness. With a commitment to education and research, Isha
+                Wellness Centre stays at the forefront of the latest
+                developments in the field of holistic wellness.
+              </p>
+              <p>
+                Overall, Isha Wellness Centre is a dynamic and thriving hub for
+                wellness that offers a comprehensive and holistic approach to
+                health and happiness. Whether you're looking to improve your
+                physical health, manage stress, or simply cultivate a deeper
+                sense of inner peace, Isha Wellness Centre is the perfect place
+                to start.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </motion.div>
   )
 }
 
@@ -200,7 +202,7 @@ const Container = styled.div`
     margin: 5rem 0 2rem 0;
     font-size: 3rem;
     text-align: center;
-    color: #f480b1;
+    color: #84adea;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
   }
   .vision {
@@ -208,7 +210,7 @@ const Container = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-around;
-    background-color: #ffb5d4;
+    background-color: #84adea;
     > div {
       display: flex;
       flex-direction: column;
@@ -234,7 +236,7 @@ const Container = styled.div`
     text-align: center;
     font-weight: 700;
     margin: 1rem;
-    color: #f480b1;
+    color: #84adea;
     font-size: 1.5rem;
   }
   .isha-head {
@@ -262,7 +264,7 @@ const Container = styled.div`
     width: 90%;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #ffb5d4;
+    background-color: #84adea;
   }
   .founder-text {
     display: flex;
@@ -291,7 +293,7 @@ const Container = styled.div`
   .isha-con {
     width: 90%;
     margin: 3rem auto;
-    background-color: #ffb5d4;
+    background-color: #84adea;
     padding: 2rem;
   }
   .isha-info {
@@ -323,7 +325,7 @@ const Container = styled.div`
     gap: 0.5rem;
     align-items: center;
     text-align: center;
-    background-color: #f8c7dc;
+    background-color: #84adea;
     height: 10rem;
     border-radius: 0.8rem;
     > h4 {

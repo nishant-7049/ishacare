@@ -139,7 +139,7 @@ const Container = styled.div`
     word-spacing: 2px;
   }
   .carousel > .control-dots .dot {
-    background: #f4c9db;
+    background: #84adea;
   }
 
   @media (max-width: 820px) {

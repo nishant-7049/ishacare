@@ -6,10 +6,8 @@ const Blogs = () => {
   return (
     <Container>
       <div className='blogs'>
-        <h2 className='blog-h'>Blogs</h2>
-        <p className='blog-text'>
-          Read our blogs
-        </p>
+        <h2 className='blog-h text-3xl'>Blogs</h2>
+        <p className='blog-text'>Read our blogs</p>
         <div className='slides'>
           <SliderBlogs />
         </div>
@@ -28,7 +26,7 @@ const Container = styled.div`
   }
 
   .blog-h {
-    color: #f4b9d2;
+    color: #84adea;
     text-align: center;
     margin: 1rem;
   }

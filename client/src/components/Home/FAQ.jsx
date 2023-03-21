@@ -45,7 +45,7 @@ function FAQ() {
       <div className='faq'>
         <div className='content'>
           <div className='heading'>
-            <h2>FAQs</h2>
+            <h2 className='text-3xl'>FAQs</h2>
           </div>
           {data.map((item) => {
             return (
@@ -83,7 +83,7 @@ const Faq = styled.div`
   }
 
   .heading {
-    color: #f4c9db;
+    color: #84adea;
     font-size: x-large;
     text-align: center;
     font-weight: 700;
@@ -104,7 +104,7 @@ const Faq = styled.div`
 
   .question {
     position: relative;
-    background: #f4c9db;
+    background: #84adea;
     margin: 0;
     padding: 10px 10px 10px 50px;
     display: block;

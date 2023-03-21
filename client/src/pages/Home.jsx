@@ -7,19 +7,24 @@ import Testimonial from '../components/Home/Testimonial'
 import Therapist from '../components/Home/Therapist'
 import Vision from '../components/Home/Vision'
 import LocateUs from '../components/Home/LocateUs'
+import { motion } from 'framer-motion'
 
 const Home = () => {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Hero />
-      <Vision/>
+      <Vision />
       <Process />
-      <LocateUs/>
+      <LocateUs />
       <Therapist />
       <Blogs />
       <Testimonial />
-      <FAQ/>
-    </div>
+      <FAQ />
+    </motion.div>
   )
 }
 

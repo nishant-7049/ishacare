@@ -6,7 +6,7 @@ const Therapist = () => {
   return (
     <Container>
       <div className='therapists container'>
-        <h2 className='therapists-head con-head'>
+        <h2 className='therapists-head con-head text-3xl'>
           Physiotherapists at your service
         </h2>
         <p className='therapists-para con-para'>
@@ -23,7 +23,7 @@ const Therapist = () => {
 export default Therapist
 
 const Container = styled.div`
-  background-color: #f4c9db;
+  background-color: #84adea;
 
   .container {
     padding: 5rem 0;

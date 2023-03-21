@@ -25,7 +25,7 @@ const Container = styled.div`
   h2 {
     text-align: center;
     margin-bottom: 1rem;
-    color: #f4b9d2;
+    color: #84adea;
     text-transform: capitalize;
   }
 

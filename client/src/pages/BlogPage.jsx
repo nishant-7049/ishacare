@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
 const data = [
@@ -10,7 +11,7 @@ const data = [
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
     blogText:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?'
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?',
   },
   {
     id: 1,
@@ -71,45 +72,51 @@ const BlogPage = () => {
   const navigate = useNavigate()
 
   return (
-    <Container>
-      
-      <div className='blog'>
-        <span>Out Recent Blogs</span>
-        <h3>Our Blogs</h3>
-      </div>
-      <div className='card-con'>
-        {data.map((data) => {
-
-
-          return (
-            <div className='card' key={data.id}>
-              <div className='image'>
-                <img src={data.blogImg} alt='' />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Container>
+        <div className='blog'>
+          <span>Out Recent Blogs</span>
+          <h3>Our Blogs</h3>
+        </div>
+        <div className='card-con'>
+          {data.map((data) => {
+            return (
+              <div className='card' key={data.id}>
+                <div className='image'>
+                  <img src={data.blogImg} alt='' />
+                </div>
+                <div className='blog-text'>
+                  <span>
+                    {data.senderName} | {data.sentDate}
+                  </span>
+                  <h2
+                    className='cursor-pointer'
+                    onClick={() => {
+                      navigate(`/blogs/${data.id}`, { state: { data: data } })
+                    }}
+                  >
+                    {data.topic}
+                  </h2>
+                  <p className='blog-para '>{data.blogText}</p>
+                  <p
+                    className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#84adea]'
+                    onClick={() => {
+                      navigate(`/blogs/${data.id}`, { state: { data: data } })
+                    }}
+                  >
+                    Read more...
+                  </p>
+                </div>
               </div>
-              <div className='blog-text'>
-                <span>
-                  {data.senderName} | {data.sentDate}
-                </span>
-                <h2 className='cursor-pointer'
-                  onClick={() => {
-                    navigate(`/blogs/${data.id}`, { state: { data:data } })
-                  }}
-                >
-                  {data.topic}
-                </h2>
-                <p className='blog-para '>{data.blogText}</p>
-                <p className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#f480b1]'
-                onClick={() => {
-                  navigate(`/blogs/${data.id}`, { state: { data:data } })
-                }}>
-                Read more...
-                </p>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </Container>
+            )
+          })}
+        </div>
+      </Container>
+    </motion.div>
   )
 }
 
@@ -133,7 +140,7 @@ const Container = styled.div`
     padding: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     > span{
-      color: #f480b1;
+      color: #84adea;
     }
     > h3{
       font-size: 2rem;
@@ -174,20 +181,20 @@ const Container = styled.div`
       padding: 2rem;
       > span {
         font-size: 0.8rem;
-        color: #f480b1;
+        color: #84adea;
       }
       > h2 {
         font-size: 1.4rem;
         font-weight: 600;
         color: #272727;
         &:hover{
-          color: #f480b1;
+          color: #84adea;
         }
       }
       > a {
         color: #0f0f0f;
         &:hover{
-          color: #f480b1;
+          color: #84adea;
           transition: all ease 0.3;
         }
       }

@@ -8,7 +8,7 @@ const tabs = [
     mobile: '+91-07383677661',
     email: ' ',
     address:
-      'behind LaxmiNarayan Temple, Jain Colony, Mahalwada, Ratlam, Madhya Pradesh 457001',
+      '37, Chandni Chowk, near Hussaini Provision, opposite HDFC Bank, Laxman Pura, Ratlam, Madhya Pradesh 457001',
     map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3663.8039676033886!2d75.03967301474339!3d23.322870284801738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963fea578acaff7%3A0x847dac23ee0d0262!2sISHA%20Wellness%20Centre%20Ratlam!5e0!3m2!1sen!2sin!4v1676121397028!5m2!1sen!2sin',
   },
   {
@@ -49,7 +49,7 @@ function LocateUs() {
                 toggle === data.id ? 'content active-content' : 'content'
               }
             >
-              <div className='flex-row'>
+              <div className='flex-row items-center'>
                 <div className='address'>
                   <p>{data.address}</p>
                   <p>
@@ -68,6 +68,9 @@ function LocateUs() {
                   ></iframe>
                 </div>
               </div>
+              <div className='text-center my-6 text-xl'>
+                <p>Home-based services available @ Ahmedabad, Jaora(Ratlam)</p>
+              </div>
             </div>
           )
         })}
@@ -81,7 +84,7 @@ export default LocateUs
 const Container = styled.div`
   .centers {
     text-align: center;
-    color: #f8c7dc;
+    color: #84adea;
     font-size: 2rem;
   }
   .container {
@@ -107,18 +110,18 @@ const Container = styled.div`
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       color: black;
-      border: 2px solid #f480b1;
+      border: 2px solid #84adea;
       transition: 0.2s ease-in-out;
       text-transform: capitalize;
 
       &:hover {
-        background-color: #f8c7dc;
+        background-color: #84adea;
       }
     }
   }
 
   .locations .active-btn {
-    background-color: #f8c7dc;
+    background-color: #84adea;
   }
 
   .flex-row {
@@ -132,8 +135,8 @@ const Container = styled.div`
     width: 50%;
     font-size: x-large;
     text-transform: capitalize;
-    background-color: #f8c7dc;
-    border-radius: 1.5rem;
+    background-color: #84adea;
+    border-radius: 0.5rem;
     padding: 3rem;
     display: flex;
     flex-direction: column;

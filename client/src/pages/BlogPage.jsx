@@ -110,7 +110,7 @@ const BlogPage = () => {
                   <div className='image'>
                     <img src={data.blogImg} alt='' />
                   </div>
-                  <div className='blog-text bg-black bg-opacity-30 text-white'>
+                  <div className='blog-text bg-black bg-opacity-50 text-white'>
                     <span>
                       {data.senderName} | {data.sentDate}
                     </span>
@@ -201,8 +201,6 @@ const Container = styled.div`
       align-items: flex-left;
       justify-content: space-between;
       padding: 2rem;
-      background: black;
-      opacity: 0.5;
       > span {
         font-size: 0.8rem;
         color: #50acfb;

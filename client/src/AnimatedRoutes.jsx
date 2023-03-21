@@ -20,7 +20,7 @@ const AnimatedRoutes = () => {
   console.log(location)
 
   return (
-    <AnimatePresence>
+    <AnimatePresence >
       <Routes location={location} key={location.pathname}>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/adminPanel' element={<Admin />} />

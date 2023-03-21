@@ -6,22 +6,22 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 const data = [
   {
     id: 1,
-    img: '/images/hero-background.jpg',
+    img: '/images/1.png',
     desc: ` Where Healthy & Happy Life Begins…`,
   },
   {
     id: 2,
-    img: '/images/process1.jpg',
+    img: '/images/2.png',
     desc: ` Improving lives through Holistic wellness Model - The Integrative Therapeutic Approach  `,
   },
   {
     id: 3,
-    img: '/images/process2.jpg',
+    img: '/images/3.png',
     desc: ` Empowering you towards a pain-free Life`,
   },
   {
     id: 4,
-    img: '/images/process3.jpg',
+    img: '/images/4.png',
     desc: ` Transforming healthcare, One person at a time`,
   },
 ]
@@ -36,7 +36,7 @@ const Hero = () => {
         showArrows={false}
         showIndicators={false}
         showThumbs={true}
-        interval={2500}
+        interval={4000}
       >
         {data.map((item) => {
           return (
@@ -73,16 +73,16 @@ const Container = styled.div`
     align-items: center;
   }
   .hero1 {
-    background-image: url(/images/hero-background.jpg);
+    background-image: url(/images/1.png);
   }
   .hero2 {
-    background-image: url(/images/process1.jpg);
+    background-image: url(/images/2.png);
   }
   .hero3 {
-    background-image: url(/images/process2.jpg);
+    background-image: url(/images/3.png);
   }
   .hero4 {
-    background-image: url(/images/process3.jpg);
+    background-image: url(/images/4.png);
   }
   .hero-con {
     color: inherit;
@@ -91,23 +91,10 @@ const Container = styled.div`
     z-index: 2;
     color: white;
     width: 42%;
-    margin-right: 5rem;
     text-align: center;
   }
   .hero-con:hover {
     display: block;
-  }
-  .hero1:hover {
-    background-image: url(/images/hero-background.jpg);
-  }
-  .hero2:hover {
-    background-image: url(/images/process1.jpg);
-  }
-  .hero3:hover {
-    background-image: url(/images/process2.jpg);
-  }
-  .hero4:hover {
-    background-image: url(/images/process3.jpg);
   }
   .hero::after {
     content: '';

@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import ServicesCards from './ServicesCards'
-import ServicesPage from '../../pages/ServicesPage'
 import { Link } from 'react-router-dom'
 
 const Process = () => {
   return (
     <Container className='process text-center'>
-      <h2>Our Services</h2>
+      <h2 className='text-3xl'>Our Services</h2>
       <ServicesCards />
       <Link to='./services' >Read more...</Link>
     </Container>

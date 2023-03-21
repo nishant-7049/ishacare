@@ -12,6 +12,7 @@ function Navbar() {
         <Links>
           <Link to='/'> Home</Link>
           <Link to='/about'> About</Link>
+          <Link to='/service'> Service</Link>
           <Link to='/blogs'> Blogs</Link>
           <Link to='/forem'> Forem</Link>
           {localStorage.getItem('authToken') ? (
@@ -59,6 +60,15 @@ function Navbar() {
             >
               {' '}
               About
+            </Link>
+            <Link
+              onClick={() => {
+                setToggle(!toggle)
+              }}
+              to='/service'
+            >
+              {' '}
+              Service
             </Link>
             <Link
               onClick={() => {

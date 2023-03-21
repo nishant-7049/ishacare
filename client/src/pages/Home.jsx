@@ -2,7 +2,7 @@ import React from 'react'
 import Blogs from '../components/Home/Blogs'
 import FAQ from '../components/Home/FAQ'
 import Hero from '../components/Home/Hero'
-import Process from '../components/Home/Services'
+import Services from '../components/Home/Services'
 import Testimonial from '../components/Home/Testimonial'
 import Therapist from '../components/Home/Therapist'
 import Vision from '../components/Home/Vision'
@@ -18,11 +18,17 @@ const Home = () => {
     >
       <Hero />
       <Vision />
-      <Process />
+      <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <Services />
+      </div>
       <LocateUs />
-      <Therapist />
+      <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <Therapist />
+      </div>
       <Blogs />
-      <Testimonial />
+      <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <Testimonial />
+      </div>
       <FAQ />
     </motion.div>
   )

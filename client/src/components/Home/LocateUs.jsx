@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 const tabs = [
   {
@@ -21,61 +23,77 @@ const tabs = [
   },
 ]
 function LocateUs() {
+  const { ref, inView } = useInView({ threshold: 0.5 })
+  const animation = useAnimation()
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 1 },
+      })
+    }
+  }, [inView])
   const [toggle, setToggle] = useState('1')
 
   return (
-    <Container className='mx-20 con sm:mx-10'>
-      <div className='container' itemID='Location'>
-        <h2 className='centers'>Our Centers</h2>
-        <div className='locations '>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 100 }} animate={animation}>
+      <Container className='mx-20 con sm:mx-10'>
+        <div className='container' itemID='Location'>
+          <h2 className='centers'>Our Centers</h2>
+          <div className='locations '>
+            {tabs.map((data) => {
+              return (
+                <button
+                  key={data.id}
+                  className={toggle === data.id ? 'btn active-btn' : 'btn'}
+                  onClick={() => setToggle(data.id)}
+                >
+                  {data.location}
+                </button>
+              )
+            })}
+          </div>
+
           {tabs.map((data) => {
             return (
-              <button
+              <div
                 key={data.id}
-                className={toggle === data.id ? 'btn active-btn' : 'btn'}
-                onClick={() => setToggle(data.id)}
+                className={
+                  toggle === data.id ? 'content active-content' : 'content'
+                }
               >
-                {data.location}
-              </button>
+                <div className='flex-row items-center'>
+                  <div className='address'>
+                    <p>{data.address}</p>
+                    <p>
+                      <a href='tel:'>Mobile: {data.mobile}</a>
+                    </p>
+                  </div>
+                  <div className='map'>
+                    <iframe
+                      src={data.map}
+                      title='ratlam'
+                      width='500'
+                      height='300'
+                      style={{ border: '0' }}
+                      loading='lazy'
+                      referrerPolicy='no-referrer-when-downgrade'
+                    ></iframe>
+                  </div>
+                </div>
+                <div className='text-center my-6 text-xl'>
+                  <p>
+                    Home-based services available @ Ahmedabad, Jaora(Ratlam)
+                  </p>
+                </div>
+              </div>
             )
           })}
         </div>
-
-        {tabs.map((data) => {
-          return (
-            <div
-              key={data.id}
-              className={
-                toggle === data.id ? 'content active-content' : 'content'
-              }
-            >
-              <div className='flex-row items-center'>
-                <div className='address'>
-                  <p>{data.address}</p>
-                  <p>
-                    <a href='tel:'>Mobile: {data.mobile}</a>
-                  </p>
-                </div>
-                <div className='map'>
-                  <iframe
-                    src={data.map}
-                    title='ratlam'
-                    width='500'
-                    height='300'
-                    style={{ border: '0' }}
-                    loading='lazy'
-                    referrerPolicy='no-referrer-when-downgrade'
-                  ></iframe>
-                </div>
-              </div>
-              <div className='text-center my-6 text-xl'>
-                <p>Home-based services available @ Ahmedabad, Jaora(Ratlam)</p>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </Container>
+      </Container>
+    </motion.div>
   )
 }
 

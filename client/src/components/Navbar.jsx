@@ -80,9 +80,10 @@ export default Navbar
 const Contain = styled.div`
   position: fixed;
   z-index: 10;
+  height: 5rem;
   width: 100%;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   top: 0;
 `
 
@@ -90,7 +91,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 5rem;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   padding-bottom: 0.5rem;
   text-align: center;
   align-items: center;

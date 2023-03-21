@@ -4,7 +4,7 @@ import BookNow from './components/BookNow'
 import { AnimatePresence } from 'framer-motion'
 
 const Home = lazy(() => import('./pages/Home'))
-const PageNotFound = lazy(() => import('./components/PageNotFound'))
+const PageNotFound = lazy(() => import('./pages/PageNotFound'))
 const Admin = lazy(() => import('./pages/AdminPanel'))
 const BlogPage = lazy(() => import('./pages/BlogPage'))
 const About = lazy(() => import('./pages/About'))
@@ -17,7 +17,6 @@ const ForemPage = lazy(() => import('./pages/ForemPage'))
 
 const AnimatedRoutes = () => {
   const location = useLocation()
-  console.log(location)
 
   return (
     <AnimatePresence >

@@ -10,39 +10,45 @@ import { IoIosPeople } from 'react-icons/io'
 const data = [
   {
     id: 0,
-    processName: `Wellness Therapy`,
+    processName: `Physical Therapy`,
     processImg: <FaWheelchair />,
-    process: `A combination of Physiotherapy, occupational therapy, Iyengar Yoga etc`,
+    process: `Pain management, Paralysis care, Paediatric care, pre-post operative therapy`,
   },
   {
     id: 1,
     processName: `Yoga`,
     processImg: <TbYoga />,
-    process: `For those who wants wellness and have no pain or syndrome`,
+    process: `Discover our innovative yoga program, designed for all levels from beginners to advanced practitioners to enhance overall wellness and prevent common health disorders`,
   },
   {
     id: 2,
-    processName: `Pregnancy Care`,
+    processName: `Women Wellness care`,
     processImg: <FaBabyCarriage />,
-    process: `From planning pregnancy to delivering a healthy baby normally`,
+    process: `Pregnancy care and education, Hormone balance therapy, Weight management, Menopause management and education, reproductive health education`,
   },
   {
     id: 3,
-    processName: `Hormone Balance Therapy`,
-    processImg: <RiMentalHealthFill />,
-    process: `An specially designed therapy to balance and stabilize hormones and helps in situations like iregular menstrual cycle, PCOD, thyroid, etc.`,
+    processName: `Community Wellness Program`,
+    processImg: <MdPersonSearch />,
+    process: `Making evidence-based therapy services accessible to all, because we believe in a healthier, happier, and more equitable society for all.`,
   },
   {
     id: 4,
-    processName: `Counseling`,
-    processImg: <MdPersonSearch />,
-    process: `One on one communication to help you understand your problem well and to help you find solutions and act accordingly.`,
-  },
-  {
-    id: 5,
     processName: `Employee Wellness Program`,
     processImg: <IoIosPeople />,
     process: `Health education and exercise sessions for company employees to empower them to prevent and deal with several occupational health problems.`,
+  },
+  {
+    id: 5,
+    processName: `Social Responsibility`,
+    processImg: <RiMentalHealthFill />,
+    process: `(Coming Soon)`,
+  },
+  {
+    id: 6,
+    processName: `Wellness Resort`,
+    processImg: <RiMentalHealthFill />,
+    process: `(Coming Soon)`,
   },
 ]
 
@@ -59,11 +65,13 @@ const ProcessCards = () => {
           {data.map((data) => {
             return (
               <div key={data.id} className='process-item'>
-                <div className='card'>
-                  {data.processImg}
+                <div className='card bg-white'>
+                  {/* {data.processImg} */}
                   <div className='card-con'>
-                    <h1 className='card-head'>{data.processName}</h1>
-                    <p className='card-text'>{data.process}</p>
+                    <h1 className='card-head text-black'>{data.processName}</h1>
+                    <p className='card-text text-black tracking-wider'>
+                      {data.process}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -117,7 +125,7 @@ const Container = styled.div`
   }
 
   .card-head {
-    color: #84adea;
+    // color: #84adea;
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;

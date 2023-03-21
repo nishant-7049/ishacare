@@ -11,13 +11,13 @@ function SingleBlog() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h3 className='text-[#84adea] text-2xl text-center'>Blog</h3>
+      <h3 className='text-[#50acfb] text-2xl text-center'>Blog</h3>
       <div className='flex m-20 gap-5'>
         <div className='flex-0 w-1/2 object-contain'>
           <img src={state.data.blogImg} alt='' />
         </div>
         <div className='flex flex-1 flex-col '>
-          <h2 className='text-[1.5rem] font-bold text-[#84adea]'>
+          <h2 className='text-[1.5rem] font-bold text-[#50acfb]'>
             {state.data.topic}
           </h2>
           <p className='mb-2'>

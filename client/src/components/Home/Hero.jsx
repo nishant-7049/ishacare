@@ -114,7 +114,6 @@ const Container = styled.div`
     left: 4px;
   }
 
-  
   .hero-head {
     margin-bottom: 10px;
     color: #f4c9db;
@@ -126,7 +125,7 @@ const Container = styled.div`
     word-spacing: 2px;
   }
   .carousel > .control-dots .dot {
-    background: #84adea;
+    background: #50acfb;
   }
 
   @media (max-width: 820px) {

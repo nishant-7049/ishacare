@@ -28,7 +28,7 @@ const ForemPage = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h3 className='text-[#84adea] mt-[4.5rem] pt-4 bg-gray-200 text-center text-2xl'>
+      <h3 className='text-[#50acfb] mt-[4.5rem] pt-4 bg-gray-200 text-center text-2xl'>
         Forem
       </h3>
 

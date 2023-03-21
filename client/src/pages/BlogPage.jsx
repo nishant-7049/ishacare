@@ -15,7 +15,7 @@ const data = [
   },
   {
     id: 1,
-    blogImg: '/images/process1.jpg',
+    blogImg: '/images/process4.jpg',
     senderName: 'Sender2',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -60,7 +60,7 @@ const data = [
   },
   {
     id: 6,
-    blogImg: '/images/process1.jpg',
+    blogImg: '/images/process.jpg',
     senderName: 'Sender7',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -85,11 +85,14 @@ const BlogPage = () => {
         <div className='card-con'>
           {data.map((data) => {
             return (
-              <div className='card' key={data.id}>
+              <div
+                className='card bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'
+                key={data.id}
+              >
                 <div className='image'>
                   <img src={data.blogImg} alt='' />
                 </div>
-                <div className='blog-text'>
+                <div className='blog-text bg-black bg-opacity-30 text-white'>
                   <span>
                     {data.senderName} | {data.sentDate}
                   </span>
@@ -101,7 +104,7 @@ const BlogPage = () => {
                   >
                     {data.topic}
                   </h2>
-                  <p className='blog-para '>{data.blogText}</p>
+                  <p className='blog-para tracking-wider'>{data.blogText}</p>
                   <p
                     className=' cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#50acfb]'
                     onClick={() => {
@@ -186,7 +189,7 @@ const Container = styled.div`
       > h2 {
         font-size: 1.4rem;
         font-weight: 600;
-        color: #272727;
+        color: #fff;
         &:hover{
           color: #50acfb;
         }
@@ -202,7 +205,7 @@ const Container = styled.div`
   }
   .blog-para
     {
-      color: #9b9b9b;
+      color: #fff;
       font-size: 0.9rem;
       display: -webkit-box;
       -webkit-box-orient: vertical;

@@ -32,6 +32,7 @@ const Home = () => {
         </AnimatePresence>
         <Hero />
         <Vision />
+        <Achievement />
         <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Services />
         </div>

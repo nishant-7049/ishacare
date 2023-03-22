@@ -33,7 +33,7 @@ const Slider_testimonial = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     pauseOnHover: false,
     arrows: true,
@@ -53,16 +53,16 @@ const Slider_testimonial = () => {
       {data.map((data) => {
         return ( 
         <div key={data.id} className="" >
-        <div className=" flex gap-4 w-[90%] bg-white px-12 py-4 mx-auto rounded-md">
-          <div  className='w-8 rounded-full'>
+        <div className=" flex gap-4 w-[90%] bg-white px-12 py-4 mx-auto rounded-md sm:flex-col sm:px-4 sm:py-2">
+          <div  className='w-8 rounded-full sm:mx-auto'>
             <img src={data.image} alt="/" className=" w-8 rounded-full"/>
           </div>
-          <div className=" flex flex-col gap-2 text-left h-[10rem]">
+          <div className=" flex flex-col gap-2 text-left h-[10rem] sm:h-[15rem] sm:gap-1">
             <div>
-            <h2 className=" font-extrabold text-[#50acfb]">
+            <h2 className=" font-extrabold text-[#50acfb] sm:text-center">
               {data.name}
             </h2>
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center sm:flex-col sm:gap-1 ">
             <span>⭐⭐⭐⭐⭐</span>
             <span className=" text-sm">
               {data.time}

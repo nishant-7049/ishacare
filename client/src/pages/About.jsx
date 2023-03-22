@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Achievement from "../components/About/Achievement";
+import TechTeam from "../components/About/TechTeam";
+import TherTeam from "../components/About/TherTeam";
 
 const About = () => {
   return (
@@ -58,6 +59,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
       <div className="founder ">
         Founder of<span> Ishawellness center</span>
       </div>
@@ -149,8 +151,8 @@ const About = () => {
           Centre is the perfect place to start.
         </h3>
       </div>
-
-      <Achievement />
+      <TechTeam />
+      <TherTeam />
     </Container>
   );
 };
@@ -173,7 +175,7 @@ const Container = styled.div`
   .about {
     width: 100%;
     padding: 2rem;
-    background-color: rgb(153, 203, 236);
+    background-color: #50acfb;
     border-radius: 1rem;
   }
   .about img {
@@ -194,7 +196,7 @@ const Container = styled.div`
   }
   .about-text h5 {
     font-size: x-large;
-    border-bottom: 3px solid green;
+    border-bottom: 3px solid blue;
     width: 20%;
     margin-bottom: 1rem;
   }
@@ -212,11 +214,13 @@ const Container = styled.div`
     margin-bottom: 2rem;
   }
   .hum {
-    background-color: rgb(153, 203, 236);
+    background-color:white;
     padding: 3rem;
     margin-top: 3rem;
-    border-radius: 1rem;
-    box-shadow: inset 3px 300px blue;
+    border-radius: .5rem;
+    box-shadow: inset 0px 300px #50acfb;
+    border: 1px solid #50acfb;
+    
   }
   .job {
     width: fit-content;
@@ -227,7 +231,7 @@ const Container = styled.div`
     border-radius: 80%;
     height: 350px;
     width: 350px;
-    box-shadow: 10px 13px green;
+    box-shadow: 5px 10px 15px 8px rgba(0, 0, 0, 0.5);
   }
   .kon h5 {
     margin: 1rem auto;
@@ -237,7 +241,7 @@ const Container = styled.div`
     font-size: x-large;
     border-bottom: 3px solid black;
 
-    border-color: green;
+    border-color: blue;
   }
 
   .kon p {
@@ -263,7 +267,7 @@ const Container = styled.div`
   }
 
   h3 {
-    background-color: rgb(172, 210, 245);
+    background-color: #50acfb;
     color: black;
     padding: 2rem;
     border-radius: 1rem;

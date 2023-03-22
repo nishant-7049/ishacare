@@ -74,6 +74,7 @@ const About = () => {
             </div>
           </div>
         </section>
+        <Achievement />
         <div className='founder '>
           Founder of<span> Ishawellness center</span>
         </div>
@@ -166,12 +167,49 @@ const About = () => {
             of inner peace, Isha Wellness Centre is the perfect place to start.
           </h3>
         </div>
-
-        <Achievement />
-      </Container>
-    </motion.div>
-  )
-}
+      </section>
+      <div className="daada">
+        About <span>ishawellness center</span>
+      </div>
+      <div className="papa">
+        <h3>
+          Isha Wellness Centre is a leading provider of holistic wellness
+          services. The centre offers a wide range of services aimed at
+          promoting physical, mental, and emotional well-being. With a team of
+          highly trained and experienced wellness facilitators, Isha Wellness
+          Centre is dedicated to helping people lead healthier and happier lives
+          At Isha Wellness Centre, a personalized approach is taken to meet the
+          unique needs of each individual. Whether it's through yoga,
+          meditation, nutrition, or any other aspect of wellness, the centre's
+          goal is to empower people to take control of their health and
+          happiness. With a focus on both prevention and healing, the services
+          offered at Isha Wellness Centre are designed to support individuals in
+          all stages of their wellness journey.In addition to one-on-one
+          consultations, Isha Wellness Centre also offers group classNamees,
+          workshops, and retreats. These programs provide opportunities for
+          individuals to learn, grow, and connect with others who share a
+          similar commitment to wellness. With a commitment to education and
+          research, Isha Wellness Centre stays at the forefront of the latest
+          developments in the field of holistic wellness.In addition to
+          one-on-one consultations, Isha Wellness Centre also offers group
+          classNamees, workshops, and retreats. These programs provide
+          opportunities for individuals to learn, grow, and connect with others
+          who share a similar commitment to wellness. With a commitment to
+          education and research, Isha Wellness Centre stays at the forefront of
+          the latest developments in the field of holistic wellness. Overall,
+          Isha Wellness Centre is a dynamic and thriving hub for wellness that
+          offers a comprehensive and holistic approach to health and happiness.
+          Whether you're looking to improve your physical health, manage stress,
+          or simply cultivate a deeper sense of inner peace, Isha Wellness
+          Centre is the perfect place to start.
+        </h3>
+      </div>
+      <TechTeam />
+      <TherTeam />
+    </Container>
+       </motion.div>
+  );
+};
 
 export default About
 
@@ -191,7 +229,7 @@ const Container = styled.div`
   .about {
     width: 100%;
     padding: 2rem;
-    background-color: rgb(153, 203, 236);
+    background-color: #50acfb;
     border-radius: 1rem;
   }
   .about img {
@@ -212,7 +250,7 @@ const Container = styled.div`
   }
   .about-text h5 {
     font-size: x-large;
-    border-bottom: 3px solid green;
+    border-bottom: 3px solid blue;
     width: 20%;
     margin-bottom: 1rem;
   }
@@ -230,11 +268,13 @@ const Container = styled.div`
     margin-bottom: 2rem;
   }
   .hum {
-    background-color: rgb(153, 203, 236);
+    background-color:white;
     padding: 3rem;
     margin-top: 3rem;
-    border-radius: 1rem;
-    box-shadow: inset 3px 300px blue;
+    border-radius: .5rem;
+    box-shadow: inset 0px 300px #50acfb;
+    border: 1px solid #50acfb;
+    
   }
   .job {
     width: fit-content;
@@ -245,7 +285,7 @@ const Container = styled.div`
     border-radius: 80%;
     height: 350px;
     width: 350px;
-    box-shadow: 10px 13px green;
+    box-shadow: 5px 10px 15px 8px rgba(0, 0, 0, 0.5);
   }
   .kon h5 {
     margin: 1rem auto;
@@ -255,7 +295,7 @@ const Container = styled.div`
     font-size: x-large;
     border-bottom: 3px solid black;
 
-    border-color: green;
+    border-color: blue;
   }
 
   .kon p {
@@ -281,7 +321,7 @@ const Container = styled.div`
   }
 
   h3 {
-    background-color: rgb(172, 210, 245);
+    background-color: #50acfb;
     color: black;
     padding: 2rem;
     border-radius: 1rem;

@@ -8,7 +8,7 @@ import { AiFillYoutube } from 'react-icons/ai'
 import { AiFillLinkedin } from 'react-icons/ai'
 
 const Footer = () => {
-  const { ref, inView } = useInView({ threshold: 0.5 })
+  const { ref, inView } = useInView({ threshold: 0.2 })
   const animation = useAnimation()
 
   useEffect(() => {

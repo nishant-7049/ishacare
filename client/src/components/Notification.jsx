@@ -6,20 +6,18 @@ const notifications = [
   {
     id: 1,
     name: 'Request An Appointment',
-    redirect: '/booknow',
-    bottom: '2rem',
+    redirect: '/booknow'
   },
   {
     id: 0,
     name: 'Have Some Questions',
-    redirect: '/forem',
-    bottom: '6rem',
-  },
+    redirect: '/forem'
+  }
 ]
 
 const Notification = () => {
   return (
-    <div>
+    <div className='flex flex-col-reverse wrap h-fit fixed gap-8 z-10 bottom-[2rem]'>
       {notifications.map((data) => {
         return (
           <motion.div
@@ -34,10 +32,11 @@ const Notification = () => {
               opacity: 0,
               x: -200,
             }}
-            className={`fixed text-white bg-[#4e77bd] py-2 px-4 rounded-full tracking-wide z-10 bottom-[${data.bottom}] left-10`}
           >
-            <span className='animate-ping absolute w-4 h-4 rounded-full bg-red-600 top-0 right-0'></span>
-            <Link to={data.redirect}>{data.name}</Link>
+            
+            <Link to={data.redirect} className="relative  text-white bg-[#4e77bd] py-2 px-4 rounded-full tracking-wide z-10  left-10">
+              {data.name} 
+              < span className='animate-ping absolute w-4 h-4 rounded-full bg-red-600 top-0 right-0'></span></Link>
           </motion.div>
         )
       })}

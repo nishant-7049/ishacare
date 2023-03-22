@@ -53,8 +53,9 @@ const Container = styled.div`
     text-align: center;
     font-weight: 700;
     margin: 1rem 0;
-    color: #50acfb;
-    font-size: 1.5rem;
+    color: #2d4e89;
+    background-color: transparent;
+    font-size: larger;
   }
 
   .ach-cards {
@@ -63,10 +64,10 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
 
-    grid-gap: 1rem;
+    grid-gap: 1.5rem;
   }
   .ach-head {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   .ach-card {
     display: flex;
@@ -75,12 +76,12 @@ const Container = styled.div`
     gap: 0.5rem;
     align-items: center;
     text-align: center;
-    background-color: #50acfb;
+    background-color: #2d4e89;
     height: 10rem;
-    border-radius: 0.8rem;
+    border-radius: 0.5rem;
     > h4 {
       font-weight: 700;
-      color: #414141;
+      color: #fff;
     }
     > p {
       font-size: 2rem;

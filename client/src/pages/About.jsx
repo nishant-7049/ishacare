@@ -286,7 +286,7 @@ const Container = styled.div`
     margin-bottom: 5rem;
   }
 
-  h3 {
+  .papa h3 {
     background-color: #50acfb;
     color: black;
     padding: 2rem;

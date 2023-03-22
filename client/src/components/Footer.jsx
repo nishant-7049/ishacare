@@ -16,10 +16,11 @@ const Footer = () => {
       animation.start({
         opacity: 1,
         y: 0,
-        transition: { duration: 1 },
+        transition: { duration: 0.5 },
       })
     }
   }, [inView])
+  
   return (
     <motion.div
       ref={ref}

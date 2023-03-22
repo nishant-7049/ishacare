@@ -27,24 +27,24 @@ const BookNow = () => {
               <div className='first'>
                 <div className='left section'>
                   <div className='flex flex-col'>
-                    <label for=''>Name</label>
+                    <label htmlFor=''>Name</label>
                     <input type='text' name='myname' />
                   </div>
                   <div className='flex flex-col'>
-                    <label for=''>Mobile No.</label>
+                    <label htmlFor=''>Mobile No.</label>
                     <input type='mobile no' name='my mobile no' />
                   </div>
                   <div className='flex flex-col'>
-                    <label for=''>Alternate No.</label>
+                    <label htmlFor=''>Alternate No.</label>
                     <input type='mobile no' name='my alternate no' />
                   </div>
                   <div className='flex flex-col'>
-                    <label for=''>Age</label>
+                    <label htmlFor=''>Age</label>
                     <input type='number' name='my age' />
                   </div>
 
                   <div className='flex flex-col'>
-                    <label for='payment date'> payment date</label>
+                    <label htmlFor='payment date'> payment date</label>
                     <select name='payment date' id='payment'>
                       <option value='dai'> daily</option>
                       <option value='mem'>membership</option>
@@ -56,7 +56,7 @@ const BookNow = () => {
 
                 <div className='center section'>
                   <div className='flex flex-col'>
-                    <label for='payment date'> gender</label>
+                    <label htmlFor='payment date'> gender</label>
                     <select name='payment date' id='gender'>
                       <option value='male'> male</option>
                       <option value='female'> female</option>
@@ -64,7 +64,7 @@ const BookNow = () => {
                     </select>
                   </div>
                   <div className='flex flex-col'>
-                    <label for='martial status'> martial status</label>
+                    <label htmlFor='martial status'> martial status</label>
                     <select name='martial status' id='status'>
                       <option value='married'> married</option>
                       <option value='unmarried'> unmarried</option>
@@ -73,7 +73,7 @@ const BookNow = () => {
                     </select>
                   </div>
                   <div className='flex flex-col'>
-                    <label for=''>Address</label>
+                    <label htmlFor=''>Address</label>
                     <textarea
                       className='bg-[#eee]'
                       type='address'
@@ -81,7 +81,7 @@ const BookNow = () => {
                     />
                   </div>
                   <div className='flex flex-col'>
-                    <label for='ocupation'> ocupation</label>
+                    <label htmlFor='ocupation'> ocupation</label>
                     <select name='ocupation' id='ocupation'>
                       <option value='govermentjob'> goverment job</option>
                       <option value='private'> private job</option>
@@ -93,7 +93,7 @@ const BookNow = () => {
                     </select>
                   </div>
                   <div className='flex flex-col'>
-                    <label for='education'> education</label>
+                    <label htmlFor='education'> education</label>
                     <select name='education' id='education'>
                       <option value='no education'> no education</option>
                       <option value='primary education'>
@@ -112,7 +112,7 @@ const BookNow = () => {
                     </select>
                   </div>
                   <div className='flex flex-col'>
-                    <label for='package'> packages</label>
+                    <label htmlFor='package'> packages</label>
                     <select name='package' id='package'>
                       <option value='package'>package 1</option>
                       <option value='package'> package 2 </option>
@@ -123,42 +123,42 @@ const BookNow = () => {
                 <div className='right section'>
                   <h1>Type of work</h1>
                   <div className='right-con my-[2px]'>
-                    <label for=''>eligibale</label>
+                    <label htmlFor=''>eligibale</label>
                     <input type='checkbox' name='my eligibale' />
                   </div>
 
                   <div className='right-con my-[2px]'>
-                    <label for=''>Sitting</label>
+                    <label htmlFor=''>Sitting</label>
                     <input type='checkbox' name='my sitting' />
                   </div>
 
                   <div className='right-con my-[2px]'>
-                    <label for=''>Sleeping</label>
+                    <label htmlFor=''>Sleeping</label>
                     <input type='checkbox' name='my sleeping' />
                   </div>
 
                   <div className='right-con my-[2px]'>
-                    <label for=''>Standing Position</label>
+                    <label htmlFor=''>Standing Position</label>
                     <input type='checkbox' name='my standing position' />
                   </div>
                   <div className='right-con my-[2px]'></div>
 
                   <div className='right-con my-[2px]'>
-                    <label for=''>Walking</label>
+                    <label htmlFor=''>Walking</label>
                     <input type='checkbox' name='my walking' />
                   </div>
 
                   <div className='right-con my-[2px]'>
-                    <label for=''>Weight Lifting</label>
+                    <label htmlFor=''>Weight Lifting</label>
                     <input type='checkbox' name='my put weight' />
                   </div>
 
                   <div className='right-con my-[2px]'>
-                    <label for=''>Travelling</label>
+                    <label htmlFor=''>Travelling</label>
                     <input type='checkbox' name='my travelling' />
                   </div>
                   <br />
-                  <label for=''>Please specify if not above</label>
+                  <label htmlFor=''>Please specify if not above</label>
                   <input type='address' name='my address' />
                   <br />
                   <div className='flex flex-col'>
@@ -181,7 +181,7 @@ const BookNow = () => {
                   </div>
                   <br />
                   <div className='flex flex-col'>
-                    <label for='batch'> batch</label>
+                    <label htmlFor='batch'> batch</label>
                     <select name='batch' id='batch'>
                       <option value='time'> 8:30-10:30</option>
                       <option value='time'> 10:30-12:30 </option>
@@ -191,7 +191,7 @@ const BookNow = () => {
                     </select>
                   </div>
                   <br />
-                  <label for='payment'> payment</label>
+                  <label htmlFor='payment'> payment</label>
                   <input type='payment' name='payment' />
                 </div>
                 <button className='button button2'> save details </button>

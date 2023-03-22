@@ -7,13 +7,13 @@ const notifications = [
     id: 1,
     name: 'Request An Appointment',
     redirect: '/booknow',
-    bottom: '6rem',
+    bottom: '2rem',
   },
   {
     id: 0,
     name: 'Have Some Questions',
     redirect: '/forem',
-    bottom: '2rem',
+    bottom: '6rem',
   },
 ]
 

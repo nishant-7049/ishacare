@@ -6,6 +6,7 @@ import Services from '../components/Home/Services'
 import Testimonial from '../components/Home/Testimonial'
 import Therapist from '../components/Home/Therapist'
 import Vision from '../components/Home/Vision'
+import Achievement from '../components/about/Achievement'
 import LocateUs from '../components/Home/LocateUs'
 import { motion } from 'framer-motion'
 
@@ -18,6 +19,8 @@ const Home = () => {
     >
       <Hero />
       <Vision />
+      <hr />
+      <Achievement />
       <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
         <Services />
       </div>

@@ -34,7 +34,9 @@ const Home = () => {
         <WA_Notify />
         <Hero />
         <Vision />
-        <Achievement />
+        <div className='mx-[5rem]'>
+          <Achievement />
+        </div>
         <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Services />
         </div>

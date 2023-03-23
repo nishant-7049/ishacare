@@ -95,13 +95,13 @@ const BlogPage = () => {
           {data.map((data) => {
             return (
               <div
-                className='card bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'
+                className='card bg-[url(/images/blog-bg.jpg)] bg-cover bg-center bg-fixed'
                 key={data.id}
               >
                 <div className='image'>
                   <img src={data.blogImg} alt='' />
                 </div>
-                <div className='blog-text bg-black bg-opacity-50 text-white'>
+                <div className='blog-text bg-black bg-opacity-20 text-white'>
                   <span>
                     {data.senderName} | {data.sentDate}
                   </span>
@@ -193,7 +193,6 @@ const Container = styled.div`
       padding: 2rem;
       > span {
         font-size: 0.8rem;
-        color: #50acfb;
       }
       > h2 {
         font-size: 1.4rem;

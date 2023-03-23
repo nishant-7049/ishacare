@@ -59,6 +59,8 @@ const TechTeam = () => {
           dots: false,
           arrows: false,
           pauseOnHover: false,
+          slidesToShow: 1,
+
         },
       },
     ],

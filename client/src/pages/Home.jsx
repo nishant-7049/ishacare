@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setNotification(false)
-    }, 10000)
+    }, 7000)
   }, [])
 
   return (
@@ -35,7 +35,7 @@ const Home = () => {
         <WA_Notify />
         <Hero />
         <Vision />
-        <div className='mx-[5rem]'>
+        <div className='mx-[5rem] my-20'>
           <Achievement />
         </div>
         <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
@@ -49,8 +49,10 @@ const Home = () => {
         <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Testimonial />
         </div>
-        <Video />
         <FAQ />
+        <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+          <Video />
+        </div>
       </div>
     </motion.div>
   )

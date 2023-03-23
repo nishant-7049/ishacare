@@ -24,8 +24,8 @@ const video = [
     title: "Isha Wellness Centre",
     emb: (
       <iframe
-      width="400"
-      height="250"
+        width="400"
+        height="250"
         src="https://www.youtube.com/embed/S3VAcGIiMNw"
         title="YouTube video player"
         frameborder="0"
@@ -39,8 +39,8 @@ const video = [
     title: "Mujhko thik karega kon",
     emb: (
       <iframe
-      width="400"
-      height="250"
+        width="400"
+        height="250"
         src="https://www.youtube.com/embed/m2uxzxlKm5Q"
         title="YouTube video player"
         frameborder="0"
@@ -54,8 +54,8 @@ const video = [
     title: "Me Gym jau ya na jau",
     emb: (
       <iframe
-      width="400"
-      height="250"
+        width="400"
+        height="250"
         src="https://www.youtube.com/embed/jSgg3CvlX5c"
         title="YouTube video player"
         frameborder="0"
@@ -69,8 +69,8 @@ const video = [
     title: "Isha Wellness Centre Cartoon- Ra2",
     emb: (
       <iframe
-      width="400"
-      height="250"
+        width="400"
+        height="250"
         src="https://www.youtube.com/embed/yZuMWNouA2A"
         title="YouTube video player"
         frameborder="0"
@@ -82,7 +82,7 @@ const video = [
 ];
 const Video = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -103,9 +103,11 @@ const Video = () => {
     ],
   };
   return (
-    <div className="w-[90%] mx-auto px-20 py-12 mt-8 mb-16 bg-gray-200">
-        <h2 className=" text-3xl mb-8 mx-auto capitalize text-[#50acfb] text-center">Youtube Content</h2>
-      <Slider {...settings} >
+    <div className="mx-auto px-20 py-12 mt-8 mb-16 bg-gray-200">
+      <h2 className=" text-3xl mb-8 mx-auto capitalize text-[#50acfb] text-center">
+        Youtube Content
+      </h2>
+      <Slider {...settings}>
         {video.map((video) => (
           <div className="">{video.emb}</div>
         ))}

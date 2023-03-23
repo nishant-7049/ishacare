@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import Blogs from '../components/Home/Blogs'
-import FAQ from '../components/Home/FAQ'
-import Hero from '../components/Home/Hero'
-import Services from '../components/Home/Services'
-import Testimonial from '../components/Home/Testimonial'
-import Therapist from '../components/Home/Therapist'
-import Vision from '../components/Home/Vision'
-import Achievement from '../components/about/Achievement'
-import LocateUs from '../components/Home/LocateUs'
-import Video from '../components/Home/Video'
-import { motion, AnimatePresence } from 'framer-motion'
-import Notification from '../components/Notification'
+import React, { useEffect, useState } from "react";
+import Blogs from "../components/Home/Blogs";
+import FAQ from "../components/Home/FAQ";
+import Hero from "../components/Home/Hero";
+import Services from "../components/Home/Services";
+import Testimonial from "../components/Home/Testimonial";
+import Therapist from "../components/Home/Therapist";
+import Vision from "../components/Home/Vision";
+import Achievement from "../components/about/Achievement";
+import LocateUs from "../components/Home/LocateUs";
+import Video from "../components/Home/Video";
+import { motion, AnimatePresence } from "framer-motion";
+import Notification from "../components/Notification";
 
 const Home = () => {
-  const [notification, setNotification] = useState(true)
+  const [notification, setNotification] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setNotification(false)
-    }, 10000)
-  }, [])
+      setNotification(false);
+    }, 10000);
+  }, []);
 
   return (
     <motion.div
@@ -27,29 +27,29 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className='relative'>
+      <div className="relative">
         <AnimatePresence>
-          {notification ? <Notification /> : ''}
+          {notification ? <Notification /> : ""}
         </AnimatePresence>
         <Hero />
         <Vision />
         <Achievement />
-        <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <div className="bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed  h-[145vh] sm:h-[310vh]">
           <Services />
         </div>
         <LocateUs />
-        <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <div className="bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Therapist />
         </div>
         <Blogs />
-        <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <div className="bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Testimonial />
         </div>
         <Video />
         <FAQ />
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

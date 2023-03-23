@@ -6,13 +6,13 @@ const notifications = [
   {
     id: 1,
     name: 'Request An Appointment',
-    redirect: '/booknow'
+    redirect: '/booknow',
   },
   {
     id: 0,
     name: 'Have Some Questions',
-    redirect: '/forem'
-  }
+    redirect: '/forem',
+  },
 ]
 
 const Notification = () => {
@@ -33,10 +33,13 @@ const Notification = () => {
               x: -200,
             }}
           >
-            
-            <Link to={data.redirect} className="relative  text-white bg-[#4e77bd] py-2 px-4 rounded-full tracking-wide z-10  left-10">
-              {data.name} 
-              < span className='animate-ping absolute w-4 h-4 rounded-full bg-red-600 top-0 right-0'></span></Link>
+            <Link
+              to={data.redirect}
+              className='relative  text-white bg-[#4e77bd] py-2 px-4 rounded-full tracking-wide z-10  left-10'
+            >
+              {data.name}
+              <span className='animate-ping absolute w-4 h-4 rounded-full bg-red-600 top-0 right-0'></span>
+            </Link>
           </motion.div>
         )
       })}

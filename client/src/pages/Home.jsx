@@ -9,7 +9,8 @@ import Vision from '../components/Home/Vision'
 import Achievement from '../components/About/Achievement'
 import LocateUs from '../components/Home/LocateUs'
 import { motion, AnimatePresence } from 'framer-motion'
-import Notification from '../components/Notification'
+import Notification from '../components/Home/Notification'
+import WA_Notify from '../components/Home/WA_Notify'
 
 const Home = () => {
   const [notification, setNotification] = useState(true)
@@ -30,6 +31,7 @@ const Home = () => {
         <AnimatePresence>
           {notification ? <Notification /> : ''}
         </AnimatePresence>
+        <WA_Notify />
         <Hero />
         <Vision />
         <Achievement />

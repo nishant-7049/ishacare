@@ -17,7 +17,7 @@ const notifications = [
 
 const Notification = () => {
   return (
-    <div className='flex flex-col-reverse wrap h-fit fixed gap-8 z-10 bottom-[2rem]'>
+    <div className='flex flex-col-reverse  h-fit fixed gap-8 z-10 bottom-[2rem]'>
       {notifications.map((data) => {
         return (
           <motion.div

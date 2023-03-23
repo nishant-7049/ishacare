@@ -39,19 +39,19 @@ const About = () => {
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 100 }} animate={animation}>
-      <Container>
+      <Container className='sm:my-20 sm: mx-8'>
         <h1>
           A<span>bou</span>t Us
         </h1>
         <section className='about'>
-          <div className='main'>
+          <div className='main sm:flex-col'>
             <img
               src='https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600'
               alt='/'
             />
-            <div className='about-text'>
-              <h5>
-                our<span> vision</span>
+            <div className='about-text sm:text-center sm:mx-auto sm:w-fit'>
+              <h5 className='sm:flex sm:gap-1  w-fit'>
+                our<span> vision</span>{' '}
               </h5>
               <p className='tracking-wide leading-relaxed text-justify'>
                 {vision}
@@ -67,7 +67,7 @@ const About = () => {
         </div>
         {founders.map((founder) => {
           return (
-            <section key={founder.id} className='hum'>
+            <section key={founder.id} className='hum sm:py-4 sm:px-2'>
               <div className='tum'>
                 <div className='job'>
                   <img
@@ -270,5 +270,24 @@ const Container = styled.div`
     border-bottom: 3px solid black;
     width: 30%;
     border-color: green;
+  }
+  @media screen and (max-width: 480px){
+    margin:5rem 1rem;
+    .hum {
+      padding: 1rem 0;
+    }
+    .about {
+      padding: 0 0.5rem;
+    }
+    .about-text > h5 {
+      margin: 0 auto 1rem;
+    }
+    .kon p {
+      padding: 0 0.5rem;
+      width: 100%;
+    }
+    .papa h3 {
+      padding: 1rem 0.5rem;
+    }
   }
 `

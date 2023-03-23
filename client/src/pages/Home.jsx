@@ -38,15 +38,15 @@ const Home = () => {
         <div className='mx-[5rem]'>
           <Achievement />
         </div>
-        <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Services />
         </div>
         <LocateUs />
-        <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Therapist />
         </div>
         <Blogs />
-        <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+        <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Testimonial />
         </div>
         <Video />

@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 const data = [
   {
     id: 0,
-    img: '/images/img (1).png',
+    img: '/images/service/img (1).png',
     name: 'salman khan ',
     post: 'Film Star ',
     edu: 'Prinction University',
@@ -14,7 +14,7 @@ const data = [
   },
   {
     id: 1,
-    img: '/images/img (2).png',
+    img: '/images/service/img (2).png',
     name: 'shahrukh khan ',
     post: ' Film Star',
     edu: '11 pass',
@@ -22,7 +22,7 @@ const data = [
   },
   {
     id: 2,
-    img: '/images/img (1).png',
+    img: '/images/service/img (1).png',
     name: 'amir khan',
     post: 'Film Star',
     edu: 'Prinction University',
@@ -30,7 +30,7 @@ const data = [
   },
   {
     id: 3,
-    img: '/images/img (2).png',
+    img: '/images/service/img (2).png',
     name: 'akshay kumar',
     post: 'Film Star',
     edu: 'Prinction University',

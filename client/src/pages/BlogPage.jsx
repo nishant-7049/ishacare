@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer'
 const data = [
   {
     id: 0,
-    blogImg: '/images/process.jpg',
+    blogImg: '/images/blog/process.jpg',
     senderName: 'Sender1',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -16,7 +16,7 @@ const data = [
   },
   {
     id: 1,
-    blogImg: '/images/process4.jpg',
+    blogImg: '/images/blog/process4.jpg',
     senderName: 'Sender2',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -25,7 +25,7 @@ const data = [
   },
   {
     id: 2,
-    blogImg: '/images/process2.jpg',
+    blogImg: '/images/blog/process2.jpg',
     senderName: 'Sender3',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -34,7 +34,7 @@ const data = [
   },
   {
     id: 3,
-    blogImg: '/images/process3.jpg',
+    blogImg: '/images/blog/process3.jpg',
     senderName: 'Sender4',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -43,7 +43,7 @@ const data = [
   },
   {
     id: 4,
-    blogImg: '/images/process4.jpg',
+    blogImg: '/images/blog/process4.jpg',
     senderName: 'Sender5',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -52,7 +52,7 @@ const data = [
   },
   {
     id: 5,
-    blogImg: '/images/process2.jpg',
+    blogImg: '/images/blog/process2.jpg',
     senderName: 'Sender6',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -61,7 +61,7 @@ const data = [
   },
   {
     id: 6,
-    blogImg: '/images/process.jpg',
+    blogImg: '/images/blog/process.jpg',
     senderName: 'Sender7',
     sentDate: '15 jan 2020',
     topic: 'What should be the topic of this blog ?',
@@ -95,7 +95,7 @@ const BlogPage = () => {
           {data.map((data) => {
             return (
               <div
-                className='card bg-[url(/images/blog-bg.jpg)] bg-cover bg-center bg-fixed'
+                className='card bg-[url(/images/bg/blog-bg.jpg)] bg-cover bg-center bg-fixed'
                 key={data.id}
               >
                 <div className='image'>

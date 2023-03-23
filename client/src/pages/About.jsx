@@ -8,6 +8,8 @@ import Achievement from '../components/About/Achievement'
 
 const vision = `Dr. Minjan Patel and Dr. Hitesh Purohit had a shared vision to develop a system that would provide accessible and effective treatment for patients in need of physiotherapy and occupational therapy. The two met at the Indian Institute of Public Health Gandhinagar and their idea was strengthened. With a shared passion for public health and research, they established the organization AKAS during their post-graduate studies. After working for 6 years in Public Health Management and Research with various field NGOs in urban, rural, and tribal areas, they realized that the problems they sought to address were not limited to just urban areas and were causing even more suffering in rural and tribal areas. With their combined expertise in their respective therapies, extensive knowledge of public health and research, and a dedication to solve this problem , they developed treatment guidelines that were highly effective, more active than passive, easy to execute, and didn't relay on electrotherapy machines for recovery and sustainability. The next step was to train individuals with minimal background to execute the treatments under their guidance. As their experience grew, they realized that their approach could be scalable, replicable, and self-sustainable if supported by technology for supportive supervision and monitoring purposes. With their successful treatment model and the realization that expansion of services and research would require significant funding support, Dr. Minjan Patel and Dr. Hitesh Purohit made the decision to register a private limited company called 'Health Prism Limited'(HPL). The purpose of Health Prism was to develop and manage centres in urban areas to generate enough funds for research and provide services in rural and tribal areas where demand and paying capacity were not sufficient.Health Prism was established with the goal of improving access to effective physiotherapy and occupational therapy for all, regardless of location or financial background. With a combination of expertise, dedication, and innovative thinking, Dr. Patel and Dr. Purohit have been able to bring their vision to life and provide life-changing treatment to those in need.`
 
+const about = `Isha Wellness Centre is a leading provider of holistic wellness services. The centre offers a wide range of services aimed at promoting physical, mental, and emotional well-being. With a team of highly trained and experienced wellness facilitators, Isha Wellness Centre is dedicated to helping people lead healthier and happier lives At Isha Wellness Centre, a personalized approach is taken to meet the unique needs of each individual. Whether it's through yoga, meditation, nutrition, or any other aspect of wellness, the centre's goal is to empower people to take control of their health and happiness. With a focus on both prevention and healing, the services offered at Isha Wellness Centre are designed to support individuals in all stages of their wellness journey.In addition to one-on-one consultations, Isha Wellness Centre also offers group classNamees, workshops, and retreats. These programs provide opportunities for individuals to learn, grow, and connect with others who share a similar commitment to wellness. With a commitment to education and research, Isha Wellness Centre stays at the forefront of the latest developments in the field of holistic wellness.In addition to one-on-one consultations, Isha Wellness Centre also offers group classNamees, workshops, and retreats. These programs provide opportunities for individuals to learn, grow, and connect with others who share a similar commitment to wellness. With a commitment to education and research, Isha Wellness Centre stays at the forefront of the latest developments in the field of holistic wellness. Overall, Isha Wellness Centre is a dynamic and thriving hub for wellness that offers a comprehensive and holistic approach to health and happiness. Whether you're looking to improve your physical health, manage stress, or simply cultivate a deeper sense of inner peace, Isha Wellness Centre is the perfect place to start.`
+
 const founders = [
   {
     id: 0,
@@ -47,10 +49,10 @@ const About = () => {
           <div className='main sm:flex-col'>
             <img
               src='https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600'
-              alt='/'
+              alt=''
             />
             <div className='about-text sm:text-center sm:mx-auto sm:w-fit'>
-              <h5 className='sm:flex sm:gap-1  w-fit'>
+              <h5 className='sm:flex sm:gap-1 w-fit'>
                 our<span> vision</span>{' '}
               </h5>
               <p className='tracking-wide leading-relaxed text-justify'>
@@ -88,37 +90,7 @@ const About = () => {
           About <span>Ishawellness</span> Center
         </div>
         <div className='papa'>
-          <p className='tracking-wide leading-relaxed text-justify'>
-            Isha Wellness Centre is a leading provider of holistic wellness
-            services. The centre offers a wide range of services aimed at
-            promoting physical, mental, and emotional well-being. With a team of
-            highly trained and experienced wellness facilitators, Isha Wellness
-            Centre is dedicated to helping people lead healthier and happier
-            lives At Isha Wellness Centre, a personalized approach is taken to
-            meet the unique needs of each individual. Whether it's through yoga,
-            meditation, nutrition, or any other aspect of wellness, the centre's
-            goal is to empower people to take control of their health and
-            happiness. With a focus on both prevention and healing, the services
-            offered at Isha Wellness Centre are designed to support individuals
-            in all stages of their wellness journey.In addition to one-on-one
-            consultations, Isha Wellness Centre also offers group classNamees,
-            workshops, and retreats. These programs provide opportunities for
-            individuals to learn, grow, and connect with others who share a
-            similar commitment to wellness. With a commitment to education and
-            research, Isha Wellness Centre stays at the forefront of the latest
-            developments in the field of holistic wellness.In addition to
-            one-on-one consultations, Isha Wellness Centre also offers group
-            classNamees, workshops, and retreats. These programs provide
-            opportunities for individuals to learn, grow, and connect with
-            others who share a similar commitment to wellness. With a commitment
-            to education and research, Isha Wellness Centre stays at the
-            forefront of the latest developments in the field of holistic
-            wellness. Overall, Isha Wellness Centre is a dynamic and thriving
-            hub for wellness that offers a comprehensive and holistic approach
-            to health and happiness. Whether you're looking to improve your
-            physical health, manage stress, or simply cultivate a deeper sense
-            of inner peace, Isha Wellness Centre is the perfect place to start.
-          </p>
+          <p className='tracking-wide leading-relaxed text-justify'>{about}</p>
         </div>
         <div>
           <TechTeam />
@@ -171,7 +143,6 @@ const Container = styled.div`
   .about-text h5 {
     font-size: x-large;
     border-bottom: 3px solid black;
-    width: 20%;
     margin-bottom: 1rem;
   }
   .about-text p {

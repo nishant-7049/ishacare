@@ -8,6 +8,7 @@ import Therapist from '../components/Home/Therapist'
 import Vision from '../components/Home/Vision'
 import Achievement from '../components/About/Achievement'
 import LocateUs from '../components/Home/LocateUs'
+import Video from '../components/Home/Video'
 import { motion, AnimatePresence } from 'framer-motion'
 import Notification from '../components/Home/Notification'
 import WA_Notify from '../components/Home/WA_Notify'
@@ -48,6 +49,7 @@ const Home = () => {
         <div className='bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
           <Testimonial />
         </div>
+        <Video />
         <FAQ />
       </div>
     </motion.div>

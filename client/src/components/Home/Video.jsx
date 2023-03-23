@@ -48,16 +48,17 @@ const Video = () => {
           dots: false,
           arrows: false,
           pauseOnHover: false,
+          slidesToShow: 1,
         },
       },
     ],
   }
   return (
-    <div className='mx-[5rem] pt-10 pb-20'>
-      <h2 className=' text-3xl mb-8 mx-auto capitalize text-white text-center'>
+    <div className='mx-[5rem] pt-10 pb-20 sm:mx-2'>
+      <h2 className=' text-3xl sm:text-lg mb-8 mx-auto capitalize text-white text-center'>
         Free Youtube Content
       </h2>
-      <Slider {...settings} className='px-6'>
+      <Slider {...settings} className='px-6 sm:px-0'>
         {video.map((video) => (
           <iframe
             className='px-4'

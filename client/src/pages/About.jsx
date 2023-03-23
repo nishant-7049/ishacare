@@ -247,6 +247,9 @@ const Container = styled.div`
     .hum {
       padding: 1rem 0;
     }
+    .main{
+      gap: 0.8rem;
+    }
     .about {
       padding: 0 0.5rem;
     }

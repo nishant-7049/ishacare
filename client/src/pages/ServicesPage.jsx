@@ -57,8 +57,13 @@ function ServicesPage() {
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 200 }} animate={animation}>
+<<<<<<< HEAD
+      <div className='bg-[url(/images/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
+        <div className='  pt-20 mx-20  sm:mx-1 sm:pt-12 '>
+=======
       <div className='bg-[url(/images/bg/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
         <div className='  pt-20 mx-20 '>
+>>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
           <h3 className='text-white text-5xl text-center my-8'>Our Services</h3>
           {data.map((data) => {
             return (
@@ -66,16 +71,15 @@ function ServicesPage() {
                 className='border-[1px] border-[white]] border-solid-50 m-4 '
                 key={data.id}
               >
-                <div className='flex  gap-5 items-center bg-black bg-opacity-50 px-20 py-8'>
-                  <h2 className='text-[3rem] font-bold text-[#84adea] text-center'>
+                <div className='flex  gap-5 items-center bg-black bg-opacity-50 px-20 py-8 sm:flex-col-reverse '>
+                  <h2 className='text-[3rem] font-bold text-[#84adea] text-center sm:text-2xl'>
                     {data.topic}
                   </h2>
-                  <div className='flex flex-1 flex-col '></div>
                   <div className='flex-0  object-contain '>
                     <img src={data.img} alt='' />
                   </div>
                 </div>
-                <p className='p-8 bg-[white]'>{data.para}</p>
+                <p className='p-8 bg-[white] sm:px-4'>{data.para}</p>
               </div>
             )
           })}

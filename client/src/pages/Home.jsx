@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+import React, { useEffect, useState } from "react";
+import Blogs from "../components/Home/Blogs";
+import FAQ from "../components/Home/FAQ";
+import Hero from "../components/Home/Hero";
+import Services from "../components/Home/Services";
+import Testimonial from "../components/Home/Testimonial";
+import Therapist from "../components/Home/Therapist";
+import Vision from "../components/Home/Vision";
+import Achievement from "../components/about/Achievement";
+import LocateUs from "../components/Home/LocateUs";
+import Video from "../components/Home/Video";
+import { motion, AnimatePresence } from "framer-motion";
+import Notification from "../components/Notification";
+=======
 import React, { useEffect, useState } from 'react'
 import Blogs from '../components/Home/Blogs'
 import FAQ from '../components/Home/FAQ'
@@ -12,15 +27,22 @@ import Video from '../components/Home/Video'
 import { motion, AnimatePresence } from 'framer-motion'
 import Notification from '../components/Home/Notification'
 import WA_Notify from '../components/Home/WA_Notify'
+>>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
 
 const Home = () => {
-  const [notification, setNotification] = useState(true)
+  const [notification, setNotification] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
+<<<<<<< HEAD
+      setNotification(false);
+    }, 10000);
+  }, []);
+=======
       setNotification(false)
     }, 7000)
   }, [])
+>>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
 
   return (
     <motion.div
@@ -28,13 +50,25 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className='relative'>
+      <div className="relative">
         <AnimatePresence>
-          {notification ? <Notification /> : ''}
+          {notification ? <Notification /> : ""}
         </AnimatePresence>
         <WA_Notify />
         <Hero />
         <Vision />
+<<<<<<< HEAD
+        <Achievement />
+        <div className="bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed  h-[145vh] sm:h-[310vh]">
+          <Services />
+        </div>
+        <LocateUs />
+        <div className="bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed">
+          <Therapist />
+        </div>
+        <Blogs />
+        <div className="bg-[url(/images/geometricBG.jpg)] bg-cover bg-center bg-fixed">
+=======
         <div className='mx-[5rem] my-20'>
           <Achievement />
         </div>
@@ -47,6 +81,7 @@ const Home = () => {
         </div>
         <Blogs />
         <div className='bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed'>
+>>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
           <Testimonial />
         </div>
         <FAQ />
@@ -55,7 +90,7 @@ const Home = () => {
         </div>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

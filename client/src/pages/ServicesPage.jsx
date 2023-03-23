@@ -6,37 +6,37 @@ const data = [
   {
     id: 0,
     topic: `Physical Therapy`,
-    img: `/images/img (1).png`,
+    img: `/images/service/img (1).png`,
     para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?',
   },
   {
     id: 1,
     topic: 'Yoga',
-    img: '/images/img (2).png',
+    img: '/images/service/img (2).png',
     para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
   },
   {
     id: 2,
     topic: 'Women Wellness care',
-    img: '/images/img (1).png',
+    img: '/images/service/img (1).png',
     para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
   },
   {
     id: 3,
     topic: 'Employee Wellness Program',
-    img: '/images/img (2).png',
+    img: '/images/service/img (2).png',
     para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
   },
   {
     id: 4,
     topic: 'Social Responsibility',
-    img: '/images/img (1).png',
+    img: '/images/service/img (1).png',
     para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
   },
   {
     id: 5,
     topic: 'Community Wellness Program',
-    img: '/images/img (2).png',
+    img: '/images/service/img (2).png',
     para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
   },
 ]
@@ -57,8 +57,13 @@ function ServicesPage() {
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 200 }} animate={animation}>
+<<<<<<< HEAD
       <div className='bg-[url(/images/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
         <div className='  pt-20 mx-20  sm:mx-1 sm:pt-12 '>
+=======
+      <div className='bg-[url(/images/bg/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
+        <div className='  pt-20 mx-20 '>
+>>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
           <h3 className='text-white text-5xl text-center my-8'>Our Services</h3>
           {data.map((data) => {
             return (

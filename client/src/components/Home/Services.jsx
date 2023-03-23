@@ -5,8 +5,13 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Process = () => {
+<<<<<<< HEAD
   const { ref, inView } = useInView({ threshold: 0.3 });
   const animation = useAnimation();
+=======
+  const { ref, inView } = useInView({ threshold: 0.3 })
+  const animation = useAnimation()
+>>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
 
   useEffect(() => {
     if (inView) {

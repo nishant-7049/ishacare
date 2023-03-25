@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Feed from '../components/Forem/Feed'
 import QuestionButton from '../components/Forem/QuestionButton'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { motion } from 'framer-motion'
 import axios from 'axios'
 
 const Loading = () => {
@@ -16,8 +15,6 @@ const Loading = () => {
 const ForemPage = () => {
   const [forumData, setForumData] = useState([])
   const [loading, setLoading] = useState(false)
-  const { ref, inView } = useInView()
-  const animation = useAnimation()
 
   const getForumData = async () => {
     const { data } = await axios
@@ -26,27 +23,22 @@ const ForemPage = () => {
         console.log(err.message)
       })
     setLoading(true)
-
-    // console.log(data)
     setForumData(data)
   }
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        opacity: 1,
-        y: 0,
-        transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
-      })
-    }
-  }, [inView])
 
   useEffect(() => {
     getForumData()
   }, [])
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 200 }} animate={animation}>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
+      }}
+    >
       <h3 className='text-[#50acfb] mt-[4.5rem] pt-4 bg-gray-200 text-center text-2xl'>
         Forem
       </h3>

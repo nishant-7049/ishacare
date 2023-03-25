@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import React from 'react'
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import TechTeam from '../components/About/TechTeam'
 import TherTeam from '../components/About/TherTeam'
@@ -26,21 +25,15 @@ const founders = [
 ]
 
 const About = () => {
-  const { ref, inView } = useInView({ threshold: 0 })
-  const animation = useAnimation()
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{
         opacity: 1,
         y: 0,
         transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
-      })
-    }
-  }, [inView])
-
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 100 }} animate={animation}>
+      }}
+    >
       <Container className='sm:my-20 sm: mx-8'>
         <h1>
           A<span>bou</span>t Us

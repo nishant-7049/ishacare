@@ -24,9 +24,12 @@ const Home = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, y: 200 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
+      }}
     >
       <div className='relative'>
         <AnimatePresence>

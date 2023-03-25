@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const data = [
   {
@@ -42,21 +41,15 @@ const data = [
 ]
 
 function ServicesPage() {
-  const { ref, inView } = useInView()
-  const animation = useAnimation()
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{
         opacity: 1,
         y: 0,
         transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
-      })
-    }
-  }, [inView])
-
-  return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 200 }} animate={animation}>
+      }}
+    >
       <div className='bg-[url(/images/bg/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
         <div className='  pt-20 mx-20  sm:mx-1 sm:pt-12 '>
           <h3 className='text-white text-5xl text-center my-8'>Our Services</h3>

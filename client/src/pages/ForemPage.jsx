@@ -14,7 +14,7 @@ const Loading = () => {
 
 const ForemPage = () => {
   const [forumData, setForumData] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const getForumData = async () => {
     const { data } = await axios
@@ -22,7 +22,7 @@ const ForemPage = () => {
       .catch((err) => {
         console.log(err.message)
       })
-    setLoading(true)
+    setLoading(false)
     setForumData(data)
   }
 
@@ -44,12 +44,12 @@ const ForemPage = () => {
       </h3>
 
       {loading ? (
+        <Loading />
+      ) : (
         <div className='px-[5rem] w-70 py-[2rem]  flex gap-8 flex-row justify-between bg-gray-200 sm:flex-col-reverse sm:px-4'>
           <Feed data={forumData} />
           <QuestionButton />
         </div>
-      ) : (
-        <Loading />
       )}
     </motion.div>
   )

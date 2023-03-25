@@ -11,65 +11,6 @@ const video = [
   },
   {
     id: 1,
-<<<<<<< HEAD
-    title: "Isha Wellness Centre",
-    emb: (
-      <iframe
-        width="400"
-        height="250"
-        src="https://www.youtube.com/embed/S3VAcGIiMNw"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    ),
-  },
-  {
-    id: 2,
-    title: "Mujhko thik karega kon",
-    emb: (
-      <iframe
-        width="400"
-        height="250"
-        src="https://www.youtube.com/embed/m2uxzxlKm5Q"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    ),
-  },
-  {
-    id: 3,
-    title: "Me Gym jau ya na jau",
-    emb: (
-      <iframe
-        width="400"
-        height="250"
-        src="https://www.youtube.com/embed/jSgg3CvlX5c"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    ),
-  },
-  {
-    id: 4,
-    title: "Isha Wellness Centre Cartoon- Ra2",
-    emb: (
-      <iframe
-        width="400"
-        height="250"
-        src="https://www.youtube.com/embed/yZuMWNouA2A"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    ),
-=======
     title: 'Isha Wellness Centre',
     src: 'https://www.youtube.com/embed/S3VAcGIiMNw',
   },
@@ -87,7 +28,6 @@ const video = [
     id: 4,
     title: 'Isha Wellness Centre Cartoon- Ra2',
     src: 'https://www.youtube.com/embed/yZuMWNouA2A',
->>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
   },
 ]
 const Video = () => {
@@ -100,7 +40,7 @@ const Video = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    arrows: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 800,
@@ -114,30 +54,21 @@ const Video = () => {
     ],
   }
   return (
-<<<<<<< HEAD
-    <div className="mx-auto px-20 py-12 mt-8 mb-16 bg-gray-200">
-      <h2 className=" text-3xl mb-8 mx-auto capitalize text-[#50acfb] text-center">
+    <div className='mx-auto px-[9rem] py-16 mt-8 mb-16 sm:px-4 '>
+      <h2 className=' text-3xl mb-8 mx-auto capitalize text-[#50acfb] text-center'>
         Youtube Content
       </h2>
       <Slider {...settings}>
-=======
-    <div className='mx-[5rem] pt-10 pb-20 sm:mx-2'>
-      <h2 className=' text-3xl sm:text-lg mb-8 mx-auto capitalize text-white text-center'>
-        Free Youtube Content
-      </h2>
-      <Slider {...settings} className='px-6 sm:px-0'>
->>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
         {video.map((video) => (
           <iframe
-            className='px-4'
+            className='px-4 sm:px-0 sm:w-full'
             key={video.id}
             width='100%'
             height='300'
             src={video.src}
             title='YouTube video player'
-            frameborder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         ))}
       </Slider>

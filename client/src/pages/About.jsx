@@ -86,17 +86,17 @@ const About = () => {
             </section>
           )
         })}
-        <div className='founder'>
-          About <span>Ishawellness</span> Center
-        </div>
-        <div className='papa'>
-          <p className='tracking-wide leading-relaxed text-justify'>{about}</p>
-        </div>
         <div>
           <TechTeam />
         </div>
         <div>
           <TherTeam />
+        </div>
+        <div className='founder'>
+          About <span>Ishawellness</span> Center
+        </div>
+        <div className='papa'>
+          <p className='tracking-wide leading-relaxed text-justify'>{about}</p>
         </div>
       </Container>
     </motion.div>

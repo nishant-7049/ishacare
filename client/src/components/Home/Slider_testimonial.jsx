@@ -13,15 +13,9 @@ const data = [
   },
   {
     id: 1,
-<<<<<<< HEAD
-    image: `/images/img (2).png`,
-    name: `KAVITA CHAWLA`,
-    time: "2 years ago",
-=======
     image: `/images/service/img (2).png`,
     name: `KAVITA CHAWLA`,
-    time: '2 years ago',
->>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
+    time: "2 years ago",
     review: `"I am KAVITA CHAWLA I lived in Ahmedabad I have back pain & foot pain for that I visited many doctors in Ratlam as well as in Ahmedabad but I don't get... read more"`,
   },
   {

@@ -1,92 +1,87 @@
-import React, { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const data = [
   {
     id: 0,
     topic: `Physical Therapy`,
     img: `/images/service/img (1).png`,
-    para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?',
+    para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?",
   },
   {
     id: 1,
-    topic: 'Yoga',
-    img: '/images/service/img (2).png',
-    para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
+    topic: "Yoga",
+    img: "/images/service/img (2).png",
+    para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\",
   },
   {
     id: 2,
-    topic: 'Women Wellness care',
-    img: '/images/service/img (1).png',
-    para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
+    topic: "Women Wellness care",
+    img: "/images/service/img (1).png",
+    para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\",
   },
   {
     id: 3,
-    topic: 'Employee Wellness Program',
-    img: '/images/service/img (2).png',
-    para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
+    topic: "Employee Wellness Program",
+    img: "/images/service/img (2).png",
+    para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\",
   },
   {
     id: 4,
-    topic: 'Social Responsibility',
-    img: '/images/service/img (1).png',
-    para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
+    topic: "Social Responsibility",
+    img: "/images/service/img (1).png",
+    para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\",
   },
   {
     id: 5,
-    topic: 'Community Wellness Program',
-    img: '/images/service/img (2).png',
-    para: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\',
+    topic: "Community Wellness Program",
+    img: "/images/service/img (2).png",
+    para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas inventore vitae facilis perferendis sapiente voluptate nihil ea laboriosam odio error, hic autem maxime rerum animi, vel saepe! Odit, non! Praesentium possimus eum maiores, dignissimos porro, numquam quae explicabo sint sunt et dolorum, laborum ducimus adipisci animi blanditiis quod ex tenetur?\\",
   },
-]
+];
 
 function ServicesPage() {
-  const { ref, inView } = useInView()
-  const animation = useAnimation()
+  const { ref, inView } = useInView();
+  const animation = useAnimation();
 
   useEffect(() => {
     if (inView) {
       animation.start({
         opacity: 1,
         y: 0,
-        transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
-      })
+        transition: { type: "spring", duration: 0.5, bounce: 0.5 },
+      });
     }
-  }, [inView])
+  }, [inView]);
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 200 }} animate={animation}>
-<<<<<<< HEAD
-      <div className='bg-[url(/images/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
-        <div className='  pt-20 mx-20  sm:mx-1 sm:pt-12 '>
-=======
-      <div className='bg-[url(/images/bg/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8'>
-        <div className='  pt-20 mx-20 '>
->>>>>>> 43dc05d3a423a1c9113adf70e2c14e4597398ede
-          <h3 className='text-white text-5xl text-center my-8'>Our Services</h3>
+      <div className="bg-[url(/images/bg/ser-bac.jpg)] bg-cover bg-center bg-fixed py-8">
+        <div className="  pt-20 mx-20 ">
+          <h3 className="text-white text-5xl text-center my-8">Our Services</h3>
           {data.map((data) => {
             return (
               <div
-                className='border-[1px] border-[white]] border-solid-50 m-4 '
+                className="border-[1px] border-[white]] border-solid-50 m-4 "
                 key={data.id}
               >
-                <div className='flex  gap-5 items-center bg-black bg-opacity-50 px-20 py-8 sm:flex-col-reverse '>
-                  <h2 className='text-[3rem] font-bold text-[#84adea] text-center sm:text-2xl'>
+                <div className="flex  gap-5 justify-between items-center bg-black bg-opacity-50 px-20 py-8 sm:flex-col-reverse ">
+                  <h2 className="text-[3rem] font-bold text-[#84adea] text-center sm:text-2xl">
                     {data.topic}
                   </h2>
-                  <div className='flex-0  object-contain '>
-                    <img src={data.img} alt='' />
+                  <div className="flex-0  object-contain ">
+                    <img src={data.img} alt="" />
                   </div>
                 </div>
-                <p className='p-8 bg-[white] sm:px-4'>{data.para}</p>
+                <p className="p-8 bg-[white] sm:px-4">{data.para}</p>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
-export default ServicesPage
+export default ServicesPage;

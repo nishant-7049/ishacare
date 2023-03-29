@@ -13,15 +13,29 @@ const ForemPost = ({ item }) => {
   // console.log(item)
   const postAnswer = async (e) => {
     e.preventDefault()
-    if (!localStorage.getItem('authToken')) {
+    if (
+      !localStorage.getItem('authToken') ||
+      !localStorage.getItem('userName')
+    ) {
       window.alert('Please Login or Register to post a question !')
     } else {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+        },
+      }
+
       await axios
-        .post('http://localhost:5000/api/forum/postAnswer', {
-          user: localStorage.getItem('userName'),
-          questionId: item._id,
-          answer: answerState,
-        })
+        .post(
+          'http://localhost:5000/api/forum/postAnswer',
+          {
+            user: localStorage.getItem('userName'),
+            questionId: item._id,
+            answer: answerState,
+          },
+          config
+        )
         .then((res) => {
           console.log(res)
         })

@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const { protect } = require('../middleware/auth')
 
 const {
   postQuestion,
@@ -8,7 +9,7 @@ const {
 } = require('../controllers/forum')
 
 router.route('/getForumData').get(getForumData)
-router.route('/postQuestion').post(postQuestion)
-router.route('/postAnswer').post(postAnswer)
+router.route('/postQuestion').post(protect, postQuestion)
+router.route('/postAnswer').post(protect, postAnswer)
 
 module.exports = router

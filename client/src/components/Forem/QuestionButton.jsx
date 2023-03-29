@@ -14,14 +14,28 @@ const QuestionButton = () => {
   const postQuestion = async (e) => {
     e.preventDefault()
 
-    if (!localStorage.getItem('authToken')) {
+    if (
+      !localStorage.getItem('authToken') ||
+      !localStorage.getItem('userName')
+    ) {
       window.alert('Please Login or Register to post a question !')
     } else {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('authToken')}`,
+        },
+      }
+
       await axios
-        .post('http://localhost:5000/api/forum/postQuestion', {
-          user: localStorage.getItem('userName'),
-          question: questionState,
-        })
+        .post(
+          'http://localhost:5000/api/forum/postQuestion',
+          {
+            user: localStorage.getItem('userName'),
+            question: questionState,
+          },
+          config
+        )
         .then((res) => {
           console.log(res)
         })

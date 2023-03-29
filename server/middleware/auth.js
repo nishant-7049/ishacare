@@ -25,8 +25,6 @@ exports.protect = async (req, res, next) => {
       return next(new ErrorResponse('No user found with this id', 404))
     }
 
-    req.user = user
-
     next()
   } catch (err) {
     return next(new ErrorResponse('Not authorized to access this router', 401))

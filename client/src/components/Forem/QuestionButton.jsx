@@ -4,11 +4,13 @@ import { AiFillCloseSquare } from 'react-icons/ai'
 import { RxAvatar } from 'react-icons/rx'
 import Modal from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
+import { useNavigate } from 'react-router-dom'
 
 const QuestionButton = () => {
   const [isModelOpen, setIsModelOpen] = useState(false)
   const [questionState, setQuestionState] = useState('')
   const close = <AiFillCloseSquare className='text-2xl text-[#50acfb]' />
+  const navigate = useNavigate()
   // console.log(data)
 
   const postQuestion = async (e) => {
@@ -41,6 +43,9 @@ const QuestionButton = () => {
         })
         .catch((error) => {
           console.log(error)
+          window.alert('Your session has been expired, Please login !')
+          navigate('/login')
+          localStorage.clear()
         })
       setIsModelOpen(false)
       location.reload()

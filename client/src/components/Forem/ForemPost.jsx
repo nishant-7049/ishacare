@@ -4,11 +4,13 @@ import { AiFillCloseSquare } from 'react-icons/ai'
 import { BiCommentDetail } from 'react-icons/bi'
 import Modal from 'react-responsive-modal'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const ForemPost = ({ item }) => {
   const [isModelOpen, setIsModelOpen] = useState(false)
   const [answerState, setAnswerState] = useState('')
   const close = <AiFillCloseSquare className='text-2xl text-[#50acfb]' />
+  const navigate = useNavigate()
 
   // console.log(item)
   const postAnswer = async (e) => {
@@ -41,6 +43,9 @@ const ForemPost = ({ item }) => {
         })
         .catch((error) => {
           console.log(error)
+          window.alert('Your session has been expired, Please login !')
+          navigate('/login')
+          localStorage.clear()
         })
       setIsModelOpen(false)
       location.reload()

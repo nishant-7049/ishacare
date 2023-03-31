@@ -39,7 +39,7 @@ const ForemPost = ({ item }) => {
           config
         )
         .then((res) => {
-          console.log(res)
+          console.log(res);
         })
         .catch((error) => {
           console.log(error)
@@ -50,28 +50,28 @@ const ForemPost = ({ item }) => {
       setIsModelOpen(false)
       location.reload()
     }
-  }
+  };
   return (
-    <div className=' py-3 px-5 mb-[2rem]  bg-white shadow-lg flex flex-col gap-4'>
-      <div className='flex gap-4 items-center '>
-        <RxAvatar className='text-3xl text-[#50acfb]' />
-        <p className='text-xs text-[#50acfb]'>{item.user}</p>
-        <small className='text-xs text-[#50acfb]'>
+    <div className=" py-3 px-5 mb-[2rem]  bg-white shadow-lg flex flex-col gap-4">
+      <div className="flex gap-4 items-center ">
+        <RxAvatar className="text-3xl text-[#50acfb]" />
+        <p className="text-xs text-[#50acfb]">{item.user}</p>
+        <small className="text-xs text-[#50acfb]">
           {item.timePosted.substring(0, 10)}
         </small>
       </div>
-      <div className='flex justify-between'>
-        <div className='flex justify-between w-[100%] gap-4 mx-12 '>
-          <p className='w-[100%]'>{item.question}</p>
+      <div className="flex justify-between">
+        <div className="flex justify-between w-[100%] gap-4 mx-12 ">
+          <p className="w-[100%]">{item.question}</p>
           <BiCommentDetail
-            className='text-xl z-10 text-[#50acfb]'
+            className="text-xl text-[#50acfb]"
             onClick={() => {
-              setIsModelOpen(true)
+              setIsModelOpen(true);
             }}
           />
         </div>
         <Modal
-          classNames=' h-[80vh] w-[80vw] '
+          classNames=" h-[80vh] w-[80vw] "
           open={isModelOpen}
           closeIcon={close}
           onClose={() => setIsModelOpen(false)}
@@ -79,35 +79,35 @@ const ForemPost = ({ item }) => {
           closeOnOverlayClick={false}
           styles={{
             overlay: {
-              height: 'auto',
+              height: "auto",
             },
           }}
         >
           <form onSubmit={postAnswer}>
-            <div className='h-[500px] w-[700px] flex flex-col justify-around sm:h-[300px] sm:w-[280px] '>
-              <h6 className='text-2xl border-b border-1 border-[#6d6d6d]'>
+            <div className="h-[500px] w-[700px] flex flex-col justify-around sm:h-[300px] sm:w-[280px] ">
+              <h6 className="text-2xl border-b border-1 border-[#6d6d6d]">
                 Add Answer
               </h6>
-              <div className='flex flex-col gap-6 items-center justify-center'>
-                <RxAvatar className='text-9xl text-[#50acfb] sm:text-5xl' />
+              <div className="flex flex-col gap-6 items-center justify-center">
+                <RxAvatar className="text-9xl text-[#50acfb] sm:text-5xl" />
                 <textarea
                   onChange={(e) => {
-                    setAnswerState(e.target.value)
+                    setAnswerState(e.target.value);
                   }}
-                  className='mt-2 bg-white w-[100%] p-2 sm:mt-0'
-                  type='text'
-                  placeholder='Type your Answer here...'
-                  maxLength='100'
+                  className="mt-2 bg-white w-[100%] p-2 sm:mt-0"
+                  type="text"
+                  placeholder="Type your Answer here..."
+                  maxLength="100"
                 />
               </div>
-              <div className='flex flex-col gap-5 items-center sm:flex-row sm:gap-3 sm:text-sm'>
-                <button className='w-[50%] bg-[#50acfb] rounded-xl  py-2 text-white'>
+              <div className="flex flex-col gap-5 items-center sm:flex-row sm:gap-3 sm:text-sm">
+                <button className="w-[50%] bg-[#50acfb] rounded-xl  py-2 text-white">
                   Add Answer
                 </button>
                 <button
-                  className='w-[50%] bg-[#50acfb] rounded-xl  py-2 text-white'
+                  className="w-[50%] bg-[#50acfb] rounded-xl  py-2 text-white"
                   onClick={() => {
-                    setIsModelOpen(false)
+                    setIsModelOpen(false);
                   }}
                 >
                   Cancel
@@ -117,24 +117,24 @@ const ForemPost = ({ item }) => {
           </form>
         </Modal>
       </div>
-      <p className='text-xs text-gray-500'>Answers: {item.allAnswers.length}</p>
+      <p className="text-xs text-gray-500">Answers: {item.allAnswers.length}</p>
       <hr />
       {item.allAnswers.map((answers) => {
         return (
-          <div key={answers._id} className=' answer px-10 flex flex-col gap-4'>
-            <div className='flex gap-4 items-center '>
-              <RxAvatar className='text-3xl text-[#50acfb]' />
-              <p className='text-xs text-[#50acfb]'>{answers.user}</p>
-              <small className='text-xs text-[#50acfb]'>
+          <div key={answers._id} className=" answer px-10 flex flex-col gap-4">
+            <div className="flex gap-4 items-center ">
+              <RxAvatar className="text-3xl text-[#50acfb]" />
+              <p className="text-xs text-[#50acfb]">{answers.user}</p>
+              <small className="text-xs text-[#50acfb]">
                 {answers.timePosted.substring(0, 10)}
               </small>
             </div>
-            <p className='ml-12'>{answers.answer}</p>
+            <p className="ml-12">{answers.answer}</p>
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 export default ForemPost

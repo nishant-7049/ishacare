@@ -65,7 +65,7 @@ function LocateUs() {
                 }
               >
                 <div className="flex-row items-center">
-                  <div className="address">
+                  <div className="address h-[300px]">
                     <p>{data.address}</p>
                     <p>
                       <a href="tel:">Mobile: {data.mobile}</a>

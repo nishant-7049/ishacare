@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Feed from "../components/forum/Feed";
-import QuestionButton from "../components/forum/QuestionButton";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import Feed from "../components/Forem/Feed";
+import QuestionButton from "../components/Forem/QuestionButton";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 const Loading = () => {
@@ -13,11 +12,9 @@ const Loading = () => {
   );
 };
 
-const forumPage = () => {
+const ForumPage = () => {
   const [forumData, setForumData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const { ref, inView } = useInView();
-  const animation = useAnimation();
+  const [loading, setLoading] = useState(true);
 
   const getForumData = async () => {
     const { data } = await axios
@@ -25,42 +22,37 @@ const forumPage = () => {
       .catch((err) => {
         console.log(err.message);
       });
-    setLoading(true);
-
-    // console.log(data)
+    setLoading(false);
     setForumData(data);
   };
-
-  useEffect(() => {
-    if (inView) {
-      animation.start({
-        opacity: 1,
-        y: 0,
-        transition: { type: "spring", duration: 0.5, bounce: 0.5 },
-      });
-    }
-  }, [inView]);
 
   useEffect(() => {
     getForumData();
   }, []);
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 200 }} animate={animation}>
+    <motion.div
+      initial={{ opacity: 0, y: 200 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring", duration: 0.5, bounce: 0.5 },
+      }}
+    >
       <h3 className="text-[#50acfb] mt-[4.5rem] pt-4 bg-gray-200 text-center text-2xl">
-        forum
+        Forum
       </h3>
 
       {loading ? (
+        <Loading />
+      ) : (
         <div className="px-[5rem] w-70 py-[2rem]  flex gap-8 flex-row justify-between bg-gray-200 sm:flex-col-reverse sm:px-4">
           <Feed data={forumData} />
           <QuestionButton />
         </div>
-      ) : (
-        <Loading />
       )}
     </motion.div>
   );
 };
 
-export default forumPage;
+export default ForumPage;

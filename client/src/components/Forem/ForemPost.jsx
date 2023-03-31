@@ -45,7 +45,7 @@ const forumPost = ({ item }) => {
         <div className="flex justify-between w-[100%] gap-4 mx-12 ">
           <p className="w-[100%]">{item.question}</p>
           <BiCommentDetail
-            className="text-xl z-10 text-[#50acfb]"
+            className="text-xl text-[#50acfb]"
             onClick={() => {
               setIsModelOpen(true);
             }}

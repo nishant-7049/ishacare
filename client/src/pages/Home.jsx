@@ -6,7 +6,7 @@ import Services from "../components/Home/Services";
 import Testimonial from "../components/Home/Testimonial";
 import Therapist from "../components/Home/Therapist";
 import Vision from "../components/Home/Vision";
-import Achievement from "../components/About/Achievement";
+import Achievement from "../components/about/Achievement";
 import LocateUs from "../components/Home/LocateUs";
 import Video from "../components/Home/Video";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,14 +19,17 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setNotification(false);
-    }, 7000);
+    }, 10000);
   }, []);
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0, y: 200 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring", duration: 0.5, bounce: 0.5 },
+      }}
     >
       <div className="relative">
         <AnimatePresence>
@@ -35,11 +38,11 @@ const Home = () => {
         <WA_Notify />
         <Hero />
         <Vision />
-        <div className="mx-[5rem] my-20">
-          <Achievement />
-        </div>
-        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
+        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed pb-4 h-fit ">
           <Services />
+        </div>
+        <div className="mx-20 my-12 sm:mx-10">
+          <Achievement />
         </div>
         <LocateUs />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">

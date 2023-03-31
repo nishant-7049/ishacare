@@ -40,7 +40,7 @@ const Video = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    arrows: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 800,
@@ -54,22 +54,21 @@ const Video = () => {
     ],
   };
   return (
-    <div className="mx-[5rem] pt-10 pb-20 sm:mx-2">
-      <h2 className=" text-3xl sm:text-lg mb-8 mx-auto capitalize text-white text-center">
-        Free Youtube Content
+    <div className="mx-auto px-[9rem] py-16 mt-8 mb-16 sm:px-4 ">
+      <h2 className=" text-3xl mb-8 mx-auto capitalize text-[#50acfb] text-center">
+        Youtube Content
       </h2>
-      <Slider {...settings} className="px-6 sm:px-0">
+      <Slider {...settings}>
         {video.map((video) => (
           <iframe
-            className="px-4"
+            className="px-4 sm:px-0 sm:w-full"
             key={video.id}
             width="100%"
             height="300"
             src={video.src}
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         ))}
       </Slider>

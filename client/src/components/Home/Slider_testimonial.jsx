@@ -50,16 +50,16 @@ const Slider_testimonial = () => {
     ],
   };
   return (
-    <Slider className="slider w-[70%] mx-auto my-4" {...settings}>
+    <Slider className="slider w-[90%] mx-auto my-4" {...settings}>
       {data.map((data) => {
         return (
           <div key={data.id} className="">
             <div className=" flex  w-[90%] bg-white px-12 py-4 mx-auto rounded-md sm:flex-col sm:px-4 sm:py-2">
-              <div className="h-full w-20 rounded-full sm:mx-auto">
+              <div className="h-full w-20 rounded-full sm:mx-auto ">
                 <img
                   src={data.image}
                   alt="/"
-                  className=" h-12  object-cover rounded-full"
+                  className=" h-12  object-cover rounded-full sm:mx-auto"
                 />
               </div>
               <div className=" flex flex-col flex-1 gap-2 text-left h-[10rem] sm:h-[15rem] sm:gap-1">
@@ -72,7 +72,9 @@ const Slider_testimonial = () => {
                     <span className=" text-xs">{data.time}</span>
                   </div>
                 </div>
-                <p className="overflow-y-auto text-sm">{data.review}</p>
+                <p className="overflow-y-auto text-sm sm:overflow-y-auto sm:h-20 ">
+                  {data.review}
+                </p>
                 <a
                   href="https://www.google.com/search?q=ishawellness+centre&oq=ishawellness+centre&aqs=chrome..69i57j0i13i512j46i13i175i199i512j0i22i30j0i390j69i60l3.4024j0j7&sourceid=chrome&ie=UTF-8#"
                   target="_blank"

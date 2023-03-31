@@ -12,16 +12,16 @@ function Navbar() {
         <Links className="">
           <Link to="/"> Home</Link>
           <Link to="/about"> About</Link>
-          <Link to="/service"> Service</Link>
+          <Link to="/service"> Services</Link>
           <Link to="/blogs"> Blogs</Link>
-          <Link to="/forum"> forum</Link>
+          <Link to="/forum"> Forum</Link>
           {localStorage.getItem("authToken") ? (
             <Link to="/booknow">
               <button>Book Now</button>
             </Link>
           ) : (
             <Link to="/register">
-              <button>SignIn</button>
+              <button>SignUp</button>
             </Link>
           )}
         </Links>
@@ -68,7 +68,7 @@ function Navbar() {
               to="/service"
             >
               {" "}
-              Service
+              Services
             </Link>
             <Link
               onClick={() => {
@@ -79,14 +79,26 @@ function Navbar() {
               {" "}
               Forum
             </Link>
-            <Link
-              onClick={() => {
-                setToggle(!toggle);
-              }}
-              to="/register"
-            >
-              <button>Book Now</button>
-            </Link>
+
+            {localStorage.getItem("authToken") ? (
+              <Link
+                onClick={() => {
+                  setToggle(!toggle);
+                }}
+                to="/booknow"
+              >
+                <button>Book Now</button>
+              </Link>
+            ) : (
+              <Link
+                onClick={() => {
+                  setToggle(!toggle);
+                }}
+                to="/register"
+              >
+                <button>SignUp</button>
+              </Link>
+            )}
           </LinksSmall>
         </NavSmall>
       )}

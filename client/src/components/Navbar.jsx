@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <Contain>
       <Nav>
-        <Logo src="/images/nav-logo.png" alt="img" />
+        <Logo src="/images/nav-logo1.png" alt="img" />
         <Links className="">
           <Link to="/"> Home</Link>
           <Link to="/about"> About</Link>
@@ -113,7 +113,7 @@ const Contain = styled.div`
   z-index: 10;
   height: 5rem;
   width: 100%;
-  background-color: #13223c;
+  background-color: #1f4889;
   top: 0;
 `;
 

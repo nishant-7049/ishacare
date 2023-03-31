@@ -113,7 +113,7 @@ const Contain = styled.div`
   z-index: 10;
   height: 5rem;
   width: 100%;
-  background-color: #13223c;
+  background-color: #1f4889;
   top: 0;
 `;
 

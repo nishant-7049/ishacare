@@ -57,7 +57,7 @@ const About = () => {
           A<span>bou</span>t Us
         </h1>
         <section className="about">
-          <div className="main sm:flex-col">
+          <div className="main md:flex-col sm:flex-col">
             <img
               src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt=""
@@ -118,7 +118,7 @@ const About = () => {
           return (
             <section key={founder.id} className="hum sm:py-4 sm:px-2">
               <div className="tum">
-                <div className="job">
+                <div className="job ">
                   <img
                     className="object-cover"
                     src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"

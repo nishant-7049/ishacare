@@ -13,6 +13,7 @@ const Loading = () => {
   )
 }
 
+
 const ForumPage = () => {
   const [forumData, setForumData] = useState([])
   const [loading, setLoading] = useState(true)

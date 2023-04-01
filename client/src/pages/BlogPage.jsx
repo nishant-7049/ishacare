@@ -74,6 +74,7 @@ const BlogPage = () => {
   useEffect(() => {
     if (!localStorage.getItem('authToken')) {
       navigate('/')
+      window.alert('Please login to access!')
     }
   }, [navigate])
   

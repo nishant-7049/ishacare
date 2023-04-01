@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Feed from '../components/Forem/Feed'
-import QuestionButton from '../components/Forem/QuestionButton'
+import Feed from '../components/Forum/Feed'
+import QuestionButton from '../components/forum/QuestionButton'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -31,6 +31,7 @@ const ForumPage = () => {
   useEffect(() => {
     if (!localStorage.getItem('authToken')) {
       navigate('/')
+      window.alert('Please login to access!')
     } else {
       if (loading) {
         getForumData()

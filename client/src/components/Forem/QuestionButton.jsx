@@ -6,7 +6,7 @@ import Modal from 'react-responsive-modal'
 import 'react-responsive-modal/styles.css'
 import { useNavigate } from 'react-router-dom'
 
-const QuestionButton = () => {
+const QuestionButton = ({setLoading}) => {
   const [isModelOpen, setIsModelOpen] = useState(false)
   const [questionState, setQuestionState] = useState('')
   const close = <AiFillCloseSquare className='text-2xl text-[#50acfb]' />
@@ -48,7 +48,7 @@ const QuestionButton = () => {
           localStorage.clear()
         })
       setIsModelOpen(false)
-      location.reload()
+      setLoading(true)
     }
   }
   return (

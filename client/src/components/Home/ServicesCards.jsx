@@ -44,12 +44,12 @@ const data = [
     processImg: <IoMdGlobe />,
     process: `(Coming Soon)`,
   },
-  {
-    id: 6,
-    processName: `Wellness Resort`,
-    processImg: <FaHotel />,
-    process: `(Coming Soon)`,
-  },
+  // {
+  //   id: 6,
+  //   processName: `Wellness Resort`,
+  //   processImg: <FaHotel />,
+  //   process: `(Coming Soon)`,
+  // },
 ];
 
 const ProcessCards = () => {
@@ -81,6 +81,21 @@ const ProcessCards = () => {
               </div>
             );
           })}
+          <div className="process-item process-item-last">
+            <Link to="/service">
+              <div className="card bg-white text-[#50acfb] ">
+                <div>
+                  <FaHotel />
+                </div>
+                <div className="card-con">
+                  <h1 className="card-head text-[#50acfb]">Wellness Resort</h1>
+                  <p className="card-text text-black tracking-wider">
+                    (Coming Soon)
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </IconContext.Provider>
     </Container>
@@ -108,6 +123,9 @@ const Container = styled.div`
     cursor: pointer;
     transition: 0.2s;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+  }
+  .process-item-last {
+    grid-column: 1/ -1;
   }
 
   // .process-item:hover {

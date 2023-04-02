@@ -7,10 +7,10 @@ import { AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className='flex justify-center px-[5rem] py-[2rem] pb-16 text-white bg-[#1f4889] sm:flex-col sm:px-2 sm:py-[1rem] sm:pb-8'>
-      <div className='w-1/2 text-justify sm:w-full'>
-        <p className='text-3xl font-extrabold my-4 sm:text-lg'>About Us</p>
-        <p className='text-sm font-bold sm:text-[12px]'>
+    <div className="flex justify-center px-[5rem] py-[2rem] pb-16 text-white bg-[#00286B] sm:flex-col sm:px-2 sm:py-[1rem] sm:pb-8">
+      <div className="w-1/2 text-justify sm:w-full">
+        <p className="text-3xl font-extrabold my-4 sm:text-lg">About Us</p>
+        <p className="text-sm font-bold sm:text-[12px]">
           ISHA Wellness Centre is founded by Dr. Hitesh Purohit and Dr. Minjan
           Patel, social and innovative They are wellness leaders, entrepreneurs.
           therapists and public health professionals. They have developed new
@@ -47,13 +47,13 @@ const Footer = () => {
             ishawellnesscentre@gmail.com
           </p>
         </div>
-        <div className='flex justify-between my-4 text-4xl sm:justify-around'>
-          <p className='text-white hover:text-[#4867aa]'>
-            <a href='https://m.facebook.com/ishawellnesscentre' target='_blank'>
+        <div className="flex justify-between my-4 text-4xl sm:justify-around">
+          <p className="text-white hover:text-[#4867aa]">
+            <a href="https://m.facebook.com/ishawellnesscentre" target="_blank">
               <AiFillFacebook />
             </a>
           </p>
-          <p className='text-white hover:text-[#fe0000]'>
+          <p className="text-white hover:text-[#fe0000]">
             <a
               href="https://www.youtube.com/@ishawellnesscentre5130"
               target="_blank"
@@ -61,7 +61,7 @@ const Footer = () => {
               <AiFillYoutube />
             </a>
           </p>
-          <p className='text-white hover:text-[#0077b5]'>
+          <p className="text-white hover:text-[#0077b5]">
             <a
               href="https://www.linkedin.com/in/isha-wellness-centre-b375a4204"
               target="_blank"

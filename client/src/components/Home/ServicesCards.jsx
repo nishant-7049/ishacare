@@ -66,7 +66,7 @@ const ProcessCards = () => {
             return (
               <div key={data.id} className="process-item">
                 <Link to="/service">
-                  <div className="card bg-white text-[#50acfb] ">
+                  <div className="card bg-white text-[#50acfb] hover:scale-105 ">
                     <div>{data.processImg}</div>
                     <div className="card-con">
                       <h1 className="card-head text-[#50acfb]">
@@ -81,9 +81,9 @@ const ProcessCards = () => {
               </div>
             );
           })}
-          <div className="process-item process-item-last">
+          <div className="process-item process-item-last ">
             <Link to="/service">
-              <div className="card bg-white text-[#50acfb] ">
+              <div className="card bg-white text-[#50acfb] hover:scale-105">
                 <div>
                   <FaHotel />
                 </div>

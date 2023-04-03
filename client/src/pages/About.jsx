@@ -9,17 +9,12 @@ const vision = `Our vision is a world where everyone has access to evidence base
 
 const mission = `Our mission is to provide evidence-based, patient-centered therapy services that address the root cause of MsNDs and lifestyle-related NCDs. Through our holistic wellness model, we aim to empower patients with the tools and resources they need to achieve long-term health and wellness, regardless of their age, occupation, or economic status. We are committed to increasing awareness about the impact of musculoskeletal pain on other health conditions and providing accessible, sustainable, and cost-effective therapy solutions that promote patient empowerment and support patients in achieving their health goals.`;
 
-const about = [
-  `Welcome to Isha Wellness Centre, a place where we are committed to providing evidence-based, patient-centered therapy services that address the root cause of musculoskeletal and lifestyle-related disorders. Our goal is to empower patients with the knowledge, resources, and support they need to achieve long-term health and wellness, regardless of their age, occupation, or economic status. At Isha Wellness Centre, we believe in the power of holistic wellness and offer a range of services that address physical, emotional, and spiritual well-being. Our team of expert therapists is dedicated to providing personalized care to each patient, ensuring that they receive the best possible treatment for their unique needs. `,
-  `We are proud to offer a wide range of services, including musculoskeletal pain management, paralysis care, child therapy, pregnancy care, lifestyle management, balanced digestion, healthy aging, technology detoxification, employee wellness, relational well-being, depression and anxiety relief, financial well-being, and hormone balance therapy. We also understand the importance of community wellness and have developed a program to make our therapy services accessible to as much of the population as possible. We believe that everyone should have access to high-quality healthcare and are committed to doing our part to improve the health and well-being of our community. `,
-  `Thank you for choosing Isha Wellness Centre as your partner in health and wellness. We look forward to helping you achieve your health goals and living your best life.`,
-];
-
 const founders = [
   {
     id: 0,
     name: "Dr. Hitesh Purohit",
-    image: "",
+    image:
+      "https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600",
     about: [
       `Meet Dr. Hitesh Purohit, our Founder Director and President - a visionary leader and passionate healthcare entrepreneur dedicated to improving community health through technology-led innovations. With a Bachelor's degree in Physical Therapy and a Post-Graduation in Public Health, Dr. Purohit brings a wealth of experience and expertise to his work at ISHA Wellness Centre. He is a Founder Director of Healthprizm Private Limited and Aarogyam Knowledge to Action Society. His deep commitment to creating need-based systems for community health has driven him to develop effective, sustainable models that make a real difference in people's lives. Dr. Purohit's exceptional skills and unwavering dedication to his work inspire us every day to continue striving for excellence in the field of wellness.`,
       `Dr. Purohit's contributions to the development of various innovative community models have been recognized and awarded by many conferences. His work has been covered in various regional and national newspapers and blogs, and he has research publications to his credit. He has also worked on various technology-based health solutions and provides consultation to organizations such as WHO, UNICEF, IIPHG, PHFI, local governments, and various national and international NGOs.`,
@@ -29,7 +24,8 @@ const founders = [
   {
     id: 1,
     name: "Dr. Minjan Patel",
-    image: "",
+    image:
+      "https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600",
     about: [
       `Dr. Minjan Patel, our Founder Director and CEO, is a true visiona dedicated to improving community health through her research-based solutions and passion for Healthy Community. With a Bachelor's degree in Occupational Therapy, a post-graduation in Public Health, and a Master's in Rural Development, Dr. Patel has honed her skills and expertise to make a real difference in the health and well-being of communities. She is the Founder Director of Healthprizm Private limited and Aarogyam Knowledge to Action Society - a non-profit platform. `,
 
@@ -89,41 +85,82 @@ const About = () => {
           About <span>Ishawellness</span> Center
         </div>
         <div className="papa ">
-          {about.map((about) => {
-            return (
-              <p className=" tracking-wide leading-relaxed text-justify">
-                {about}
-              </p>
-            );
-          })}
+          <p className="my-3 tracking-wide leading-relaxed text-justify">
+            <span>Welcome to Isha Wellness Centre,</span> a place where we are
+            committed to providing{" "}
+            <span>evidence-based, patient-centered therapy services </span> that
+            address the root cause of musculoskeletal and lifestyle-related
+            disorders. Our goal is <span>to empower patients</span> with the
+            knowledge, resources, and support they need to achieve long-term
+            health and wellness, regardless of their age, occupation, or
+            economic status. At Isha Wellness Centre, we believe in the power of{" "}
+            <span>holistic wellness</span> and offer a range of services that
+            address physical, emotional, and spiritual well-being. Our team of
+            expert therapists is dedicated{" "}
+            <span>to providing personalized care</span> to each patient,
+            ensuring that they receive the best possible treatment for their
+            unique needs.
+          </p>
+          <p className="my-3 tracking-wide leading-relaxed text-justify">
+            We are proud to offer a wide range of services, including
+            musculoskeletal{" "}
+            <span>
+              pain management, paralysis care, child therapy, pregnancy care,
+              lifestyle management, balanced digestion, healthy aging,
+              technology detoxification, employee wellness, relational
+              well-being, depression and anxiety relief, financial well-being,
+              and hormone balance therapy.
+            </span>{" "}
+            We also understand the importance of
+            <span>community wellness</span> and have developed a program to make
+            our therapy services accessible to as much of the population as
+            possible. We believe that everyone should have access to
+            high-quality healthcare and are committed to doing our part to
+            improve the health and well-being of our community.{" "}
+          </p>
+          <p className="my-3 tracking-wide leading-relaxed text-justify">
+            Thank you for choosing Isha Wellness Centre as your partner in
+            health and wellness. We look forward{" "}
+            <span>
+              to helping you achieve your health goals and living your best
+              life.
+            </span>{" "}
+          </p>
         </div>
 
         <div className="founder ">
           Founder of<span> Ishawellness Center</span>
         </div>
-        <p className="w-[80%] mx-auto text-center">
-          Meet the dynamic duo behind ISHA Wellness Centre, Dr. Minjan Patel and
-          Dr. Hitesh Purohit. As co-founders of Aarogyam Knowledge to Action
-          Society (AKAS) and Healthprizm Pvt. Ltd. (HPL), they bring a wealth of
-          knowledge and expertise to the table.
+        <p className="bade w-[80%] mx-auto text-center">
+          Meet the{" "}
+          <span>
+            {" "}
+            dynamic duo behind ISHA Wellness Centre, Dr. Minjan Patel and Dr.
+            Hitesh Purohit.
+          </span>{" "}
+          As co-founders of Aarogyam Knowledge to Action Society (AKAS) and
+          Healthprizm Pvt. Ltd. (HPL), they bring a wealth of knowledge and
+          expertise to the table.
         </p>
-        <p className="w-[80%] mx-auto text-center">
-          Together, these two visionaries have a shared goal of bringing
-          evidence-based, patient-centered therapy services to everyone. With
-          their combined knowledge, experience, and commitment to community
-          health, they are leading the way in making holistic wellness
-          accessible and achievable for all.
+        <p className="bade w-[80%] mx-auto text-center">
+          Together, these two visionaries have a shared{" "}
+          <span>
+            goal of bringing evidence-based, patient-centered therapy services
+            to everyone.
+          </span>{" "}
+          With their combined knowledge, experience, and commitment to community
+          health, they are{" "}
+          <span>
+            leading the way in making holistic wellness accessible and
+            achievable for all.
+          </span>
         </p>
         {founders.map((founder) => {
           return (
             <section key={founder.id} className="hum sm:py-4 sm:px-2">
               <div className="tum">
                 <div className="job ">
-                  <img
-                    className="object-cover"
-                    src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    alt=""
-                  />
+                  <img className="object-cover" src={founder.image} alt="" />
                 </div>
                 <div className="kon">
                   <h5>{founder.name}</h5>
@@ -264,6 +301,18 @@ const Container = styled.div`
     padding: 0 3rem;  
     color: black;
     font-size: medium;
+    font-weight; 400;
+    }
+  }
+  .papa p span{
+      font-weight: 900;
+      color: white; 
+  }
+  .bade {
+    color: gray;
+  }
+  .bade span  {
+    color: black;
   }
   .ayush {
     margin-top: 3rem;

@@ -12,6 +12,7 @@ import Video from "../components/Home/Video";
 import { motion, AnimatePresence } from "framer-motion";
 import Notification from "../components/Home/Notification";
 import WA_Notify from "../components/Home/WA_Notify";
+import Quote from "../components/Home/Quote";
 
 const Home = () => {
   const [notification, setNotification] = useState(true);
@@ -37,6 +38,7 @@ const Home = () => {
         </AnimatePresence>
         <WA_Notify />
         <Hero />
+        <Quote />
         <Vision />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed pb-4 h-fit ">
           <Services />

@@ -106,7 +106,7 @@ const Container = styled.div`
     gap: 0.5rem;
     padding: 1.5rem 0;
     text-align: center;
-    background-color: #2d4e89;
+    background-color: #00286b;
     height: 10rem;
     border-radius: 0.5rem;
     > h4 {

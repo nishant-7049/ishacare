@@ -44,12 +44,12 @@ const data = [
     processImg: <IoMdGlobe />,
     process: `(Coming Soon)`,
   },
-  {
-    id: 6,
-    processName: `Wellness Resort`,
-    processImg: <FaHotel />,
-    process: `(Coming Soon)`,
-  },
+  // {
+  //   id: 6,
+  //   processName: `Wellness Resort`,
+  //   processImg: <FaHotel />,
+  //   process: `(Coming Soon)`,
+  // },
 ];
 
 const ProcessCards = () => {
@@ -66,7 +66,7 @@ const ProcessCards = () => {
             return (
               <div key={data.id} className="process-item">
                 <Link to="/service">
-                  <div className="card bg-white text-[#50acfb] ">
+                  <div className="card bg-white text-[#50acfb] hover:scale-105 ">
                     <div>{data.processImg}</div>
                     <div className="card-con">
                       <h1 className="card-head text-[#50acfb]">
@@ -81,6 +81,21 @@ const ProcessCards = () => {
               </div>
             );
           })}
+          <div className="process-item process-item-last ">
+            <Link to="/service">
+              <div className="card bg-white text-[#50acfb] hover:scale-105">
+                <div>
+                  <FaHotel />
+                </div>
+                <div className="card-con">
+                  <h1 className="card-head text-[#50acfb]">Wellness Resort</h1>
+                  <p className="card-text text-black tracking-wider">
+                    (Coming Soon)
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </IconContext.Provider>
     </Container>
@@ -108,6 +123,9 @@ const Container = styled.div`
     cursor: pointer;
     transition: 0.2s;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+  }
+  .process-item-last {
+    grid-column: 2/ 3;
   }
 
   // .process-item:hover {
@@ -149,6 +167,9 @@ const Container = styled.div`
   @media screen and (max-width: 480px) {
     .process-grid {
       grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+    .process-item-last {
+      grid-column: 1/ 2;
     }
   }
 `;

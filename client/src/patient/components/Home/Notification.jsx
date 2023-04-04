@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const notifications = [
   {
     id: 1,
-    name: "Request An Appointment",
+    name: "Book an Appointment",
     redirect: "/booknow",
   },
   {

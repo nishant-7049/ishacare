@@ -1,34 +1,33 @@
-import React from 'react'
-import styled from 'styled-components'
-import Slider from 'react-slick'
-import { MdSchool } from 'react-icons/md'
-import { MdWork } from 'react-icons/md'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import React from "react";
+import styled from "styled-components";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const data = [
   {
     id: 0,
-    docName: `Dr. Katherine Scamander`,
-    experience: `5 Years in the field`,
-    school: `MBBS MD`,
+    docName: `Dr. Minjan Patel`,
+    info: [
+      `Occupational Therapist`,
+      `Public Health Professional, Health Researcher`,
+      `World Bank Consultant`,
+      `WHO cunsultant`,
+      `Rural Development expert`,
+    ],
     docImg: `/images/service/img (1).png`,
   },
   {
     id: 1,
-    docName: `Dr. Queenie Goldstein`,
-    experience: `10 Years in the field`,
-    school: `MBBS MD`,
-    docImg: `/images/service/img (2).png`,
-  },
-  {
-    id: 2,
-    docName: `Dr. Gellert Grindelwald`,
-    experience: `12 Years in the field`,
-    school: `MBBS MD`,
+    docName: `Dr. Hitesh Purohit`,
+    info: [
+      `Physical Therapist`,
+      `Public Health Professional`,
+      `Health Researcher`,
+    ],
     docImg: `/images/service/img (3).png`,
   },
-]
+];
 
 const SliderImg = () => {
   const settings = {
@@ -37,7 +36,7 @@ const SliderImg = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     arrows: false,
@@ -53,38 +52,37 @@ const SliderImg = () => {
         },
       },
     ],
-  }
+  };
   return (
     <Container>
-      <Slider className='slider' {...settings}>
+      <Slider className="slider" {...settings}>
         {data.map((data) => {
           return (
             <Items key={data.id}>
-              <div className='the-details'>
-                <div className='the-con'>
-                  <h3 className='the-name'>{data.docName}</h3>
-                  <span className='the-exp'>
-                    <MdWork />
-                    <p className='the-para'>{data.experience}</p>
-                  </span>
-                  <span className='the-edu'>
-                    <MdSchool />
-                    <p className='the-para'>{data.school}</p>
-                  </span>
+              <div className="the-details">
+                <div className="the-con flex-1">
+                  <h3 className="the-name text-center text-xl">
+                    {data.docName}
+                  </h3>
+                  <div className="the-exp ">
+                    {data.info.map((data) => {
+                      return <p>{data}</p>;
+                    })}
+                  </div>
                 </div>
-                <div className='the-image'>
-                  <img src={data.docImg} alt='' />
+                <div className="the-image">
+                  <img src={data.docImg} alt="" />
                 </div>
               </div>
             </Items>
-          )
+          );
         })}
       </Slider>
     </Container>
-  )
-}
+  );
+};
 
-export default SliderImg
+export default SliderImg;
 
 const Container = styled.div`
   margin: 2rem auto;
@@ -99,6 +97,12 @@ const Container = styled.div`
     .slick-dots li.slick-active button:before {
       color: white;
     }
+  }
+  .the-con {
+    min-height: 13rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   @media screen and (max-width: 1024px) {
@@ -120,7 +124,7 @@ const Container = styled.div`
       }
     }
   }
-`
+`;
 const Items = styled.div`
   // background-color: #50acfb;
   .the-details {
@@ -137,7 +141,6 @@ const Items = styled.div`
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   }
   .the-name {
-    margin-bottom: 1.2rem;
     color: #50acfb;
   }
   .the-image {
@@ -147,18 +150,17 @@ const Items = styled.div`
     width: 100%;
     padding: 1rem;
   }
-  .the-exp,
-  .the-edu {
-    margin: 0 auto;
+  .the-exp {
+    height: 8rem;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     padding: 0.5rem;
     -ms-flex-align: start;
-    align-items: center;
   }
 
   .the-para {
     margin-left: 0.5rem;
   }
-`
+`;

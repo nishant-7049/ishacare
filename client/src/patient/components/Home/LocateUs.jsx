@@ -7,15 +7,16 @@ const tabs = [
   {
     id: "2",
     location: "indore",
-    mobile: "+91-07383677661",
+    mobile: "+91-73836-77661",
     email: " abs@gmail.com",
-    address: "13, Narmada Nagar, Sudama Nagar, Indore, Madhya Pradesh 452009",
+    address:
+      "13, Narmada nagar, Chanakyapuri, Annapurna Road, behind SBI Vaishali nagar, 452009",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.2367843716133!2d75.83363191473049!3d22.682227685126406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd9a766e4bc5%3A0x950dbd8f954cea80!2sIsha%20Wellness%20Centre%20Indore!5e0!3m2!1sen!2sin!4v1676123749873!5m2!1sen!2sin",
   },
   {
     id: "1",
     location: "ratlam",
-    mobile: "+91-07383677661",
+    mobile: "+91-74123-59676",
     email: " ",
     address:
       "37, Chandni Chowk, near Hussaini Provision, opposite HDFC Bank, Laxman Pura, Ratlam, Madhya Pradesh 457001",

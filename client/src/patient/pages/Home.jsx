@@ -40,7 +40,7 @@ const Home = () => {
         <Hero />
         <Quote />
         <Vision />
-        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed pb-4 h-fit ">
+        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed pb-4 h-fit sm:h-fit">
           <Services />
         </div>
         <div className="mx-20 my-12 sm:mx-10">

@@ -57,39 +57,41 @@ const ProcessCards = () => {
     <Container>
       <IconContext.Provider
         value={{
-          size: "4rem",
-          color: "#50acfb",
+          size: '4rem',
+          color: '#50acfb',
         }}
       >
-        <div className="process-grid">
+        <div className='process-grid'>
           {data.map((data) => {
             return (
-              <div key={data.id} className="process-item">
-                <Link to="/service">
-                  <div className="card bg-white text-[#50acfb] hover:scale-105 ">
-                    <div>{data.processImg}</div>
-                    <div className="card-con">
-                      <h1 className="card-head text-[#50acfb]">
+              <div key={data.id} className='process-item'>
+                <Link to='/service'>
+                  <div className='card bg-white text-[#50acfb] hover:scale-105 '>
+                    <div className='animate-bounce'>{data.processImg}</div>
+                    <div className='card-con'>
+                      <h1 className='card-head text-[#50acfb] animate-bounce'>
                         {data.processName}
                       </h1>
-                      <p className="card-text text-black tracking-wider">
+                      <p className='card-text text-black tracking-wider'>
                         {data.process}
                       </p>
                     </div>
                   </div>
                 </Link>
               </div>
-            );
+            )
           })}
-          <div className="process-item process-item-last ">
-            <Link to="/service">
-              <div className="card bg-white text-[#50acfb] hover:scale-105">
-                <div>
+          <div className='process-item process-item-last '>
+            <Link to='/service'>
+              <div className='card bg-white text-[#50acfb] hover:scale-105'>
+                <div className='animate-bounce'>
                   <FaHotel />
                 </div>
-                <div className="card-con">
-                  <h1 className="card-head text-[#50acfb]">Wellness Resort</h1>
-                  <p className="card-text text-black tracking-wider">
+                <div className='card-con'>
+                  <h1 className='card-head text-[#50acfb] animate-bounce'>
+                    Wellness Resort
+                  </h1>
+                  <p className='card-text text-black tracking-wider'>
                     (Coming Soon)
                   </p>
                 </div>
@@ -99,7 +101,7 @@ const ProcessCards = () => {
         </div>
       </IconContext.Provider>
     </Container>
-  );
+  )
 };
 
 export default ProcessCards;

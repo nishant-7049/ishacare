@@ -3,7 +3,6 @@ import Blogs from "../components/Home/Blogs";
 import FAQ from "../components/Home/FAQ";
 import Hero from "../components/Home/Hero";
 import Services from "../components/Home/Services";
-import Testimonial from "../components/Home/Testimonial";
 import Therapist from "../components/Home/Therapist";
 import Vision from "../components/Home/Vision";
 import Achievement from "../components/About/Achievement";
@@ -13,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Notification from "../components/Home/Notification";
 import WA_Notify from "../components/Home/WA_Notify";
 import Quote from "../components/Home/Quote";
+import Disease from "../components/Home/Disease";
 
 const Home = () => {
   const [notification, setNotification] = useState(true);
@@ -46,14 +46,13 @@ const Home = () => {
         <div className="mx-20 my-12 sm:mx-10">
           <Achievement />
         </div>
+        <Disease />
         <LocateUs />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Therapist />
         </div>
         <Blogs />
-        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
-          <Testimonial />
-        </div>
+
         <FAQ />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Video />

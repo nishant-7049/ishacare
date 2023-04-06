@@ -4,28 +4,35 @@ import ScrollTrigger from "react-scroll-trigger";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
+import { TbPhysotherapist, TbSchool } from "react-icons/tb";
+import { MdQuestionAnswer } from "react-icons/md";
+import { GiDiscussion } from "react-icons/gi";
 
 const data = [
   {
     id: 0,
+    img: <TbPhysotherapist />,
     title: "Trained Wellness Facilitators",
     end: 20,
     duration: 5,
   },
   {
     id: 1,
+    img: <TbSchool />,
     title: "Imparted wellness Education through camps",
     end: 12000,
     duration: 3,
   },
   {
     id: 2,
+    img: <MdQuestionAnswer />,
     title: "Wellness consultation",
     end: 15000,
     duration: 3,
   },
   {
     id: 3,
+    img: <GiDiscussion />,
     title: "Wellness therapy sessions",
     end: 60000,
     duration: 3,
@@ -58,15 +65,16 @@ const Achievement = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={animation}
         >
-          <h3 className="founder w-fit text-3xl my-1 mx-auto pb-4 font-bold text-[#50acfb]">
+          <h3 className="founder w-fit text-3xl my-1 mx-auto pb-4 font-bold text-[#00286b]">
             Achive<span>ments</span>
           </h3>
           <div className="ach-cards">
             {data.map((card) => {
               return (
-                <div key={card.id} className="ach-card">
-                  <h4>{card.title}</h4>
-                  <p>
+                <div key={card.id} className="ach-card text-white">
+                  <div className="text-[3rem] mx-auto">{card.img}</div>
+                  <p className=" text-lg">{card.title}</p>
+                  <p className=" text-3xl">
                     {CounterOn && (
                       <CountUp
                         start={0}
@@ -107,14 +115,13 @@ const Container = styled.div`
     padding: 1.5rem 0;
     text-align: center;
     background-color: #00286b;
-    height: 10rem;
+    height: 13rem;
     border-radius: 0.5rem;
     > h4 {
       font-weight: 700;
       color: #fff;
     }
     > p {
-      font-size: 2rem;
       font-weight: 700;
       color: white;
     }

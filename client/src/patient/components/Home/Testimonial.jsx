@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import styled from "styled-components";
 import SliderTestimonial from "./Slider_testimonial";
 
-const Testimonial = () => {
+const Testimonial = ({ data }) => {
   const { ref, inView } = useInView({ threshold: 0.5 });
   const animation = useAnimation();
 
@@ -31,7 +31,7 @@ const Testimonial = () => {
         <p className="con-para text-white my-4 mx-auto">
           Here are some of the good things people have talked about.
         </p>
-        <SliderTestimonial />
+        <SliderTestimonial data={data} />
       </motion.div>
     </Container>
   );

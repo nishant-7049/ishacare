@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Notification from "../components/Home/Notification";
 import WA_Notify from "../components/Home/WA_Notify";
 import Quote from "../components/Home/Quote";
+import Disease from "../components/Home/Disease";
 
 const Home = () => {
   const [notification, setNotification] = useState(true);
@@ -45,6 +46,7 @@ const Home = () => {
         <div className="mx-20 my-12 sm:mx-10">
           <Achievement />
         </div>
+        <Disease />
         <LocateUs />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Therapist />

@@ -6,7 +6,7 @@ const data = [
   {
     id: 0,
     topic: `Physical Therapy`,
-    img: `/images/service/img (1).png`,
+    img: `images/service/face.png`,
     p1: [],
     logo: <TbPhysotherapist />,
     list: [
@@ -23,7 +23,7 @@ const data = [
   {
     id: 1,
     topic: 'Yoga',
-    img: '/images/service/img (2).png',
+    img: 'images/service/face1.png',
     p1: [
       `Welcome to our innovative yoga program, created to cater to individuals of all levels, from beginners to advanced practitioners. Our program is designed to improve your overall wellness and help prevent common health disorders. Our yoga sessions are tailored to meet your specific needs and goals, with a focus on enhancing strength, flexibility, balance, and relaxation.`,
       `Our experienced instructors bring a wealth of knowledge and expertise, making each session unique and enjoyable. Our yoga program is a great way to reduce stress, improve mental health, and enhance physical well-being.`,
@@ -38,7 +38,7 @@ const data = [
   {
     id: 2,
     topic: 'Lifestyle Wellness Program',
-    img: '/images/service/img (3).png',
+    img: 'images/service/face.png',
     p1: [
       `Our Lifestyle Wellness Program is a comprehensive, personalized approach to achieving optimal health and wellness. We offer a range of services to help you achieve your goals, including:
     `,
@@ -59,7 +59,7 @@ const data = [
   {
     id: 3,
     topic: 'Women Wellness Care',
-    img: '/images/service/img (1).png',
+    img: 'images/service/face1.png',
     p1: [
       `Our society relies heavily on the contributions of women and we hold great respect for them for the care, respect, and love they provide in various forms. We are deeply appreciative of their services and offer a wide range of services to promote their health and happiness. The Women Wellness Wing provides numerous services, which include but are not limited to:
     `,
@@ -90,7 +90,7 @@ const data = [
   {
     id: 4,
     topic: 'Employee Wellness Program',
-    img: '/images/service/img (2).png',
+    img: 'images/service/face.png',
     p1: [
       `We offer a comprehensive employee wellness program that includes health education and exercise sessions to empower your staff to prevent and address a range of occupational health problems. Our program is designed to promote physical and mental well-being, increase productivity, and reduce absenteeism.
     `,
@@ -106,7 +106,7 @@ const data = [
   {
     id: 5,
     topic: 'Community Wellness Program',
-    img: '/images/service/img (3).png',
+    img: 'images/service/face1.png',
     p1: [
       `We take our social responsibility seriously, and that's why we've developed a community wellness program aimed at making evidence-based therapy services accessible to all. Our program provides training and enabling support to eligible active members of the community, empowering them to execute therapy services for their fellow community members. Our goal is to promote a healthier, happier, and more equitable society for all.
     `,
@@ -123,7 +123,7 @@ const data = [
   {
     id: 6,
     topic: 'Wellness Resort (Coming Soon)',
-    img: '/images/service/img (3).png',
+    img: 'images/service/face.png',
     p1: [
       `We are excited to announce that our new wellness resort project is coming soon! 
     `,
@@ -139,10 +139,61 @@ const data = [
   },
 ]
 
+const EvenComponent = ({ item }) => {
+  return (
+    <div className='my-[5rem] mx-[5rem]'>
+      <div className='relative h-[22rem] flex items-center sm:flex-col'>
+        <div className='w-[70%] flex flex-col justify-evenly px-10 bg-[#f3f4ee] h-full absolute shadow-[5px_5px_13px_-7px_#000]'>
+          <h2 className='text-3xl font-semibold'>{item.topic}</h2>
+          <p className='line-clamp-4 tracking-wide leading-7 w-[80%]'>
+            {item.p1.map((innerItem) => {
+              return innerItem
+            })}
+          </p>
+          <ul className='list-disc pl-8 line-clamp-4'>
+            {item.list.map((list) => {
+              return <li>{list}</li>
+            })}
+          </ul>
+          <p className='opacity-75 cursor-pointer'>Read More</p>
+        </div>
+        <div className='absolute right-0 h-full'>
+          <img className='h-full' src={item.img} alt='' />
+        </div>
+      </div>
+    </div>
+  )
+}
+const OddComponent = ({ item }) => {
+  return (
+    <div className='my-[5rem] mx-[5rem]'>
+      <div className='relative h-[22rem] flex items-center sm:flex-col'>
+        <div className='w-[70%] pl-[10rem] flex flex-col justify-evenly px-10 bg-[#f3f4ee] h-full absolute right-0 shadow-[5px_5px_13px_-7px_#000]'>
+          <h2 className='text-3xl font-semibold'>{item.topic}</h2>
+          <p className='line-clamp-4 tracking-wide leading-7'>
+            {item.p1.map((innerItem) => {
+              return innerItem
+            })}
+          </p>
+          <ul className='list-disc pl-8 line-clamp-4'>
+            {item.list.map((list) => {
+              return <li>{list}</li>
+            })}
+          </ul>
+          <p className='opacity-75 cursor-pointer'>Read More</p>
+        </div>
+        <div className='absolute left-0 h-full'>
+          <img className='h-full' src={item.img} alt='' />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function ServicesPage() {
   return (
     <motion.div
-      className='mt-[5rem]'
+      className='mt-[6rem]'
       initial={{ opacity: 0, y: 200 }}
       animate={{
         opacity: 1,
@@ -150,37 +201,28 @@ function ServicesPage() {
         transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
       }}
     >
-      <div className='mx-auto text-center w-4/5'>
-        <p className='text-2xl font-bold'>Services</p>
-        <p className='text-lg my-4'>
+      <div className='mx-auto text-center w-4/5 opacity-80'>
+        <p className='text-2xl font-bold'>
+          In a healthy body <br /> resides a happy soul.
+        </p>
+        <p className='my-4'>
           The wholesome wellness of our bodies is the stepping stone to an
           empowering spiritual, physical and mental well-being instantly.
         </p>
-        <p className='text-lg my-4'>
+        <p className='my-4'>
           A safe haven to indulge into the holistic betterment of every
           individual, Nimba's Wellness Programmes enable one to lead a
           rejuvenating, stimulating and healthy life through a blend of an
           effective blend of western and natural treatment
         </p>
       </div>
-      <div className='my-[5rem] mx-[5rem]'>
-        <div className='relative h-[22rem] flex items-center'>
-          <div className='w-[70%] flex flex-col justify-evenly px-10 bg-[#f3f4ee] h-full absolute'>
-            <div>{data.logo}</div>
-            <h2 className=''>Naturopathy wonders</h2>
-            <p className='line-clamp-4 w-[80%]'>
-              In this age of mainstream health care dictating the terms, it is
-              difficult to realize the genuine, long-term benefits of
-              traditional healing practices. There is no medicine as strong as
-              the healing
-            </p>
-            <p>Read More</p>
-          </div>
-          <div className='absolute right-0 h-full'>
-            <img className='h-full' src='images/service/face.png' alt='' />
-          </div>
-        </div>
-      </div>
+      {data.map((item) => {
+        if (item.id % 2 == 0) {
+          return <EvenComponent item={item} />
+        } else {
+          return <OddComponent item={item} />
+        }
+      })}
     </motion.div>
   )
 }

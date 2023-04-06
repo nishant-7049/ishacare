@@ -55,7 +55,7 @@ const Video = () => {
   };
   return (
     <div className="mx-auto px-[9rem] py-16 mt-8 mb-16 sm:px-4 ">
-      <h2 className=" text-3xl mb-8 mx-auto capitalize text-[#00286b] text-center">
+      <h2 className=" text-3xl mb-8 mx-auto capitalize text-[white] font-bold text-center">
         Youtube Content
       </h2>
       <Slider {...settings}>

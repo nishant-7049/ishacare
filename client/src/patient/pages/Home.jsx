@@ -3,7 +3,6 @@ import Blogs from "../components/Home/Blogs";
 import FAQ from "../components/Home/FAQ";
 import Hero from "../components/Home/Hero";
 import Services from "../components/Home/Services";
-import Testimonial from "../components/Home/Testimonial";
 import Therapist from "../components/Home/Therapist";
 import Vision from "../components/Home/Vision";
 import Achievement from "../components/About/Achievement";
@@ -51,9 +50,7 @@ const Home = () => {
           <Therapist />
         </div>
         <Blogs />
-        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
-          <Testimonial />
-        </div>
+
         <FAQ />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Video />

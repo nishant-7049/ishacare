@@ -25,7 +25,7 @@ const Testimonial = () => {
         animate={animation}
         className="contain"
       >
-        <h2 className="text-3xl my-4 mx-auto capitalize text-white">
+        <h2 className="text-3xl my-4 mx-auto capitalize text-white font-bold">
           The Healed Speaks
         </h2>
         <p className="con-para text-white my-4 mx-auto">
@@ -41,7 +41,7 @@ export default Testimonial;
 
 const Container = styled.div`
   .contain {
-    margin: 1.5rem 5rem !important;
+    margin: 1.5rem 0 !important;
     margin-top: 5rem;
     z-index: 10;
     align-items: center;

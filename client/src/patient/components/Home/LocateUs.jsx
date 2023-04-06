@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Testimonial from "./Testimonial";
 
 const tabs = [
   {
@@ -42,7 +43,7 @@ function LocateUs() {
     <motion.div ref={ref} initial={{ opacity: 0, y: 100 }} animate={animation}>
       <Container className="mx-20 con sm:mx-10">
         <div className="container" itemID="Location">
-          <h2 className="centers">Our Centers</h2>
+          <h2 className="centers text-3xl">Our Centers</h2>
           <div className="locations flex justify-center">
             {tabs.map((data) => {
               return (
@@ -89,6 +90,9 @@ function LocateUs() {
                     Home-based services available @ Ahmedabad, Jaora(Ratlam)
                   </p>
                 </div>
+                <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed rounded-md">
+                  <Testimonial />
+                </div>
               </div>
             );
           })}
@@ -102,9 +106,9 @@ export default LocateUs;
 
 const Container = styled.div`
   .centers {
+    font-weight: 700;
     text-align: center;
-    color: #50acfb;
-    font-size: 2rem;
+    color: #00286b;
   }
   .container {
     margin: 2rem auto;
@@ -125,36 +129,39 @@ const Container = styled.div`
     .btn {
       margin: 0 1rem;
       font-size: 1.5rem;
+      font-weight: 500;
       background: transparent;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
-      color: black;
-      border: 2px solid #50acfb;
+      color: #00286b;
+      border: 2px solid #00286b;
       transition: 0.2s ease-in-out;
       text-transform: capitalize;
 
       &:hover {
-        background-color: #50acfb;
+        background-color: #00286b;
+        color: white;
       }
     }
   }
 
   .locations .active-btn {
-    background-color: #50acfb;
+    background-color: #00286b;
+    color: white;
   }
 
   .flex-row {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 2rem 0;
   }
 
   .address {
     width: 50%;
     font-size: x-large;
     text-transform: capitalize;
-    background-color: #50acfb;
+    background-color: #00286b;
     border-radius: 0.5rem;
     padding: 3rem;
     display: flex;
@@ -216,10 +223,6 @@ const Container = styled.div`
       .btn {
         font-size: small;
       }
-    }
-
-    .centers {
-      font-size: 1.5rem;
     }
 
     .flex-row {

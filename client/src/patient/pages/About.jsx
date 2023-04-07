@@ -20,29 +20,26 @@ const About = () => {
       }}
     >
       <Container className="sm:my-20 sm: mx-8">
-        <h1>
-          About <span>Us</span>
-        </h1>
         <section className="about">
           <div className="main md:flex-col sm:flex-col">
             <img
               src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt=""
             />
-            <div className="flex flex-col justify-center gap-6 items-center about-text sm:text-center sm:mx-auto sm:w-fit">
+            <div className="about-text flex flex-col justify-between h-[300px] gap-6 items-center   sm:text-center sm:mx-auto sm:w-fit">
               <div>
-                <h5 className="sm:flex sm:gap-1 w-fit">
-                  Our<span> Vision</span>{" "}
+                <h5 className="text-3xl font-bold sm:flex sm:gap-1 w-fit">
+                  Our Vision{" "}
                 </h5>
-                <p className="tracking-wide leading-relaxed text-justify">
+                <p className="tracking-wide leading-relaxed text-justify text-md">
                   {vision}
                 </p>
               </div>
               <div>
-                <h5 className="sm:flex sm:gap-1 w-fit">
-                  Our<span> Mission</span>{" "}
+                <h5 className="text-3xl font-bold  sm:flex sm:gap-1 w-fit ">
+                  Our Mission{" "}
                 </h5>
-                <p className="tracking-wide leading-relaxed text-justify">
+                <p className="tracking-wide leading-relaxed text-justify text-md">
                   {mission}
                 </p>
               </div>
@@ -52,10 +49,8 @@ const About = () => {
         <div>
           <Achievement />
         </div>
-        <div className="founder">
-          About <span>Ishawellness</span> Center
-        </div>
-        <div className="papa ">
+        <div className="founder">About Ishawellness Center</div>
+        <div className="papa text-md">
           <p className="my-3 tracking-wide leading-relaxed text-justify">
             <span>Welcome to Isha Wellness Centre,</span> a place where we are
             committed to providing{" "}
@@ -99,9 +94,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="founder ">
-          Founder of<span> Ishawellness Center</span>
-        </div>
+        <div className="founder ">Founder of Ishawellness Center</div>
         <p className="bade w-[80%] mx-auto text-center">
           Meet the{" "}
           <span>
@@ -274,9 +267,7 @@ const About = () => {
           </div>
         </section>
         <section>
-          <h5 className="founder">
-            Our <span>Story</span>
-          </h5>
+          <h5 className="founder">Our Story</h5>
           <div className="papa">
             <p>
               <span>
@@ -441,17 +432,13 @@ const Container = styled.div`
     gap: 4rem;
   }
 
-  span {
-    color: red;
-  }
+  
   .about-text h5 {
     color: white;
-    font-size: x-large;
     border-bottom: 3px solid white;
     margin-bottom: 1rem;
   }
   .about-text p {
-    font-size: small;
     color: white;
     font-weight: 500;
   }
@@ -459,8 +446,9 @@ const Container = styled.div`
     text-align: center;
     border-bottom: 3px solid black;
     font-size: 2rem;
-    color: black;
+    color: #00286b;
     width: 80%;
+    font-weight: 800;
     margin-top: 5rem;
     margin-bottom: 2rem;
     margin-left: auto;
@@ -506,7 +494,6 @@ const Container = styled.div`
     margin-bottom: 2rem;
   }
   .papa {
-    font-size: large;
     width:80%
     margin-top: 2rem;
     margin-bottom: 5rem;
@@ -517,13 +504,12 @@ const Container = styled.div`
 
   .papa p {
     padding: 0 3rem;  
-    color: #c3c3c3;
-    font-size: medium;
-    font-weight; 400;
+    color: white;
+    font-weight; 2  00;
     }
   }
   .papa p span{
-      font-weight: 900;
+      font-weight: 800;
       color: white; 
   }
   .bade {

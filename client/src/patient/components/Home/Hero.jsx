@@ -58,8 +58,6 @@ const Hero = () => {
 export default Hero;
 
 const Container = styled.div`
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-
   .hero {
     height: 100vh;
     min-width: 100vw;

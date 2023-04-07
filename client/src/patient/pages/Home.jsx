@@ -46,17 +46,19 @@ const Home = () => {
         <div className="mx-20 my-12 sm:mx-10">
           <Achievement />
         </div>
-        <Disease />
+        <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed h-fit sm:h-fit">
+          <Disease />
+        </div>
         <LocateUs />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Therapist />
         </div>
         <Blogs />
 
-        <FAQ />
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed">
           <Video />
         </div>
+        <FAQ />
       </div>
     </motion.div>
   );

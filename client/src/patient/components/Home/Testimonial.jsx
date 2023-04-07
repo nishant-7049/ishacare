@@ -28,7 +28,7 @@ const Testimonial = ({ data }) => {
         <h2 className="text-3xl my-4 mx-auto capitalize text-white font-bold">
           The Healed Speaks
         </h2>
-        <p className="con-para text-white my-4 mx-auto">
+        <p className="con-para text-white my-4 mx-auto sm:text-sm">
           Here are some of the good things people have talked about.
         </p>
         <SliderTestimonial data={data} />

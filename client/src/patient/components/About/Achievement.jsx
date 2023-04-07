@@ -41,7 +41,7 @@ const data = [
 
 const Achievement = () => {
   const [CounterOn, setCounterOn] = useState(false);
-  const { ref: refrence, inView } = useInView({ threshold: 0.5 });
+  const { ref: refrence, inView } = useInView({ threshold: 0.25 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const Achievement = () => {
           animate={animation}
         >
           <h3 className="founder w-fit text-3xl my-1 mx-auto pb-4 font-bold text-[#00286b]">
-            Achive<span>ments</span>
+            Achievements
           </h3>
           <div className="ach-cards">
             {data.map((card) => {

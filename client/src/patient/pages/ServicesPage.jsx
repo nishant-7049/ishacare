@@ -1,6 +1,8 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { TbPhysotherapist } from 'react-icons/tb'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+import { motion } from "framer-motion";
+import { TbPhysotherapist } from "react-icons/tb";
 
 const data = [
   {
@@ -22,8 +24,8 @@ const data = [
   },
   {
     id: 1,
-    topic: 'Yoga',
-    img: 'images/service/face1.png',
+    topic: "Yoga",
+    img: "images/service/face1.png",
     p1: [
       `Welcome to our innovative yoga program, created to cater to individuals of all levels, from beginners to advanced practitioners. Our program is designed to improve your overall wellness and help prevent common health disorders. Our yoga sessions are tailored to meet your specific needs and goals, with a focus on enhancing strength, flexibility, balance, and relaxation.`,
       `Our experienced instructors bring a wealth of knowledge and expertise, making each session unique and enjoyable. Our yoga program is a great way to reduce stress, improve mental health, and enhance physical well-being.`,
@@ -37,8 +39,8 @@ const data = [
   },
   {
     id: 2,
-    topic: 'Lifestyle Wellness Program',
-    img: 'images/service/face.png',
+    topic: "Lifestyle Wellness Program",
+    img: "images/service/face.png",
     p1: [
       `Our Lifestyle Wellness Program is a comprehensive, personalized approach to achieving optimal health and wellness. We offer a range of services to help you achieve your goals, including:
     `,
@@ -58,8 +60,8 @@ const data = [
   },
   {
     id: 3,
-    topic: 'Women Wellness Care',
-    img: 'images/service/face1.png',
+    topic: "Women Wellness Care",
+    img: "images/service/face1.png",
     p1: [
       `Our society relies heavily on the contributions of women and we hold great respect for them for the care, respect, and love they provide in various forms. We are deeply appreciative of their services and offer a wide range of services to promote their health and happiness. The Women Wellness Wing provides numerous services, which include but are not limited to:
     `,
@@ -89,8 +91,8 @@ const data = [
   },
   {
     id: 4,
-    topic: 'Employee Wellness Program',
-    img: 'images/service/face.png',
+    topic: "Employee Wellness Program",
+    img: "images/service/face.png",
     p1: [
       `We offer a comprehensive employee wellness program that includes health education and exercise sessions to empower your staff to prevent and address a range of occupational health problems. Our program is designed to promote physical and mental well-being, increase productivity, and reduce absenteeism.
     `,
@@ -105,8 +107,8 @@ const data = [
   },
   {
     id: 5,
-    topic: 'Community Wellness Program',
-    img: 'images/service/face1.png',
+    topic: "Community Wellness Program",
+    img: "images/service/face1.png",
     p1: [
       `We take our social responsibility seriously, and that's why we've developed a community wellness program aimed at making evidence-based therapy services accessible to all. Our program provides training and enabling support to eligible active members of the community, empowering them to execute therapy services for their fellow community members. Our goal is to promote a healthier, happier, and more equitable society for all.
     `,
@@ -122,8 +124,8 @@ const data = [
   },
   {
     id: 6,
-    topic: 'Wellness Resort (Coming Soon)',
-    img: 'images/service/face.png',
+    topic: "Wellness Resort (Coming Soon)",
+    img: "images/service/face.png",
     p1: [
       `We are excited to announce that our new wellness resort project is coming soon! 
     `,
@@ -137,79 +139,101 @@ const data = [
     list: [],
     p2: `At our wellness resort, we believe that health and wellness are not a luxury, but a necessity. Our team of experts is dedicated to helping you achieve your wellness goals, and we can't wait to welcome you to our new space. Stay tuned for updates on our opening date and booking information.`,
   },
-]
+];
 
 const EvenComponent = ({ item }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className='my-[5rem] mx-[5rem]'>
-      <div className='relative h-[22rem] flex items-center sm:flex-col'>
-        <div className='w-[70%] flex flex-col justify-evenly px-10 bg-[#f3f4ee] h-full absolute shadow-[5px_5px_13px_-7px_#000]'>
-          <h2 className='text-3xl font-semibold'>{item.topic}</h2>
-          <p className='line-clamp-4 tracking-wide leading-7 w-[80%]'>
+    <div className="my-[5rem] mx-[5rem] sm:mx-4">
+      <div className="relative h-[22rem] flex items-center sm:flex-col-reverse sm:h-fit">
+        <div className="w-[70%] flex flex-col justify-evenly py-8 gap-4 px-10 text-white bg-[#00286b] h-full  shadow-[5px_5px_13px_-7px_#000] sm:w-full">
+          <h2 className="text-3xl font-semibold sm:text-2xl sm:text-center">
+            {item.topic}
+          </h2>
+          <p className="line-clamp-4 tracking-wide leading-7 w-[80%]">
             {item.p1.map((innerItem) => {
-              return innerItem
+              return innerItem;
             })}
           </p>
-          <ul className='list-disc pl-8 line-clamp-4'>
+          <ul className="list-disc pl-8 line-clamp-4">
             {item.list.map((list) => {
-              return <li>{list}</li>
+              return <li>{list}</li>;
             })}
           </ul>
-          <p className='opacity-75 cursor-pointer'>Read More</p>
+          <p
+            className="opacity-75 cursor-pointer"
+            onClick={() => {
+              navigate(`/service/${item.topic}`, { state: { item } });
+            }}
+          >
+            Read More
+          </p>
         </div>
-        <div className='absolute right-0 h-full'>
-          <img className='h-full' src={item.img} alt='' />
+        <div className="relative right-[4rem] h-full sm:right-0">
+          <img className="h-full" src={item.img} alt="" />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 const OddComponent = ({ item }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className='my-[5rem] mx-[5rem]'>
-      <div className='relative h-[22rem] flex items-center sm:flex-col'>
-        <div className='w-[70%] pl-[10rem] flex flex-col justify-evenly px-10 bg-[#f3f4ee] h-full absolute right-0 shadow-[5px_5px_13px_-7px_#000]'>
-          <h2 className='text-3xl font-semibold'>{item.topic}</h2>
-          <p className='line-clamp-4 tracking-wide leading-7'>
+    <div className="my-[5rem] mx-[5rem] sm:mx-4">
+      <div className="relative h-[22rem] flex flex-row-reverse items-center sm:flex-col-reverse sm:h-full">
+        <div className="w-[70%] pl-[10rem] flex flex-col justify-evenly px-10 py-8 gap-4 text-white bg-[#00286b] h-full   shadow-[5px_5px_13px_-7px_#000] sm:w-full sm:pl-8">
+          <h2 className="text-3xl font-semibold sm:text-2xl sm:text-center">
+            {item.topic}
+          </h2>
+          <p className="line-clamp-4 tracking-wide leading-7">
             {item.p1.map((innerItem) => {
-              return innerItem
+              return innerItem;
             })}
           </p>
-          <ul className='list-disc pl-8 line-clamp-4'>
+          <ul className="list-disc pl-8 line-clamp-4">
             {item.list.map((list) => {
-              return <li>{list}</li>
+              return <li>{list}</li>;
             })}
           </ul>
-          <p className='opacity-75 cursor-pointer'>Read More</p>
+          <p
+            className="opacity-75 cursor-pointer"
+            onClick={() => {
+              navigate(`/service/${item.topic}`, { state: { item } });
+            }}
+          >
+            Read More
+          </p>
         </div>
-        <div className='absolute left-0 h-full'>
-          <img className='h-full' src={item.img} alt='' />
+        <div className="relative left-[4rem] h-full sm:left-0">
+          <img className="h-full" src={item.img} alt="" />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 function ServicesPage() {
   return (
     <motion.div
-      className='mt-[6rem]'
+      className="mt-[6rem]"
       initial={{ opacity: 0, y: 200 }}
       animate={{
         opacity: 1,
         y: 0,
-        transition: { type: 'spring', duration: 0.5, bounce: 0.5 },
+        transition: { type: "spring", duration: 0.5, bounce: 0.5 },
       }}
     >
-      <div className='mx-auto text-center w-4/5 opacity-80'>
-        <p className='text-2xl font-bold'>
+      <div className="mx-auto text-center w-4/5 opacity-80">
+        <p className="text-3xl font-bold text-[#00286b]">
           In a healthy body <br /> resides a happy soul.
         </p>
-        <p className='my-4'>
+        <p className="my-4">
           The wholesome wellness of our bodies is the stepping stone to an
           empowering spiritual, physical and mental well-being instantly.
         </p>
-        <p className='my-4'>
+        <p className="my-4">
           A safe haven to indulge into the holistic betterment of every
           individual, Nimba's Wellness Programmes enable one to lead a
           rejuvenating, stimulating and healthy life through a blend of an
@@ -218,13 +242,13 @@ function ServicesPage() {
       </div>
       {data.map((item) => {
         if (item.id % 2 == 0) {
-          return <EvenComponent item={item} />
+          return <EvenComponent item={item} />;
         } else {
-          return <OddComponent item={item} />
+          return <OddComponent item={item} />;
         }
       })}
     </motion.div>
-  )
+  );
 }
 
-export default ServicesPage
+export default ServicesPage;

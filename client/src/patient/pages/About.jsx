@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import TechTeam from "../components/About/TechTeam";
 import TherTeam from "../components/About/TherTeam";
 import Achievement from "../components/About/Achievement";
@@ -8,6 +10,24 @@ import Achievement from "../components/About/Achievement";
 const vision = `Our vision is a world where everyone has access to evidence based Integrative therapy and support, leading to a fulfilling pain-free life, with empowered patients taking control of their health and well-being.`;
 
 const mission = `Our mission is to provide evidence-based, patient-centered therapy services that address the root cause of MsNDs and lifestyle-related NCDs. Through our holistic wellness model, we aim to empower patients with the tools and resources they need to achieve long-term health and wellness, regardless of their age, occupation, or economic status. We are committed to increasing awareness about the impact of musculoskeletal pain on other health conditions and providing accessible, sustainable, and cost-effective therapy solutions that promote patient empowerment and support patients in achieving their health goals.`;
+
+const data = [
+  {
+    id: 1,
+    img: "/images/1.png",
+    desc: ` Healing hands, compassionate hearts - Join us on a journey towards wellness and a better life.`,
+  },
+  {
+    id: 2,
+    img: "/images/2.png",
+    desc: ` The pursuit of wellness is not a means to an end, but a lifelong endeavor `,
+  },
+  {
+    id: 3,
+    img: "/images/3.png",
+    desc: `Join us on our journey to empower communities and transform lives, one step at a time`,
+  },
+];
 
 const About = () => {
   return (
@@ -19,89 +39,114 @@ const About = () => {
         transition: { type: "spring", duration: 0.5, bounce: 0.5 },
       }}
     >
-      <Container className="sm:my-20 sm: mx-8">
-        <h1>
-          About <span>Us</span>
-        </h1>
-        <section className="about">
-          <div className="main md:flex-col sm:flex-col">
+      <Container className="sm:my-20  ">
+        <Carousel
+          autoPlay
+          infiniteLoop
+          showStatus={false}
+          showArrows={true}
+          showIndicators={false}
+          showThumbs={false}
+          interval={3000}
+        >
+          {data.map((item) => {
+            return (
+              <div key={item.id} className={`hero container hero${item.id}`}>
+                <div className="hero-con">
+                  <h1 className="hero-head text-3xl font-extrabold">
+                    ISHA Wellness Centre
+                  </h1>
+                  <p className="hero-para">{item.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </Carousel>
+        <section className="about mx-20 sm:mx-4">
+          <div className="main md:flex-col sm:flex-col sm:h-fit">
             <img
               src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt=""
             />
-            <div className="flex flex-col justify-center gap-6 items-center about-text sm:text-center sm:mx-auto sm:w-fit">
+            <div className="about-text flex flex-col justify-between  gap-6 items-center   sm:text-center sm:mx-auto sm:h-fit sm:py-8 md:h-fit ">
               <div>
-                <h5 className="sm:flex sm:gap-1 w-fit">
-                  Our<span> Vision</span>{" "}
+                <h5 className="text-3xl font-bold sm:flex sm:gap-1 w-fit">
+                  Our Vision{" "}
                 </h5>
-                <p className="tracking-wide leading-relaxed text-justify">
+                <p className="tracking-wide leading-relaxed text-justify text-md">
                   {vision}
                 </p>
               </div>
               <div>
-                <h5 className="sm:flex sm:gap-1 w-fit">
-                  Our<span> Mission</span>{" "}
+                <h5 className="text-3xl font-bold  sm:flex sm:gap-1 w-fit ">
+                  Our Mission{" "}
                 </h5>
-                <p className="tracking-wide leading-relaxed text-justify">
+                <p className="tracking-wide leading-relaxed text-justify text-md">
                   {mission}
                 </p>
               </div>
             </div>
           </div>
         </section>
-        <div>
+        <div className="mx-20 sm:mx-4">
           <Achievement />
         </div>
-        <div className="founder">
-          About <span>Ishawellness</span> Center
-        </div>
-        <div className="papa ">
-          <p className="my-3 tracking-wide leading-relaxed text-justify">
-            <span>Welcome to Isha Wellness Centre,</span> a place where we are
-            committed to providing{" "}
-            <span>evidence-based, patient-centered therapy services </span> that
-            address the root cause of musculoskeletal and lifestyle-related
-            disorders. Our goal is <span>to empower patients</span> with the
-            knowledge, resources, and support they need to achieve long-term
-            health and wellness, regardless of their age, occupation, or
-            economic status. At Isha Wellness Centre, we believe in the power of{" "}
-            <span>holistic wellness</span> and offer a range of services that
-            address physical, emotional, and spiritual well-being. Our team of
-            expert therapists is dedicated{" "}
-            <span>to providing personalized care</span> to each patient,
-            ensuring that they receive the best possible treatment for their
-            unique needs.
-          </p>
-          <p className="my-3 tracking-wide leading-relaxed text-justify">
-            We are proud to offer a wide range of services, including
-            musculoskeletal{" "}
-            <span>
-              pain management, paralysis care, child therapy, pregnancy care,
-              lifestyle management, balanced digestion, healthy aging,
-              technology detoxification, employee wellness, relational
-              well-being, depression and anxiety relief, financial well-being,
-              and hormone balance therapy.
-            </span>{" "}
-            We also understand the importance of
-            <span>community wellness</span> and have developed a program to make
-            our therapy services accessible to as much of the population as
-            possible. We believe that everyone should have access to
-            high-quality healthcare and are committed to doing our part to
-            improve the health and well-being of our community.{" "}
-          </p>
-          <p className="my-3 tracking-wide leading-relaxed text-justify">
-            Thank you for choosing Isha Wellness Centre as your partner in
-            health and wellness. We look forward{" "}
-            <span>
-              to helping you achieve your health goals and living your best
-              life.
-            </span>{" "}
-          </p>
+        <div className="founder">About Ishawellness Center</div>
+        <div className="flex mx-20 sm:mx-4 bg-[#00286b] items-center gap-4 rounded-lg pr-12 sm:flex-col-reverse md:flex-col-reverse md:p-4 sm:p-4">
+          <div className="papa text-md w-[70%] px-12 py-8 md:px-0  md:w-full">
+            <p className="my-3 tracking-wide leading-relaxed text-justify">
+              <span>Welcome to Isha Wellness Centre,</span> a place where we are
+              committed to providing{" "}
+              <span>evidence-based, patient-centered therapy services </span>{" "}
+              that address the root cause of musculoskeletal and
+              lifestyle-related disorders. Our goal is{" "}
+              <span>to empower patients</span> with the knowledge, resources,
+              and support they need to achieve long-term health and wellness,
+              regardless of their age, occupation, or economic status. At Isha
+              Wellness Centre, we believe in the power of{" "}
+              <span>holistic wellness</span> and offer a range of services that
+              address physical, emotional, and spiritual well-being. Our team of
+              expert therapists is dedicated{" "}
+              <span>to providing personalized care</span> to each patient,
+              ensuring that they receive the best possible treatment for their
+              unique needs.
+            </p>
+            <p className="my-3 tracking-wide leading-relaxed text-justify">
+              We are proud to offer a wide range of services, including
+              musculoskeletal{" "}
+              <span>
+                pain management, paralysis care, child therapy, pregnancy care,
+                lifestyle management, balanced digestion, healthy aging,
+                technology detoxification, employee wellness, relational
+                well-being, depression and anxiety relief, financial well-being,
+                and hormone balance therapy.
+              </span>{" "}
+              We also understand the importance of
+              <span>community wellness</span> and have developed a program to
+              make our therapy services accessible to as much of the population
+              as possible. We believe that everyone should have access to
+              high-quality healthcare and are committed to doing our part to
+              improve the health and well-being of our community.{" "}
+            </p>
+            <p className="my-3 tracking-wide leading-relaxed text-justify">
+              Thank you for choosing Isha Wellness Centre as your partner in
+              health and wellness. We look forward{" "}
+              <span>
+                to helping you achieve your health goals and living your best
+                life.
+              </span>{" "}
+            </p>
+          </div>
+          <div className="w-[30%] border-r-8 border-b-8 p-8 md:w-[90%]">
+            <img
+              className=""
+              src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="/"
+            />
+          </div>
         </div>
 
-        <div className="founder ">
-          Founder of<span> Ishawellness Center</span>
-        </div>
+        <div className="founder ">Founder of Ishawellness Center</div>
         <p className="bade w-[80%] mx-auto text-center">
           Meet the{" "}
           <span>
@@ -126,16 +171,16 @@ const About = () => {
             achievable for all.
           </span>
         </p>
-        <section className="hum sm:py-4 sm:px-2">
+        <section className="hum mx-20 sm:mx-4 sm:py-4 sm:px-2">
           <div className="tum">
-            <div className="job ">
+            <div className="job bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed ">
               <img
                 className="object-cover"
                 src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt=""
               />
             </div>
-            <div className="kon">
+            <div className="kon tracking-wide leading-relaxed text-justify">
               <h5>Dr. Hitesh Purohit</h5>
               <div className="h-[10rem] pr-2 overflow-y-auto ">
                 <p className="bade">
@@ -194,16 +239,16 @@ const About = () => {
             </div>
           </div>
         </section>
-        <section className="hum sm:py-4 sm:px-2">
+        <section className="hum mx-20 sm:mx-4 sm:py-4 sm:px-2">
           <div className="tum">
-            <div className="job ">
+            <div className="job bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed ">
               <img
                 className="object-cover"
                 src="https://images.pexels.com/photos/5867730/pexels-photo-5867730.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt=""
               />
             </div>
-            <div className="kon">
+            <div className="kon tracking-wide leading-relaxed text-justify">
               <h5>Dr. Minjan Patel</h5>
               <div className="h-[10rem] pr-2 overflow-y-auto ">
                 <p className="bade">
@@ -273,11 +318,9 @@ const About = () => {
             </div>
           </div>
         </section>
-        <section>
-          <h5 className="founder">
-            Our <span>Story</span>
-          </h5>
-          <div className="papa">
+        <section className="mx-20 sm:mx-4">
+          <h5 className="founder">Our Story</h5>
+          <div className="tapa text-white rounded-lg p-8 bg-[#00286b] tracking-wide leading-relaxed text-justify sm:px-3">
             <p>
               <span>
                 Our story began with a simple yet profound dream: to make
@@ -336,11 +379,11 @@ const About = () => {
             </p>
           </div>
         </section>
-        <section>
+        <section className="mx-20 sm:mx-4">
           <h5 className="founder">
             Message from <span>founders</span>
           </h5>
-          <div className="papa">
+          <div className="tapa text-white rounded-lg p-8 bg-[#00286b] tracking-wide leading-relaxed text-justify sm:px-3">
             <p>
               <span>
                 Are you tired of feeling like you're at the mercy of your health
@@ -396,10 +439,10 @@ const About = () => {
             </p>
           </div>
         </section>
-        <div>
+        <div className="mx-20 sm:mx-4">
           <TechTeam />
         </div>
-        <div>
+        <div className="mx-20 sm:mx-4">
           <TherTeam />
         </div>
       </Container>
@@ -410,20 +453,124 @@ const About = () => {
 export default About;
 
 const Container = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Work+Sans&display=swap");
-  font-family: "Poppins", sans-serif;
-  margin: 10rem 5rem;
+  .hero {
+    height: 100vh;
+    min-width: 100vw;
+    margin-bottom: 30px;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero1 {
+    background-image: url(/images/1.png);
+  }
+  .hero2 {
+    background-image: url(/images/2.png);
+  }
+  .hero3 {
+    background-image: url(/images/3.png);
+  }
+  .hero-con {
+    color: inherit;
+    font-weight: 400;
+    margin-left: 20px;
+    z-index: 2;
+    color: white;
+    width: 42%;
+    text-align: center;
+  }
+  .hero-con:hover {
+    display: block;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -1;
+  }
+  .hero img {
+    width: 100vw;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+
+  .hero-head {
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .hero-para {
+    font-size: 15px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+  }
+  .carousel > .control-dots .dot {
+    background: #00286b;
+  }
+
+  @media (max-width: 820px) {
+    .container {
+      max-height: 50vh;
+    }
+
+    .hero-con {
+      font-weight: 400;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: x-large;
+      margin: auto;
+      width: 95%;
+      top: 25%;
+      right: 0;
+      left: 0;
+    }
+
+    .hero-para {
+      font-size: large;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      max-height: 50vh;
+    }
+
+    .hero-con {
+      font-weight: 400;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.8rem;
+      margin: auto;
+      width: 95%;
+      top: 25%;
+      right: 0;
+      left: 0;
+    }
+
+    .hero-para {
+      font-size: 0.7rem;
+    }
+  }
   h1 {
     text-align: center;
     width: 100%;
     color: black;
-    border-bottom: 3px solid black;
-    font-size: 3rem;
     border-radius: 2px;
     margin-bottom: 2rem;
   }
   .about {
-    width: 100%;
+    margin-top: 4rem;
     padding: 2rem;
     background-color: #00286b;
     border-radius: 1rem;
@@ -441,17 +588,13 @@ const Container = styled.div`
     gap: 4rem;
   }
 
-  span {
-    color: red;
-  }
+  
   .about-text h5 {
     color: white;
-    font-size: x-large;
     border-bottom: 3px solid white;
     margin-bottom: 1rem;
   }
   .about-text p {
-    font-size: small;
     color: white;
     font-weight: 500;
   }
@@ -459,8 +602,9 @@ const Container = styled.div`
     text-align: center;
     border-bottom: 3px solid black;
     font-size: 2rem;
-    color: black;
+    color: #00286b;
     width: 80%;
+    font-weight: 800;
     margin-top: 5rem;
     margin-bottom: 2rem;
     margin-left: auto;
@@ -468,27 +612,30 @@ const Container = styled.div`
   }
   .hum {
     background-color:white;
-    padding: 0 3rem;
-    padding-top: 6%;
-    padding-bottom: 5%;
     margin-top: 3rem;
     border-radius: .5rem;
-    box-shadow: inset 0px 250px #00286b;
     border: 1px solid #00286b;
     
   }
   .job {
-    width: fit-content;
+    // width: fit-content;
     margin: 0 auto;
-    border-radius: 50%;
+    // border-radius: 50%;
   }
   .tum img {
+    margin: 0 auto;
     border-radius: 80%;
     height: 250px;
     width: 250px;
     box-shadow: 5px 10px 15px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: 5rem;
+  }
+  .kon {
+    padding: 5rem 2rem 2rem;
   }
   .kon h5 {
+    font-weight: 800;
     margin: 1rem auto;
     width: fit-content;
     text-align: center;
@@ -506,25 +653,24 @@ const Container = styled.div`
     margin-bottom: 2rem;
   }
   .papa {
-    font-size: large;
-    width:80%
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    width:80%;
     border-radius: 1rem;
-    background-color: #00286b;
-    padding: 2rem 0;
   }
 
-  .papa p {
-    padding: 0 3rem;  
-    color: #c3c3c3;
-    font-size: medium;
-    font-weight; 400;
+  .papa p {  
+    color: white;
+    font-weight; 2  00;
     }
   }
   .papa p span{
-      font-weight: 900;
+      font-weight: 800;
       color: white; 
+  }
+  .tapa p {
+    padding: 0.7rem 2rem;
+  }
+  .tapa span {
+    font-weight: 800;
   }
   .bade {
     color: gray;
@@ -555,7 +701,7 @@ const Container = styled.div`
     border-color: green;
   }
   @media screen and (max-width: 480px){
-    margin:5rem 1rem;
+    margin:4.6rem 0;
     .hum {
       padding: 1rem 0;
     }
@@ -572,8 +718,14 @@ const Container = styled.div`
       padding: 0 0.5rem;
       width: 100%;
     }
+    .papa {
+      width: 100%;
+    }
     .papa h3 {
       padding: 1rem 0.5rem;
+    }
+    .tapa p {
+      padding: 2rem 0;
     }
   }
 `;

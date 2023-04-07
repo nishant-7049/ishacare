@@ -115,7 +115,7 @@ const tabs = [
   },
 ];
 function LocateUs() {
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({ threshold: 0.3 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -176,7 +176,7 @@ function LocateUs() {
                   </div>
                 </div>
                 <div className="text-center my-6 text-xl">
-                  <p>
+                  <p className="sm:text-sm">
                     Home-based services available @ Ahmedabad, Jaora(Ratlam)
                   </p>
                 </div>

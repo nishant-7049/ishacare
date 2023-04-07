@@ -45,7 +45,7 @@ const Video = () => {
       {
         breakpoint: 800,
         settings: {
-          dots: false,
+          dots: true,
           arrows: false,
           pauseOnHover: false,
           slidesToShow: 1,

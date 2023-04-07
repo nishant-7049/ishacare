@@ -80,7 +80,7 @@ const ProcessCards = () => {
                   </div>
                 </Link>
               </div>
-            );
+            )
           })}
           <div className="process-item process-item-last ">
             <Link to="/service">
@@ -100,7 +100,7 @@ const ProcessCards = () => {
         </div>
       </IconContext.Provider>
     </Container>
-  );
+  )
 };
 
 export default ProcessCards;

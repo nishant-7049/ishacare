@@ -2,7 +2,13 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx,}', './src/**/*'],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        bounce: {
+          '0%, 100%': { transform: 'translateY(-8%)' },
+        },
+      },
+    },
     screens: {
       sm: { max: '480px' },
       md: { max: '768px' },

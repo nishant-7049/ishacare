@@ -74,11 +74,11 @@ function FAQ() {
                   type="checkbox"
                   id={item.id}
                   name="q"
-                  className="questions"
+                  className="questions text-white"
                 />
-                <div className="plus">+</div>
+                <div className="plus text-white">+</div>
                 <label htmlFor={item.id} className="question">
-                  <p>{item.title}</p>
+                  <p className=" text-white">{item.title}</p>
                 </label>
                 <div className="answers">
                   <p>{item.description}</p>

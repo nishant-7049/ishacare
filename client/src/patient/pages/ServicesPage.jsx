@@ -1,6 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { TbPhysotherapist } from "react-icons/tb";
 
@@ -142,76 +141,64 @@ const data = [
 ];
 
 const EvenComponent = ({ item }) => {
-  const navigate = useNavigate();
 
   return (
-    <div className="my-[5rem] mx-[5rem] sm:mx-4">
-      <div className="relative h-[22rem] flex items-center sm:flex-col-reverse sm:h-fit">
-        <div className="w-[70%] flex flex-col justify-evenly py-8 gap-4 px-10 text-white bg-[#00286b] h-full  shadow-[5px_5px_13px_-7px_#000] sm:w-full">
-          <h2 className="text-3xl font-semibold sm:text-2xl sm:text-center">
+    <div className='my-[5rem] mx-[5rem] sm:mx-4'>
+      <div className='relative h-[22rem] flex items-center sm:flex-col-reverse sm:h-fit'>
+        <div className='w-[70%] flex flex-col justify-evenly py-8 gap-4 px-10 text-white bg-[#00286b] h-full  shadow-[5px_5px_13px_-7px_#000] sm:w-full'>
+          <h2 className='text-3xl font-semibold sm:text-2xl sm:text-center'>
             {item.topic}
           </h2>
-          <p className="line-clamp-4 tracking-wide leading-7 w-[80%]">
+          <p className='line-clamp-4 tracking-wide leading-7 w-[80%]'>
             {item.p1.map((innerItem) => {
-              return innerItem;
+              return innerItem
             })}
           </p>
-          <ul className="list-disc pl-8 line-clamp-4">
+          <ul className='list-disc pl-8 line-clamp-4'>
             {item.list.map((list) => {
-              return <li>{list}</li>;
+              return <li key={list}>{list}</li>
             })}
           </ul>
-          <p
-            className="opacity-75 cursor-pointer"
-            onClick={() => {
-              navigate(`/service/${item.topic}`, { state: { item } });
-            }}
-          >
-            Read More
-          </p>
+          <Link to={`/service/${item.id}`}>
+            <p className='opacity-75 cursor-pointer'>Read More</p>
+          </Link>
         </div>
-        <div className="relative right-[4rem] h-full sm:right-0">
-          <img className="h-full" src={item.img} alt="" />
+        <div className='relative right-[4rem] h-full sm:right-0'>
+          <img className='h-full' src={item.img} alt='' />
         </div>
       </div>
     </div>
-  );
+  )
 };
 const OddComponent = ({ item }) => {
-  const navigate = useNavigate();
 
   return (
-    <div className="my-[5rem] mx-[5rem] sm:mx-4">
-      <div className="relative h-[22rem] flex flex-row-reverse items-center sm:flex-col-reverse sm:h-full">
-        <div className="w-[70%] pl-[10rem] flex flex-col justify-evenly px-10 py-8 gap-4 text-white bg-[#00286b] h-full   shadow-[5px_5px_13px_-7px_#000] sm:w-full sm:pl-8">
-          <h2 className="text-3xl font-semibold sm:text-2xl sm:text-center">
+    <div className='my-[5rem] mx-[5rem] sm:mx-4'>
+      <div className='relative h-[22rem] flex flex-row-reverse items-center sm:flex-col-reverse sm:h-full'>
+        <div className='w-[70%] pl-[10rem] flex flex-col justify-evenly px-10 py-8 gap-4 text-white bg-[#00286b] h-full   shadow-[5px_5px_13px_-7px_#000] sm:w-full sm:pl-8'>
+          <h2 className='text-3xl font-semibold sm:text-2xl sm:text-center'>
             {item.topic}
           </h2>
-          <p className="line-clamp-4 tracking-wide leading-7">
+          <p className='line-clamp-4 tracking-wide leading-7'>
             {item.p1.map((innerItem) => {
-              return innerItem;
+              return innerItem
             })}
           </p>
-          <ul className="list-disc pl-8 line-clamp-4">
+          <ul className='list-disc pl-8 line-clamp-4'>
             {item.list.map((list) => {
-              return <li>{list}</li>;
+              return <li key={list}>{list}</li>
             })}
           </ul>
-          <p
-            className="opacity-75 cursor-pointer"
-            onClick={() => {
-              navigate(`/service/${item.topic}`, { state: { item } });
-            }}
-          >
-            Read More
-          </p>
+          <Link to={`/service/${item.id}`}>
+            <p className='opacity-75 cursor-pointer'>Read More</p>
+          </Link>
         </div>
-        <div className="relative left-[4rem] h-full sm:left-0">
-          <img className="h-full" src={item.img} alt="" />
+        <div className='relative left-[4rem] h-full sm:left-0'>
+          <img className='h-full' src={item.img} alt='' />
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 function ServicesPage() {
@@ -242,9 +229,9 @@ function ServicesPage() {
       </div>
       {data.map((item) => {
         if (item.id % 2 == 0) {
-          return <EvenComponent item={item} />;
+          return <EvenComponent key={item.id} item={item} />;
         } else {
-          return <OddComponent item={item} />;
+          return <OddComponent key={item.id} item={item} />
         }
       })}
     </motion.div>

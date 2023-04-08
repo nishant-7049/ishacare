@@ -68,9 +68,9 @@ const ProcessCards = () => {
               <div key={data.id} className="process-item">
                 <Link to="/service">
                   <div className="card bg-white text-[#00286b] hover:scale-105 ">
-                    <div>{data.processImg}</div>
-                    <div className="card-con">
-                      <h1 className="card-head text-[#00286b]">
+                    <div className="  animate-bounce">{data.processImg}</div>
+                    <div className="card-con ">
+                      <h1 className="card-head text-[#00286b] animate-bounce">
                         {data.processName}
                       </h1>
                       <p className="card-text text-black tracking-wider text-xs">
@@ -80,16 +80,18 @@ const ProcessCards = () => {
                   </div>
                 </Link>
               </div>
-            )
+            );
           })}
           <div className="process-item process-item-last ">
             <Link to="/service">
               <div className="card bg-white text-[#00286b] hover:scale-105">
-                <div>
+                <div className="animate-bounce">
                   <FaHotel />
                 </div>
                 <div className="card-con">
-                  <h1 className="card-head text-[#00286b]">Wellness Resort</h1>
+                  <h1 className="card-head text-[#00286b] animate-bounce">
+                    Wellness Resort
+                  </h1>
                   <p className="card-text text-black tracking-wider text-xs">
                     (Coming Soon)
                   </p>
@@ -100,7 +102,7 @@ const ProcessCards = () => {
         </div>
       </IconContext.Provider>
     </Container>
-  )
+  );
 };
 
 export default ProcessCards;

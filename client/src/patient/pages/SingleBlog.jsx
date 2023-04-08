@@ -6,17 +6,18 @@ function SingleBlog() {
 
   return (
     <motion.div
-      className="mt-20"
+      className="mt-[4.5rem]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <h3 className="text-[#00286b] text-2xl text-center">Blog</h3>
-      <div className="flex m-20 gap-5">
-        <div className="flex-0 w-1/2 object-contain">
+      <div className="bg-[url(/images/bg/AboutBg.jpg)] bg-blend-overlay bg-black/20 bg-opacity-0  bg-cover bg-center w-[100%] h-[50vh]"></div>
+
+      <div className=" mx-20 mt-20 gap-5">
+        <div className="float-left w-[40rem] object-contain mr-8 mb-8">
           <img src={state.data.blogImg} alt="" />
         </div>
-        <div className="flex flex-1 flex-col ">
+        <div className=" mb-[25rem] ">
           <h2 className="text-[1.5rem] font-bold text-[#00286b]">
             {state.data.topic}
           </h2>

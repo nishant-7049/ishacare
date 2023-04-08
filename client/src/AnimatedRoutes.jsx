@@ -37,7 +37,7 @@ const AnimatedRoutes = () => {
         <Route exact path="/forum" element={<ForumPage />} />
         <Route exact path="/booknow" element={<BookNow />} />
         <Route exact path="/blogs/:id" element={<SingleBlog />} />
-        <Route exact path="/service/:topic" element={<SingleService />} />
+        <Route exact path="/service/:id" element={<SingleService />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </AnimatePresence>

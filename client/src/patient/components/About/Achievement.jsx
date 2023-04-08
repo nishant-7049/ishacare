@@ -65,9 +65,6 @@ const Achievement = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={animation}
         >
-          <h3 className="founder w-fit text-3xl my-1 mx-auto pb-4 font-bold text-[#00286b]">
-            Achievements
-          </h3>
           <div className="ach-cards">
             {data.map((card) => {
               return (

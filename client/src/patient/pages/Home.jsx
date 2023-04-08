@@ -44,6 +44,9 @@ const Home = () => {
           <Services />
         </div>
         <div className="mx-20 my-12 sm:mx-10">
+          <h3 className="founder w-fit text-3xl my-1 mx-auto pb-4 font-bold text-[#00286b]">
+            Achievements
+          </h3>
           <Achievement />
         </div>
         <div className="bg-[url(/images/bg/geometricBG.jpg)] bg-cover bg-center bg-fixed h-fit sm:h-fit">

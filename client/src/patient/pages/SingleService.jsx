@@ -1,7 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
-import { TbPhysotherapist } from "react-icons/tb";
+import React from 'react'
+import { motion } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
+import { TbPhysotherapist } from 'react-icons/tb'
 
 const data = [
   {
@@ -23,8 +23,8 @@ const data = [
   },
   {
     id: 1,
-    topic: "Yoga",
-    img: "images/service/face1.png",
+    topic: 'Yoga',
+    img: 'images/service/face1.png',
     p1: [
       `Welcome to our innovative yoga program, created to cater to individuals of all levels, from beginners to advanced practitioners. Our program is designed to improve your overall wellness and help prevent common health disorders. Our yoga sessions are tailored to meet your specific needs and goals, with a focus on enhancing strength, flexibility, balance, and relaxation.`,
       `Our experienced instructors bring a wealth of knowledge and expertise, making each session unique and enjoyable. Our yoga program is a great way to reduce stress, improve mental health, and enhance physical well-being.`,
@@ -38,8 +38,8 @@ const data = [
   },
   {
     id: 2,
-    topic: "Lifestyle Wellness Program",
-    img: "images/service/face.png",
+    topic: 'Lifestyle Wellness Program',
+    img: 'images/service/face.png',
     p1: [
       `Our Lifestyle Wellness Program is a comprehensive, personalized approach to achieving optimal health and wellness. We offer a range of services to help you achieve your goals, including:
     `,
@@ -59,8 +59,8 @@ const data = [
   },
   {
     id: 3,
-    topic: "Women Wellness Care",
-    img: "images/service/face1.png",
+    topic: 'Women Wellness Care',
+    img: 'images/service/face1.png',
     p1: [
       `Our society relies heavily on the contributions of women and we hold great respect for them for the care, respect, and love they provide in various forms. We are deeply appreciative of their services and offer a wide range of services to promote their health and happiness. The Women Wellness Wing provides numerous services, which include but are not limited to:
     `,
@@ -90,8 +90,8 @@ const data = [
   },
   {
     id: 4,
-    topic: "Employee Wellness Program",
-    img: "images/service/face.png",
+    topic: 'Employee Wellness Program',
+    img: 'images/service/face.png',
     p1: [
       `We offer a comprehensive employee wellness program that includes health education and exercise sessions to empower your staff to prevent and address a range of occupational health problems. Our program is designed to promote physical and mental well-being, increase productivity, and reduce absenteeism.
     `,
@@ -106,8 +106,8 @@ const data = [
   },
   {
     id: 5,
-    topic: "Community Wellness Program",
-    img: "images/service/face1.png",
+    topic: 'Community Wellness Program',
+    img: 'images/service/face1.png',
     p1: [
       `We take our social responsibility seriously, and that's why we've developed a community wellness program aimed at making evidence-based therapy services accessible to all. Our program provides training and enabling support to eligible active members of the community, empowering them to execute therapy services for their fellow community members. Our goal is to promote a healthier, happier, and more equitable society for all.
     `,
@@ -123,8 +123,8 @@ const data = [
   },
   {
     id: 6,
-    topic: "Wellness Resort (Coming Soon)",
-    img: "images/service/face.png",
+    topic: 'Wellness Resort (Coming Soon)',
+    img: 'images/service/face.png',
     p1: [
       `We are excited to announce that our new wellness resort project is coming soon! 
     `,
@@ -138,25 +138,28 @@ const data = [
     list: [],
     p2: `At our wellness resort, we believe that health and wellness are not a luxury, but a necessity. Our team of experts is dedicated to helping you achieve your wellness goals, and we can't wait to welcome you to our new space. Stay tuned for updates on our opening date and booking information.`,
   },
-];
+]
 
 const SingleService = () => {
-  const location = useLocation();
+  const myLocation = useLocation()
+  const idFromAddressBar = myLocation.pathname.substring(9)
 
   return (
     <motion.div
-      className="mt-20"
+      className='mt-20'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
       {data
         .filter((item) => {
-          return item.id == location.pathname;
+          return item.id == idFromAddressBar
         })
-        .console.log(item)}
+        .map((item) => {
+          return <div key={item.id}>{console.log(item)}</div>
+        })}
     </motion.div>
-  );
-};
+  )
+}
 
-export default SingleService;
+export default SingleService

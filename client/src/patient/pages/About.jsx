@@ -12,14 +12,14 @@ import TherTeam from "../components/About/TherTeam";
 const About = () => {
   return (
     <div className="">
-      <div className="mt-[4.6rem]">
+      <div className="">
         <AboutHero />
       </div>
       <div className="mx-36 sm:mx-8 ">
         <AboutVision />
         <AboutIWC />
         <div className="mt-20">
-          <h3 className="founder text-center text-3xl text-[#00286b] font-extrabold border-b-4 border-[#00286b] my-1 pb-2 ">
+          <h3 className="founder text-3xl text-[#00286b] font-extrabold border-b-4 border-[#00286b] my-1 pb-2 ">
             Achievements
           </h3>
           <Achievement />

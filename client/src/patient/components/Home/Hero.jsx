@@ -71,16 +71,16 @@ const Container = styled.div`
     align-items: center;
   }
   .hero1 {
-    background-image: url(/images/hero/2.svg);
+    background-image: url(/images/hero/2.jpg);
   }
   .hero2 {
-    background-image: url(/images/hero/6.svg);
+    background-image: url(/images/hero/6.jpg);
   }
   .hero3 {
-    background-image: url(/images/hero/4.svg);
+    background-image: url(/images/hero/4.jpg);
   }
   .hero4 {
-    background-image: url(/images/hero/8.svg);
+    background-image: url(/images/hero/8.jpg);
   }
   .hero-con {
     color: inherit;

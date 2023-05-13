@@ -117,13 +117,9 @@ function Disease() {
       className="container py-12 mb-20"
     >
       <div className="heading text-center">
-        <h1 className="text-3xl  text-[white] font-bold">Diseases Treated</h1>
-        <p className="text-xl p-10 text-white sm:text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-          sit at voluptates beatae consequuntur commodi id unde omnis optio
-          libero deleniti eligendi, magnam error corrupti reprehenderit
-          exercitationem tempora? Voluptatum, corporis?
-        </p>
+        <h1 className="text-3xl  text-[white] font-bold mb-8">
+          Diseases Treated
+        </h1>
       </div>
       <div className="disease flex gap-8 flex-wrap justify-center px-12 ">
         {Diseases.map((data) => {

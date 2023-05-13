@@ -4,9 +4,13 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        bounce: {
-          "0%, 100%": { transform: "translateY(-12%)" },
+        "bounce-1": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12%)" },
         },
+      },
+      animation: {
+        "bounce-1": "bounce 2s ease-out 2",
       },
     },
     screens: {

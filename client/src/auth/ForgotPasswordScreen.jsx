@@ -18,10 +18,10 @@ const ForgotPasswordScreen = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:5000/api/auth/forgotpassword',
+        `${import.meta.env.VITE_API_URL}api/auth/forgotpassword`,
         { email },
         config
-      )
+      );
 
       setSuccess(data.data);
     } catch (error) {

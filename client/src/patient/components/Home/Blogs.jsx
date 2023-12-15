@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SliderBlogs from "./Slider-blogs";
 
 const Blogs = () => {
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -17,6 +17,7 @@ const Blogs = () => {
       });
     }
   }, [inView]);
+
   return (
     <Container>
       <motion.div

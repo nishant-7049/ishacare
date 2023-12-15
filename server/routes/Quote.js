@@ -1,9 +1,11 @@
 const express = require("express");
-const { createQuote, readQuote, updateQuote } = require("../controllers/quote");
+const { updateQuote, getQuote } = require("../controllers/quote");
+const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const router = express.Router();
 
-router.route("/create").post(createQuote);
-router.route("/get").get(readQuote);
-router.route("/put").put(updateQuote);
+router
+  .route("/update")
+  .put(isAuthenticatedUser, authorizeRoles("admin"), updateQuote);
+router.route("/get").get(getQuote);
 
 module.exports = router;

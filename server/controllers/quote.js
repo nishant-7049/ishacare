@@ -1,18 +1,26 @@
-const quotes = require("../models/quote");
+const Quote = require("../models/quote");
+const catchAsyncFunc = require("../middleware/catchAsyncFunc");
 
-exports.createQuote = async (req, res, next) => {
-  const Quote = await quotes.create(req.body);
-  res.status(201).json({ message: "created Successfull" });
-};
-exports.readQuote = async (req, res, next) => {
-  const Quote = await quotes.find();
-  res.status(200).json({ success: true, Quote });
-};
-exports.updateQuote = async (req, res, next) => {
-  const Quote = await quotes.findByIdAndUpdate(
-    "6461f7097ae812f570632373",
-    req.body,
-    { new: true, runValidators: true, useFindAndModify: false }
+exports.getQuote = catchAsyncFunc(async (req, res, next) => {
+  const quote = await Quote.findById("649d541d163fb892993ba730");
+  res.status(200).json({
+    success: true,
+    quote,
+  });
+});
+
+exports.updateQuote = catchAsyncFunc(async (req, res, next) => {
+  const quote = await Quote.findByIdAndUpdate(
+    { _id: "649d541d163fb892993ba730" },
+    { quote: req.body.quote },
+    {
+      new: true,
+      runValidators: true,
+      useFindAndModify: false,
+    }
   );
-  res.status(200).json({ success: true, Quote });
-};
+  res.status(200).json({
+    success: true,
+    quote,
+  });
+});

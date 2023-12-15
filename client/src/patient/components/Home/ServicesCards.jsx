@@ -88,7 +88,7 @@ const ProcessCards = () => {
               <div className="card bg-white text-[#00286b] hover:scale-105">
                 <div className="sm:animate-bounce-1 w-24">
                   <img
-                    classname="object-contain"
+                    className="object-contain"
                     src="images/service/6.svg"
                     alt=""
                   />

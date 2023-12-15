@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const { isAuthenticated } = useSelector((state) => state.user);
   const location = useLocation();
   const [toggle, setToggle] = useState(true);
-
-  function logout() {
-    localStorage.clear();
-    location.reload();
-  }
 
   return (
     <Contain>
@@ -54,19 +51,15 @@ function Navbar() {
             {" "}
             Forum
           </Link>
-          {localStorage.getItem("authToken") ? (
+          {isAuthenticated ? (
             <span>
-              <a className="cursor-pointer" onClick={logout}>
-                {" "}
-                Logout
-              </a>
-              <Link to="/booknow">
+              <Link to="/book/personalform">
                 <button>Book Now</button>
               </Link>
             </span>
           ) : (
             <Link
-              to="/register"
+              to="/login"
               className={location.pathname == "/register" ? "active" : ""}
             >
               <button>SignUp</button>
@@ -133,13 +126,15 @@ function Navbar() {
               Forum
             </Link>
 
-            {localStorage.getItem("authToken") ? (
+            {isAuthenticated ? (
               <Link
                 onClick={() => {
                   setToggle(!toggle);
                 }}
-                to="/booknow"
-                className={location.pathname == "/booknow" ? "active" : ""}
+                to="/personalform"
+                className={
+                  location.pathname == "/book/personalform" ? "active" : ""
+                }
               >
                 <button>Book Now</button>
               </Link>
@@ -148,7 +143,7 @@ function Navbar() {
                 onClick={() => {
                   setToggle(!toggle);
                 }}
-                to="/register"
+                to="/login"
                 className={location.pathname == "/register" ? "active" : ""}
               >
                 <button>SignUp</button>

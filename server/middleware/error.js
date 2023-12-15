@@ -1,26 +1,35 @@
-const ErrorResponse = require('../utils/errorResponse')
+const ErrorHandler = require("../utils/ErrorHandler");
 
-const errorHandler = (err, req, res, next) => {
-  let error = { ...err }
+module.exports = (err, req, res, next) => {
+  err.statusCode = err.statusCode || 500;
+  err.message = err.message || "Internal Server Error";
 
-  error.message = err.message
+  //Mongodb error
+  if (err.name === "CastError") {
+    const message = "Resource not found " + err.path;
+    err = new ErrorHandler(message, 400);
+  }
 
-  // console.log(error.message)
-
+  //duplicate error
   if (err.code === 11000) {
-    const message = `Duplicate Field value entered`
-    error = new ErrorResponse(message, 400)
+    const message = "Duplicate: " + Object.keys(err.keyValue) + " entered";
+    err = new ErrorHandler(message, 400);
   }
 
-  if (err.name === 'ValidationError') {
-    const message = Object.values(err.errors).map((val) => val.message)
-    error = new ErrorResponse(message, 400)
+  //jsonwebtoken error
+  if (err.name == "JsonWebTokenError") {
+    const message = "Invalid json web token has aquired, Try again";
+    err = new ErrorHandler(message, 400);
   }
 
-  res.status(error.statusCode || 500).json({
+  //token expired error
+  if (err.name === "TokenExpiredError") {
+    const message = "Token has been expired, Try again";
+    err = new ErrorHandler(message, 400);
+  }
+
+  res.status(err.statusCode).json({
     success: false,
-    error: error.message || 'Server Error',
-  })
-}
-
-module.exports = errorHandler
+    message: err.message,
+  });
+};

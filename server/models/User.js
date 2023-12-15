@@ -1,65 +1,94 @@
-const crypto = require('crypto')
-const mongoose = require('mongoose')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const mongoose = require("mongoose");
+const validator = require("validator");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
-const UserSchema = new mongoose.Schema({
-  username: {
+const userSchema = new mongoose.Schema({
+  name: {
     type: String,
-    required: [true, 'Please provide a username'],
+    required: [true, "Please enter Your name"],
+    maxLength: [30, "Name cannot exeed 30 characters"],
+    minLength: [4, "Name atleast contain 5 characters"],
   },
   email: {
     type: String,
-    required: [true, 'Please provide a password'],
-    unique: true,
-    match: [
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Please provide a valid email',
-    ],
+    required: [true, "Please enter your email"],
+    validate: [validator.isEmail, "Please enter valid email"],
+    unique: [true, "This email is already registered"],
   },
   password: {
     type: String,
-    required: [true, 'Please add a password'],
-    minlength: 8,
+    required: [true, "Please enter Password"],
+    minLength: [8, "Password should contain atleast 8 characters"],
     select: false,
   },
+  avatar: {
+    public_id: {
+      type: String,
+    },
+    url: {
+      type: String,
+    },
+  },
+  role: {
+    type: String,
+    default: "user",
+  },
+  cluster: {
+    type: String,
+    default: "All",
+  },
+  isIncharge: {
+    type: Boolean,
+    default: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  rating: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 5,
+  },
   resetPasswordToken: String,
-  resetPasswordExpire: Date,
-})
+  resetPasswordTime: Date,
+});
 
-UserSchema.pre('save', async function (next) {
-  if (!this.isModified('password')) {
-    next()
+//encrypting password before saving model
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
   }
+  this.password = await bcrypt.hash(this.password, 10);
+});
 
-  const salt = await bcrypt.genSalt(10)
-  this.password = await bcrypt.hash(this.password, salt)
-  next()
-})
-
-UserSchema.methods.matchPasswords = async function (password) {
-  return await bcrypt.compare(password, this.password)
-}
-
-UserSchema.methods.getSignedToken = function () {
+// generating token to store in cookie
+userSchema.methods.getJWTToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE,
-  })
-}
+  });
+};
 
-UserSchema.methods.getResetPasswordToken = function () {
-  const resetToken = crypto.randomBytes(20).toString('hex')
+//to check password matches entered password or not
+userSchema.methods.checkPassword = async function (enteredPassword) {
+  const data = await bcrypt.compare(enteredPassword, this.password);
+  return data;
+};
+
+//generating ressetPasswordToken
+userSchema.methods.getResetPasswordToken = function () {
+  const resetToken = crypto.randomBytes(20).toString("hex");
 
   this.resetPasswordToken = crypto
-    .createHash('sha256')
+    .createHash("sha256")
     .update(resetToken)
-    .digest('hex')
+    .digest("hex");
 
-  this.resetPasswordExpire = Date.now() + 10 * (60 * 1000)
-
-  return resetToken
-}
-
-const User = mongoose.model('User', UserSchema)
-
-module.exports = User
+  this.resetPasswordTime = Date.now() + 15 * 60 * 1000;
+  return resetToken;
+};
+const user = mongoose.model("users", userSchema);
+module.exports = user;

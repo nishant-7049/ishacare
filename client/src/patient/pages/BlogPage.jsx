@@ -1,83 +1,80 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import Loader from "../../auth/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllBlogs,
+  resetIsKeywordUpdated,
+  resetIsPageUpdated,
+  setKeyword,
+  setPage,
+} from "../../store/slices/EditFrontSlice";
+import { BiSearchAlt } from "react-icons/bi";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
-const data = [
-  {
-    id: 0,
-    blogImg: "/images/blog/process.jpg",
-    senderName: "Sender1",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vitae cumque porro rem exercitationem praesentium repudiandae atque error inventore? Doloribus quas sed beatae assumenda vel?",
-  },
-  {
-    id: 1,
-    blogImg: "/images/blog/process4.jpg",
-    senderName: "Sender2",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
-  },
-  {
-    id: 2,
-    blogImg: "/images/blog/process2.jpg",
-    senderName: "Sender3",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
-  },
-  {
-    id: 3,
-    blogImg: "/images/blog/process3.jpg",
-    senderName: "Sender4",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
-  },
-  {
-    id: 4,
-    blogImg: "/images/blog/process4.jpg",
-    senderName: "Sender5",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
-  },
-  {
-    id: 5,
-    blogImg: "/images/blog/process2.jpg",
-    senderName: "Sender6",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
-  },
-  {
-    id: 6,
-    blogImg: "/images/blog/process.jpg",
-    senderName: "Sender7",
-    sentDate: "15 jan 2020",
-    topic: "What should be the topic of this blog ?",
-    blogText:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus alias necessitatibus consequatur iure illum cum eos molestiae est consequuntur nisi!",
-  },
-];
 const BlogPage = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [search, setSearch] = useState("");
+  const handlePage = (event, value) => {
+    dispatch(setPage(value));
+  };
+  const itemsPerPage = 6;
+  const searchHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(setKeyword(search));
+    page != 1 && dispatch(setPage(1));
+  };
+  const {
+    blogs,
+    loading,
+    blogsCount,
+    keyword,
+    page,
+    isKeywordUpdated,
+    isPageUpdated,
+  } = useSelector((state) => state.frontpage);
 
   useEffect(() => {
-    if (!localStorage.getItem("authToken")) {
-      navigate("/register");
-      window.alert("Please login to access!");
+    if (!blogs) {
+      const options = {
+        page,
+        keyword,
+        itemsPerPage,
+      };
+      dispatch(getAllBlogs(options));
     }
-  }, [navigate]);
+  }, []);
+  useEffect(() => {
+    if (isKeywordUpdated) {
+      const query = {
+        keyword,
+        page,
+        itemsPerPage,
+      };
 
+      dispatch(getAllBlogs(query));
+      dispatch(resetIsKeywordUpdated());
+      setSearch("");
+    }
+  }, [isKeywordUpdated]);
+  useEffect(() => {
+    if (isPageUpdated) {
+      const query = {
+        keyword,
+        page,
+        itemsPerPage,
+      };
+
+      dispatch(getAllBlogs(query));
+      dispatch(resetIsPageUpdated());
+      setSearch("");
+    }
+  }, [isPageUpdated]);
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}
@@ -88,46 +85,88 @@ const BlogPage = () => {
       }}
     >
       <Container>
-        <div className="blog">
+        <div className="blog relative">
           <span>Out Recent Blogs</span>
           <h3>Our Blogs</h3>
+          {keyword && (
+            <p className="my-2 ml-2 text-gray-500 font-semibold ">
+              Search results for '{keyword}'
+            </p>
+          )}
+          <form className="absolute bottom-0 right-[6rem] border-2 flex sm:static sm:mt-[2rem]">
+            <input
+              type="text"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              className="bg-white p-[0.4vmax]"
+              placeholder="Search"
+            />
+            <button
+              className="bg-[#00286b] px-[0.6vmax] text-white hover:bg-white hover:text-[#00286b]"
+              onClick={searchHandler}
+            >
+              <BiSearchAlt />
+            </button>
+          </form>
         </div>
-        <div className="card-con">
-          {data.map((data) => {
-            return (
-              <div
-                className="card bg-[url(/images/bg/blog-bg.jpg)] bg-cover bg-center bg-fixed"
-                key={data.id}
-              >
-                <div className="image">
-                  <img src={data.blogImg} alt="" />
-                </div>
-                <div className="blog-text bg-black bg-opacity-20 text-white">
-                  <span>
-                    {data.senderName} | {data.sentDate}
-                  </span>
-                  <h2
-                    className="cursor-pointer"
-                    onClick={() => {
-                      navigate(`/blogs/${data.id}`, { state: { data: data } });
-                    }}
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="card-con">
+            {blogs && blogs.length > 0 ? (
+              blogs.map((data) => {
+                const date = new Date(data.createdAt);
+                const currDate = `${date.getHours()}h${date.getMinutes()}m-${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+                return (
+                  <div
+                    className="card bg-[url(/images/bg/blog-bg.jpg)] bg-cover bg-center bg-fixed"
+                    key={data._id}
                   >
-                    {data.topic}
-                  </h2>
-                  <p className="blog-para tracking-wider">{data.blogText}</p>
-                  <p
-                    className=" cursor-pointer  hover:transition-all hover:duration-300 hover:text-[#00286b]"
-                    onClick={() => {
-                      navigate(`/blogs/${data.id}`, { state: { data: data } });
-                    }}
-                  >
-                    Read more...
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                    <div className="image">
+                      <img src={data.image.url} alt="" />
+                    </div>
+                    <div className="blog-text bg-black bg-opacity-20 text-white">
+                      <span>
+                        {data.createdBy} | {currDate}
+                      </span>
+                      <Link
+                        to={`/blog/${data._id}`}
+                        className="cursor-pointer text-2xl font-bold hover:text-[#00286b] mt-2"
+                      >
+                        {data.name}
+                      </Link>
+                      <p className="blog-para tracking-wider">
+                        {data.description}
+                      </p>
+                      <Link
+                        to={`/blog/${data._id}`}
+                        className=" cursor-Linkointer  hover:transition-all hover:duration-300 hover:text-[#00286b]"
+                      >
+                        Read more...
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })
+            ) : (
+              <p className="w-fit mx-auto text-gray-400 font-semibold my-2">
+                No Search Results for keyword '{keyword};'
+              </p>
+            )}
+          </div>
+        )}
+        <Stack spacing={2} className="my-[2rem] mx-auto w-fit">
+          <Pagination
+            count={Math.ceil(blogsCount / itemsPerPage)}
+            variant="outlined"
+            shape="rounded"
+            size="large"
+            color="primary"
+            page={page}
+            onChange={handlePage}
+          />
+        </Stack>
       </Container>
     </motion.div>
   );
@@ -151,7 +190,6 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     > span{
       color: #00286b;
     }
@@ -166,10 +204,10 @@ const Container = styled.div`
     color: #2b2b2b;
   }
   .card-con{
-    margin: 0 auto;
     display: grid;
     width: 90%;
-    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(33%, 33%));
     align-items: center; 
   }
   .card {
@@ -203,7 +241,7 @@ const Container = styled.div`
           color: #00286b;
         }
       }
-      > a {
+      > Link {
         color: #0f0f0f;
         &:hover{
           color: #00286b;

@@ -1,35 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const data = [
-  {
-    id: 0,
-    title: `How therepy helps to improve depression`,
-    date: `2 days ago`,
-    by: `Dr. Laura Croft`,
-    img: `/images/blog/blog-img1.jpg`,
-    link: `/`,
-  },
-  {
-    id: 1,
-    title: `How therepy helps to improve depression`,
-    date: `4 days ago`,
-    by: `Dr. Laura Croft`,
-    img: `/images/blog/blog-img2.jpg`,
-    link: `/`,
-  },
-  {
-    id: 2,
-    title: `How therepy helps to improve depression`,
-    date: `10 days ago`,
-    by: `Dr. Laura Croft`,
-    img: `/images/blog/blog-img3.jpg`,
-    link: `/`,
-  },
-];
+import { useDispatch, useSelector } from "react-redux";
+import { getAllBlogs } from "../../../store/slices/EditFrontSlice";
+import { Link } from "react-router-dom";
+import Loader from "../../../auth/Loader";
 
 const SliderBlogs = () => {
   const settings = {
@@ -56,32 +33,57 @@ const SliderBlogs = () => {
       },
     ],
   };
+  const dispatch = useDispatch();
+
+  const { blogs, loading } = useSelector((state) => state.frontpage);
+  useEffect(() => {
+    const options = {
+      page: 1,
+      keyword: "",
+      itemsPerPage: 6,
+    };
+    dispatch(getAllBlogs(options));
+  }, [dispatch]);
   return (
-    <Container>
-      <Slider {...settings} className="slider sm:p-4">
-        {data.map((data) => {
-          return (
-            <div key={data.id} className="blog container">
-              <div className="blog-item">
-                <div className="blog-img">
-                  <img src={data.img} alt="" />
-                </div>
-                <div className="blog-con">
-                  <div className="blog-head">
-                    <h3 className="blog-title">{data.title}</h3>
-                    <p className="blog-date">{data.date}</p>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Container>
+          <Slider {...settings} className="slider sm:p-4">
+            {blogs &&
+              blogs.map((data) => {
+                return (
+                  <div key={data._id} className="blog container">
+                    <div className="blog-item">
+                      <div className="blog-img">
+                        <img src={data.image.url} alt="" />
+                      </div>
+                      <div className="blog-con">
+                        <div className="blog-head">
+                          <h3 className="blog-title">{data.name}</h3>
+                          <p className="blog-date">{data.createdAt}</p>
+                        </div>
+                        <p className="blog-para">{data.createdBy}</p>
+                        <div className="">
+                          <p className="lineClamp text-white ">
+                            {data.description}
+                          </p>
+                        </div>
+                        <div className="blog-button">
+                          <Link className="font-bold " to={`/blog/${data._id}`}>
+                            Read More...
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p className="blog-para">{data.by}</p>
-                  <div className="blog-button">
-                    <a href={data.link}>Read more</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </Slider>
-    </Container>
+                );
+              })}
+          </Slider>
+        </Container>
+      )}
+    </>
   );
 };
 
@@ -93,6 +95,13 @@ const Container = styled.div`
 
   .blog {
     padding: 2rem 0;
+  }
+
+  .lineClamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 
   .blog-item {

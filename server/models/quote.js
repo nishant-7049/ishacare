@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const quoteSchema = new mongoose.Schema({
+const QuoteSchema = new mongoose.Schema({
   quote: {
     type: String,
-    required: true,
+    required: [true, "Enter Quote before submitting."],
   },
 });
 
-const quote = mongoose.model("Quote", quoteSchema);
+const quote = mongoose.model("quote", QuoteSchema);
 module.exports = quote;

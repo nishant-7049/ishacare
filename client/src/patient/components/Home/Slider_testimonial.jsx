@@ -12,7 +12,7 @@ const Slider_testimonial = ({ data }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     pauseOnHover: true,
     arrows: false,
     responsive: [
@@ -32,11 +32,11 @@ const Slider_testimonial = ({ data }) => {
       <Slider className="slider w-[90%] mx-auto my-4" {...settings}>
         {data.map((data) => {
           return (
-            <div key={data.id} className="">
+            <div key={data._id} className="">
               <div className=" flex  w-[90%]  py-4 mx-auto rounded-md sm:flex-col sm:px-4 sm:py-2">
                 <div className="h-full w-20 rounded-full sm:mx-auto ">
                   <img
-                    src={data.img}
+                    src={data.image.url}
                     alt="/"
                     className=" h-12  object-cover rounded-full sm:mx-auto"
                   />
@@ -48,10 +48,14 @@ const Slider_testimonial = ({ data }) => {
                     </h2>
                   </div>
                   <p className="overflow-y-auto text-white text-sm sm:overflow-y-auto sm:h-20 ">
-                    {data.des}
+                    {data.testimonial}
                   </p>
                   <a
-                    href={data.goo}
+                    href={
+                      data.cluster === "Indore"
+                        ? "https://www.google.com/maps/place/ISHA+Wellness+Centre+Ratlam/@18.7207366,67.5205801,5z/data=!4m12!1m2!2m1!1sisha+wellness+centre!3m8!1s0x3963fea578acaff7:0x847dac23ee0d0262!8m2!3d23.3201068!4d75.0335898!9m1!1b1!15sChRpc2hhIHdlbGxuZXNzIGNlbnRyZZIBFHBoeXNpb3RoZXJhcHlfY2VudGVy4AEA!16s%2Fg%2F11gg6c4lzc"
+                        : "https://www.google.com/maps/place/ISHA+Wellness+Centre+Ratlam/@18.7207366,67.5205801,5z/data=!4m12!1m2!2m1!1sisha+wellness+centre!3m8!1s0x3963fea578acaff7:0x847dac23ee0d0262!8m2!3d23.3201068!4d75.0335898!9m1!1b1!15sChRpc2hhIHdlbGxuZXNzIGNlbnRyZZIBFHBoeXNpb3RoZXJhcHlfY2VudGVy4AEA!16s%2Fg%2F11gg6c4lzc"
+                    }
                     target="_blank"
                     className="text-white text-sm  "
                   >
@@ -71,6 +75,9 @@ export default Slider_testimonial;
 
 const Container = styled.div`
   .slick-dots li.slick-active button:before {
+    color: white;
+  }
+  .slick-dots li button:before {
     color: white;
   }
 `;

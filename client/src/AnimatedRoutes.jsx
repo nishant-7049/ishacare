@@ -53,6 +53,10 @@ import Occupation from "./patient/components/Booking/Occupation";
 import TherapistTreatment from "./therapist/components/TherapistTreatment";
 import TreatmentStart from "./facilitator/components/TreatmentStart";
 import SessionCompleted from "./facilitator/components/SessionCompleted";
+import OutcomeForm from "./patient/components/Booking/OutcomeForm";
+import OutcomeFormTherapist from "./therapist/components/OutcomeFormTherapist.jsx";
+import Enquiries from "./admin/components/Enquiries.jsx";
+import AdminEnquiries from "./admin/components/AdminEnquiries.jsx";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -114,6 +118,7 @@ const AnimatedRoutes = () => {
         <Route exact path="/service/:id" element={<SingleService />} />
         <Route exact path="/treatment/:id" element={<TherapistTreatment />} />
         <Route exact path="/treatment/start/:id" element={<TreatmentStart />} />
+        <Route exact path="/book/outcome/:token" element={<OutcomeForm />} />
 
         {isAuthenticated && user.role == "admin" && (
           <Route exact path="/admin/edit/frontend" element={<EditFrontend />} />
@@ -184,6 +189,13 @@ const AnimatedRoutes = () => {
           <Route exact path="/incharge/orders" element={<OrderList />} />
         )}
         {isAuthenticated &&
+          (!user.role == "user" || user.isIncharge == true) && (
+            <Route exact path="/enquiry" element={<Enquiries />} />
+          )}
+        {isAuthenticated && user.role == "admin" && (
+          <Route exact path="/admin/enquiry" element={<AdminEnquiries />} />
+        )}
+        {isAuthenticated &&
         (user.isIncharge === true ||
           user.role === "therapist" ||
           user.role === "facilitator") ? (
@@ -200,6 +212,20 @@ const AnimatedRoutes = () => {
         )}
         {isAuthenticated && user.role === "therapist" && (
           <Route exact path="/therapist/orders" element={<TherapistOrders />} />
+        )}
+        {isAuthenticated && user.role === "therapist" && (
+          <Route
+            exact
+            path="/therapist/outcome/:sessionId"
+            element={<OutcomeFormTherapist />}
+          />
+        )}
+        {isAuthenticated && user.role === "facilitator" && (
+          <Route
+            exact
+            path="/facilitator/outcome/:sessionId"
+            element={<OutcomeFormTherapist />}
+          />
         )}
         {isAuthenticated && user.role === "facilitator" && (
           <Route

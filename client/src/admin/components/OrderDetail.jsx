@@ -3,18 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Container from "../../patient/components/Booking/patientDetails.jsx";
 import {
-  clearPayment,
   getBookingDetail,
   getBookingDetailForUser,
-  getPaymentDetail,
-  getPaymentDetailForUser,
   rescheduleTime,
   resetBookingUpdated,
   resetIsRescheduled,
   resetIsStatusUpdated,
 } from "../../store/slices/bookingSlice";
-import { getBooker, getFac, getTher } from "../../store/slices/allUserSlice";
-import { getPackageDetail } from "../../store/slices/packageSlice";
 import AssignTher from "./AssignTher.jsx";
 import AssignFac from "./AssignFac";
 import Loader from "../../auth/Loader";
@@ -44,27 +39,24 @@ const batchs = [
 ];
 const OrderDetail = () => {
   const dispatch = useDispatch();
-  const {
-    loading,
-    booking,
-    payment,
-    isStatusUpdated,
-    bookingUpdated,
-    isRescheduled,
-  } = useSelector((state) => state.booking);
-  const { loading: userLoading, booker } = useSelector(
-    (state) => state.allUsers
-  );
-  const { loading: packageLoading, pac } = useSelector(
-    (state) => state.package
-  );
+  const { loading, booking, isStatusUpdated, bookingUpdated, isRescheduled } =
+    useSelector((state) => state.booking);
   const { user: me } = useSelector((state) => state.user);
-  const [BookedBy, setBookedBy] = useState();
-  const [pay, setPay] = useState();
-  const [set, setSet] = useState(false);
+  const [assigningStaff, setAssigningStaff] = useState(false);
   const [toggleSchedule, setToggleSchedule] = useState(false);
   const [newDate, setNewDate] = useState();
   const [newDateAndTime, setNewDateAndTime] = useState();
+  const [filteredBatches, setFilteredBatches] = useState([]);
+
+  useEffect(() => {
+    const updatedBatches = batchs.filter((b) => {
+      const batchTime =
+        new Date(newDate).getTime() + b.value - 5.5 * 60 * 60 * 1000;
+      return batchTime > Date.now() + 2 * 60 * 60 * 1000;
+    });
+
+    setFilteredBatches(updatedBatches);
+  }, [newDate]);
 
   const { id } = useParams();
 
@@ -88,31 +80,11 @@ const OrderDetail = () => {
     ) {
       dispatch(getBookingDetail(id));
     }
-    if (booking && me) {
-      if (booking.payment && me.role == "user") {
-        dispatch(getPaymentDetailForUser(id));
-      } else {
-        dispatch(getPaymentDetail(id));
-      }
-      dispatch(getPackageDetail(booking.packageAndDate.package));
-    }
     if (booking) {
       setScheduledTime(new Date(booking.packageAndDate.dateAndTime));
       setValidTillDate(new Date(booking.validTill));
     }
-
-    if (booking && me && me.role !== "user") {
-      dispatch(getBooker(booking.bookedBy));
-    }
-    if (booking && me && me.role == "user") {
-      setBookedBy(me);
-    }
   }, [booking]);
-  useEffect(() => {
-    if (booking && booker && booking.bookedBy == booker._id) {
-      setBookedBy(booker);
-    }
-  }, [booker]);
   useEffect(() => {
     if (isRescheduled) {
       if (me.role == "user") {
@@ -124,16 +96,9 @@ const OrderDetail = () => {
     }
   }, [isRescheduled]);
   useEffect(() => {
-    if (payment) {
-      setPay(payment);
-      dispatch(clearPayment());
-    }
-  }, [payment]);
-  useEffect(() => {
     if (bookingUpdated) {
       dispatch(resetBookingUpdated());
       dispatch(getBookingDetail(id));
-      setSet(false);
     }
   }, [bookingUpdated]);
   useEffect(() => {
@@ -144,7 +109,7 @@ const OrderDetail = () => {
   }, [isStatusUpdated]);
   return (
     <>
-      {loading || packageLoading || userLoading ? (
+      {loading ? (
         <Loader />
       ) : (
         <>
@@ -637,12 +602,36 @@ const OrderDetail = () => {
                       <div className="ques-ans">
                         <div className="ques-ans-con">
                           <p className="ques">Booker Name:</p>
-                          <p className="ans">{BookedBy && BookedBy.name}</p>
+                          <p className="ans">
+                            {booking && booking.bookedBy[0].name}
+                          </p>
                         </div>
                         <div className="ques-ans-con">
                           <p className="ques">Booker Role:</p>
-                          <p className="ans">{BookedBy && BookedBy.role}</p>
+                          <p className="ans">
+                            {booking && booking.bookedBy[0].role}
+                          </p>
                         </div>
+                        {booking &&
+                          booking.assignTherapist &&
+                          booking.assignTherapist[0] && (
+                            <div className="ques-ans-con">
+                              <p className="ques">Assigned Therapist:</p>
+                              <p className="ans">
+                                {booking.assignTherapist[0].name}
+                              </p>
+                            </div>
+                          )}
+                        {booking &&
+                          booking.assignFacilitator &&
+                          booking.assignFacilitator[0] && (
+                            <div className="ques-ans-con">
+                              <p className="ques">Assigned Facilitator:</p>
+                              <p className="ans">
+                                {booking.assignFacilitator[0].name}
+                              </p>
+                            </div>
+                          )}
                       </div>
                     </div>
                     {me && booking && (
@@ -651,32 +640,48 @@ const OrderDetail = () => {
                         <div className="ques-ans">
                           <div className="ques-ans-con">
                             <p className="ques">Payment Type:</p>
-                            <p className="ans">{pac && pac.paymentType}</p>
+                            <p className="ans">
+                              {booking.packageAndDate.package.paymentType}
+                            </p>
                           </div>
-                          {pac && pay && pac.paymentType == "Online" && (
+
+                          {booking.payment && booking.payment[0] ? (
+                            <div className="ques-ans-con">
+                              <p className="ques">Payment Status:</p>
+                              <p className="text-green-400 font-semibold">
+                                Paid
+                              </p>
+                            </div>
+                          ) : (
+                            <div className="ques-ans-con">
+                              <p className="ques">Payment Status:</p>
+                              <p x className="text-red-800 font-semibold">
+                                Unpaid
+                              </p>
+                            </div>
+                          )}
+                          {booking.payment && booking.payment[0] && (
                             <div className="ques-ans">
                               <div className="ques-ans-con">
                                 <p className="ques">razorpay_order_id:</p>
-                                <p className="ans">{pay.razorpay_order_id}</p>
+                                <p className="ans">
+                                  {booking.payment[0].razorpay_order_id}
+                                </p>
                               </div>
                               <div className="ques-ans-con">
                                 <p className="ques">razorpay_payment_id:</p>
-                                <p className="ans">{pay.razorpay_payment_id}</p>
+                                <p className="ans">
+                                  {booking.payment[0].razorpay_payment_id}
+                                </p>
                               </div>
-                            </div>
-                          )}
-                          {!pay && (
-                            <div className="ques-ans-con">
-                              <p className="ques">Payment Status:</p>
-                              <p className="text-red-800 font-semibold">
-                                Unpaid
-                              </p>
                             </div>
                           )}
                         </div>
                         <div className="ques-ans-con">
                           <p className="ques">Package Name:</p>
-                          <p className="ans">{pac && pac.name}</p>
+                          <p className="ans">
+                            {booking.packageAndDate.package.name}
+                          </p>
                         </div>
                         <div className="ques-ans-con">
                           <p className="ques">Package Sessions Left:</p>
@@ -695,7 +700,9 @@ const OrderDetail = () => {
 
                         <div className="ques-ans-con">
                           <p className="ques">Package price:</p>
-                          <p className="ans">₹{pac && pac.price}</p>
+                          <p className="ans">
+                            ₹{booking.packageAndDate.package.price}
+                          </p>
                         </div>
                       </div>
                     )}
@@ -981,40 +988,33 @@ const OrderDetail = () => {
                     </div>
                   </div>
                 </div>
-                {pac &&
-                booking &&
+                {booking &&
                 Date.now() < new Date(booking.validTill).getTime() &&
                 booking.sessions > 0 ? (
                   <div className="w-full h-[90vh] sticky right-0 top-[5rem] flex flex-col  justify-center items-center sm:static md:h-[50vh] sm:h-fit sm:my-12">
                     <div className="flex flex-col justify-center items-center w-full">
-                      {set ? (
-                        <>
-                          {(me.role == "admin" || me.isIncharge) && (
+                      {(me.role == "admin" || me.isIncharge) && (
+                        <div className=" w-3/5 sm:w-4/5 border-[#00286b] border-2 my-2">
+                          <div
+                            onClick={() => {
+                              setAssigningStaff(!assigningStaff);
+                            }}
+                            className="cursor-pointer flex gap-4 items-center justify-center font-semibold  bg-white  text-center  px-4 py-2 text-[#00286b] "
+                          >
+                            <h1>Assign Therapist & Facilitator</h1>
+                            {assigningStaff ? (
+                              <FaChevronUp />
+                            ) : (
+                              <FaChevronDown />
+                            )}
+                          </div>
+                          {assigningStaff && (
                             <>
                               <AssignTher />
                               <AssignFac />
                             </>
                           )}
-                        </>
-                      ) : (
-                        <>
-                          {(me.role == "admin" || me.isIncharge) && (
-                            <button
-                              onClick={() => {
-                                setSet(true);
-                                booking &&
-                                  booking.assignTherapist &&
-                                  dispatch(getTher(booking.assignTherapist));
-                                booking &&
-                                  booking.assignFacilitator &&
-                                  dispatch(getFac(booking.assignFacilitator));
-                              }}
-                              className="px-4 py-2 my-[1vmax] w-3/5 mx-auto bg-[#00286b] text-white font-semibold border-2 border-[#00286b] hover:text-[#00286b] hover:bg-white"
-                            >
-                              Set Therapist / Facilitator
-                            </button>
-                          )}
-                        </>
+                        </div>
                       )}
                     </div>
 
@@ -1063,6 +1063,7 @@ const OrderDetail = () => {
                                     type="date"
                                     value={newDate}
                                     min={new Date().toISOString().split("T")[0]}
+                                    required
                                     onChange={(e) => {
                                       setNewDate(e.target.value);
                                     }}
@@ -1072,33 +1073,20 @@ const OrderDetail = () => {
                                   <label>Batch:</label>
                                   <select
                                     className="bg-white text-gray-400 border-2 py-2 px-4"
-                                    value={newDateAndTime}
+                                    required
                                     onChange={(e) => {
-                                      setNewDateAndTime(e.target.value);
+                                      setNewDateAndTime(
+                                        new Date(newDate).getTime() +
+                                          parseInt(e.target.value) -
+                                          5.5 * 60 * 60 * 1000
+                                      );
                                     }}
                                   >
                                     <option value="">Choose</option>
-                                    {batchs.map((b) => (
-                                      <div key={b}>
-                                        {new Date(
-                                          new Date(newDate).getTime() +
-                                            b.value -
-                                            5.5 * 60 * 60 * 1000
-                                        ) >
-                                          Date.now() + 2 * 60 * 60 * 1000 && (
-                                          <option
-                                            value={
-                                              new Date(
-                                                new Date(newDate).getTime() +
-                                                  b.value -
-                                                  5.5 * 60 * 60 * 1000
-                                              )
-                                            }
-                                          >
-                                            {b.label}
-                                          </option>
-                                        )}
-                                      </div>
+                                    {filteredBatches.map((b, index) => (
+                                      <option key={index} value={b.value}>
+                                        {b.label}
+                                      </option>
                                     ))}
                                   </select>
                                 </div>

@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
     default: "user",
   },
   cluster: {
-    type: String,
+    type: [String],
     default: "All",
   },
   isIncharge: {

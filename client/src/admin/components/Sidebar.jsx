@@ -9,7 +9,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 
 const Sidebar = () => {
-  const [sidebarToggle, setSidebarToggle] = useState(false);
+  const [sidebarToggle, setSidebarToggle] = useState(true);
   return (
     <>
       {sidebarToggle == true ? (

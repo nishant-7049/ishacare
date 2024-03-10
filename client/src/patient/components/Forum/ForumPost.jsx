@@ -74,7 +74,7 @@ const ForumPost = ({ item }) => {
   return (
     <div className=" py-3 px-5   bg-white shadow-lg flex flex-col gap-4 relative">
       <div className="flex gap-4 items-center ">
-        {item.userDetails.avatar ? (
+        {item.userDetails && item.userDetails.avatar ? (
           <img
             className="w-[2rem] rounded-full"
             src={item.userDetails.avatar.url}
@@ -83,7 +83,7 @@ const ForumPost = ({ item }) => {
           <RxAvatar className="text-[2rem] text-[#00286b]" />
         )}
         <p className="text-sm font-bold text-[#00286b]">
-          {item.userDetails.name}
+          {item.userDetails && item.userDetails.name}
         </p>
         <small className=" text-[10px] text-[#00286b]">{createdAt}</small>
         {item.editedAt && (

@@ -11,6 +11,7 @@ const sendSms = require("./utils/sendSms");
 const cron = require("node-cron");
 const { getLatestSession } = require("./controllers/sessionController");
 const Session = require("./models/session");
+const sendEmail = require("./utils/sendEmail");
 
 // Connnect DB
 connectDB();
@@ -47,30 +48,30 @@ app.use("/api/package", require("./routes/packageRoute"));
 app.use("/api/booking", require("./routes/bookingRoute"));
 app.use("/api/treatment", require("./routes/treatmentRoute"));
 app.use("/api/session", require("./routes/sessionRoute"));
+app.use("/api/dashboard", require("./routes/dashboardRoute"));
+app.use("/api/enquiry", require("./routes/enquiryRoute"));
 
 cron.schedule(
-  "26 16 * * *",
+  "42 21 * * *",
   async function () {
     console.log("sending outcome messages .....");
     const sessions = await getLatestSession();
     for (let session of sessions) {
-      console.log(new Date(session.latestSession).getTime());
-      console.log(
-        new Date(session.latestSession).getTime() +
-          1 * 1000 * 60 +
-          " " +
-          Date.now()
-      );
       if (
-        new Date(session.latestSession + 1 * 1000 * 60).getTime() < Date.now()
+        new Date(session.latestSession).getTime() + 1 * 1000 * 60 <
+          Date.now() &&
+        (session.isOutcomeFormSent == null ||
+          session.isOutcomeFormSent == false)
       ) {
         console.log(session);
+        const ses = await Session.findById(session.sessionId);
+        const outcomeToken = await ses.getOutcomeToken();
+        const link = `http://localhost:5173/book/outcome/${outcomeToken}`;
         const options = {
-          body: "Outcome message",
+          body: `From IWC, \n Dear ${session.name}, \nYou have not attended any session between ten days, we would like to get your response. Please fill this outcome form to get to know the reason of dropout. \n ${link} \n Click aboce link to fill outcome form.`,
           to: session.phone,
         };
-        sendSms(options);
-        const ses = await Session.findById(session.sessionId);
+        await sendSms(options);
         ses.isOutcomeFormSent = true;
         await ses.save();
       }

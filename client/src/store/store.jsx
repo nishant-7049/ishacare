@@ -10,6 +10,8 @@ import packageSlice from "./slices/packageSlice";
 import treatmentSlice from "./slices/treatmentSlice";
 import forumSlice from "./slices/forumSlice";
 import sessionSlice from "./slices/sessionSlice";
+import dashboardSlice from "./slices/dashboardSlice";
+import enquirySlice from "./slices/enquirySlice";
 
 const store = configureStore({
   reducer: {
@@ -24,6 +26,8 @@ const store = configureStore({
     treatment: treatmentSlice,
     forum: forumSlice,
     session: sessionSlice,
+    dashboard: dashboardSlice,
+    enquiry: enquirySlice,
   },
 });
 

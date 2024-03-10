@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   createBooking,
-  getAllBookings,
+  getClusterBooking,
   deleteBooking,
   getBookingDetail,
   setTherapist,
@@ -22,7 +22,7 @@ const {
 const router = express.Router();
 
 router.route("/new").post(isAuthenticatedUser, createBooking);
-router.route("/all").get(isAuthenticatedUser, isIncharge(), getAllBookings);
+router.route("/all").get(isAuthenticatedUser, isIncharge(), getClusterBooking);
 router
   .route("/delete/:id")
   .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteBooking);

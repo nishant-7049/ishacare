@@ -222,7 +222,26 @@ const bookingSchema = new mongoose.Schema({
       type: Date,
       required: true,
     },
-    package: mongoose.Schema.Types.ObjectId,
+    package: {
+      name: {
+        type: String,
+      },
+      description: {
+        type: String,
+      },
+      paymentType: {
+        type: String,
+      },
+      price: {
+        type: Number,
+      },
+      sessions: {
+        type: Number,
+      },
+      days: {
+        type: Number,
+      },
+    },
   },
   personal: {
     address: {
@@ -279,6 +298,14 @@ const bookingSchema = new mongoose.Schema({
   },
   sessions: {
     type: Number,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  paymentType: {
+    type: String,
     required: true,
   },
   bookedBy: mongoose.Schema.Types.ObjectId,

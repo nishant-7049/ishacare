@@ -4,6 +4,7 @@ const Treatment = require("../models/treatment");
 const Booking = require("../models/booking");
 const User = require("../models/user");
 const sendSms = require("../utils/sendSms");
+const crypto = require("crypto");
 
 exports.createSession = catchAsyncError(async (req, res, next) => {
   req.body.createdAt = new Date(Date.now());
@@ -130,3 +131,128 @@ exports.getLatestSession = async () => {
   ]);
   return result;
 };
+exports.getLatestSession2 = async (req, res, next) => {
+  const result = await Booking.aggregate([
+    {
+      $lookup: {
+        from: "treatments",
+        localField: "_id",
+        foreignField: "booking",
+        as: "treatments",
+      },
+    },
+    {
+      $unwind: "$treatments",
+    },
+    {
+      $sort: { "treatments.createdAt": -1 },
+    },
+    {
+      $lookup: {
+        from: "sessions",
+        localField: "treatments._id",
+        foreignField: "treatmentId",
+        as: "session",
+      },
+    },
+    {
+      $unwind: { path: "$session", preserveNullAndEmptyArrays: true },
+    },
+    {
+      $sort: {
+        "session.createdAt": -1,
+      },
+    },
+    {
+      $group: {
+        _id: {
+          name: "$personal.name",
+          phone: "$personal.phone",
+        },
+        latestTreatment: { $first: "$treatments.createdAt" },
+        latestSession: { $first: "$session.createdAt" },
+        sessionId: { $first: "$session._id" },
+        isOutcomeFormSent: { $first: "$session.isOutcomeFormSent" },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        name: "$_id.name",
+        phone: "$_id.phone",
+        latestTreatment: "$latestTreatment",
+        latestSession: "$latestSession",
+        sessionId: "$sessionId",
+        isOutcomeFormSent: "$isOutcomeFormSent",
+      },
+    },
+  ]);
+  res.status(200).json({
+    success: true,
+    result,
+  });
+};
+
+exports.setOutcomeReason = catchAsyncError(async (req, res, next) => {
+  const outcomeToken = crypto
+    .createHash("sha256")
+    .update(req.params.outcomeToken)
+    .digest("hex");
+  const session = await Session.findOne({ outcomeToken });
+  if (!session) {
+    return next(new ErrorHandler("Token is wrong or expired.", 403));
+  }
+  session.outcome.outcomeReason = req.body.outcomeReason;
+  session.outcome.filledBy = "Patient";
+  session.outcomeToken = undefined;
+  await session.save();
+  res.status(200).json({
+    success: true,
+    message: "session request updated successfully.",
+  });
+});
+
+exports.setOutcomeReasonForStaff = catchAsyncError(async (req, res, next) => {
+  const session = await Session.findById(req.params.sessionId);
+  if (!session) {
+    return next(new ErrorHandler("Session Id does not match.", 403));
+  }
+  session.outcome.outcomeReason = req.body.outcomeReason;
+  session.outcome.filledBy = req.user.role;
+  await session.save();
+  const booking = await Booking.aggregate([
+    {
+      $lookup: {
+        from: "treatments",
+        localField: "_id",
+        foreignField: "booking",
+        as: "treatments",
+      },
+    },
+    {
+      $unwind: "$treatments",
+    },
+    {
+      $lookup: {
+        from: "sessions",
+        localField: "treatments._id",
+        foreignField: "treatmentId",
+        as: "treatmentSessions",
+      },
+    },
+    { $unwind: "$treatmentSessions" },
+  ]);
+  const filteredBooking = booking.filter(
+    (b) => b.treatmentSessions._id == req.params.sessionId
+  );
+  await sendSms({
+    body:
+      "From IWC, \n Your Dropout form has been submitted with Dropout reason: " +
+      req.body.reason,
+    to: filteredBooking[0].personal.phone,
+  });
+  res.status(200).json({
+    success: true,
+    message: "session request updated successfully.",
+  });
+});

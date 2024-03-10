@@ -253,7 +253,8 @@ const Lifestyle = () => {
   };
 
   useEffect(() => {
-    if (lifestyleAndHabits) {
+    if (lifestyleAndHabits && lifestyleAndHabits.foodDetails) {
+      console.log(lifestyleAndHabits);
       setHealthyDiet(lifestyleAndHabits.foodDetails.healthyDiet);
       setEmptyStomach(lifestyleAndHabits.foodDetails.emptyStomach);
       setDoBreakfast(lifestyleAndHabits.foodDetails.doBreakfast);

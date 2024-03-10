@@ -1,9 +1,11 @@
 const Booking = require("../models/booking");
 const Package = require("../models/package");
+const Enquiry = require("../models/enquiry");
 const catchAsyncError = require("../middleware/catchAsyncFunc");
 const errorHandler = require("../utils/ErrorHandler");
 const ErrorHandler = require("../utils/ErrorHandler");
 const user = require("../models/user");
+const mongoose = require("mongoose");
 
 exports.createBooking = catchAsyncError(async (req, res, next) => {
   req.body.createdAt = new Date(Date.now());
@@ -13,9 +15,18 @@ exports.createBooking = catchAsyncError(async (req, res, next) => {
       new ErrorHandler("Package with given id is not available.", 404)
     );
   }
+  req.body.price = pac.price;
+  req.body.paymentType = pac.paymentType;
   const validTill =
     req.body.createdAt.getTime() + pac.days * 24 * 60 * 60 * 1000;
   req.body.validTill = new Date(validTill);
+
+  console.log("Searching Enquiry.");
+  await Enquiry.findOneAndDelete({
+    name: req.body.personal.name,
+    phone: req.body.personal.phone,
+  });
+  console.log("enquiry deleted.");
   const booking = await Booking.create(req.body);
   res.status(200).json({
     success: true,
@@ -23,8 +34,12 @@ exports.createBooking = catchAsyncError(async (req, res, next) => {
   });
 });
 
-exports.getAllBookings = catchAsyncError(async (req, res, next) => {
-  const bookings = await Booking.find({}, {}, { sort: { createdAt: -1 } });
+exports.getClusterBooking = catchAsyncError(async (req, res, next) => {
+  const bookings = await Booking.find(
+    { "personal.city": { $in: req.user.cluster } },
+    {},
+    { sort: { createdAt: -1 } }
+  );
 
   res.status(200).json({
     success: true,
@@ -33,18 +48,57 @@ exports.getAllBookings = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getBookingDetail = catchAsyncError(async (req, res, next) => {
-  const booking = await Booking.findById(req.params.id);
+  let booking = await Booking.findById(req.params.id);
   if (!booking) {
     return next(new ErrorHandler("Booking with given id is not found.", 404));
   }
+  booking = await Booking.aggregate([
+    {
+      $match: {
+        _id: mongoose.Types.ObjectId(req.params.id),
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "bookedBy",
+        foreignField: "_id",
+        as: "bookedBy",
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "assignTherapist",
+        foreignField: "_id",
+        as: "assignTherapist",
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "assignFacilitator",
+        foreignField: "_id",
+        as: "assignFacilitator",
+      },
+    },
+    {
+      $lookup: {
+        from: "payments",
+        localField: "payment",
+        foreignField: "_id",
+        as: "payment",
+      },
+    },
+  ]);
   res.status(200).json({
     success: true,
-    booking,
+    booking: booking[0],
   });
 });
 
 exports.getBookingDetailForUser = catchAsyncError(async (req, res, next) => {
-  const booking = await Booking.findById(req.params.id);
+  let booking = await Booking.findById(req.params.id);
   if (!booking) {
     return next(new ErrorHandler("Booking with given id is not found.", 404));
   }
@@ -53,7 +107,46 @@ exports.getBookingDetailForUser = catchAsyncError(async (req, res, next) => {
       new ErrorHandler("You are not authorized to access this data.", 403)
     );
   }
-
+  booking = await Booking.aggregate([
+    {
+      $match: {
+        _id: mongoose.Types.ObjectId(req.params.id),
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "bookedBy",
+        foreignField: "_id",
+        as: "bookedBy",
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "assignTherapist",
+        foreignField: "_id",
+        as: "assignTherapist",
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "assignFacilitator",
+        foreignField: "_id",
+        as: "assignFacilitator",
+      },
+    },
+    {
+      $lookup: {
+        from: "payments",
+        localField: "payment",
+        foreignField: "_id",
+        as: "payment",
+      },
+    },
+  ]);
+  console.log(booking);
   res.status(200).json({
     success: true,
     booking,

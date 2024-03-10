@@ -17,7 +17,7 @@ export const deleteUser = createAsyncThunk("deleteUser", async (id) => {
 
 export const editUser = createAsyncThunk("editUser", async (options) => {
   const config = {
-    headers: { "Content-Type": "multipart/form-data" },
+    headers: { "Content-Type": "application/json" },
     withCredentials: true,
   };
   const { data } = await axios.put(

@@ -265,10 +265,12 @@ const TreatmentStart = () => {
                 {((sessions.length != 0 && sessions.length % 3 == 0) ||
                   isLastSession) && (
                   <div className="input-container">
-                    <label className="label-head">PSR level (0 to 10):</label>
+                    <label className="label-head">
+                      PSR level (0 to 10) (0 lowest pain - 10 highest pain):
+                    </label>
                     <input
                       type="number"
-                      placeholder="Enter patient's pain and comfort level."
+                      placeholder="Enter patient's pain level."
                       className="book-input"
                       required
                       min={0}

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const crypto = require("crypto");
 
 const sessionSchema = new mongoose.Schema({
   timeSpent: {
@@ -43,7 +44,22 @@ const sessionSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  outcomeToken: String,
+  outcome: {
+    outcomeReason: String,
+    filledBy: String,
+  },
 });
+
+sessionSchema.methods.getOutcomeToken = function () {
+  const outcomeToken = crypto.randomBytes(20).toString("hex");
+
+  this.outcomeToken = crypto
+    .createHash("sha256")
+    .update(outcomeToken)
+    .digest("hex");
+  return outcomeToken;
+};
 
 const sessionModel = mongoose.model("sessions", sessionSchema);
 

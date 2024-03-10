@@ -31,7 +31,7 @@ export const createBooking = createAsyncThunk(
   }
 );
 
-export const getAllBookings = createAsyncThunk("getAllBookings", async () => {
+export const getClusterBookings = createAsyncThunk("getClusterBookings", async () => {
   const config = { withCredentials: true };
   const { data } = await axios.get("/api/booking/all", config);
   return data;
@@ -358,14 +358,14 @@ const BookingSlice = createSlice({
       state.loading = false;
       state.error = action.error.message;
     });
-    builder.addCase(getAllBookings.pending, (state) => {
+    builder.addCase(getClusterBookings.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(getAllBookings.fulfilled, (state, action) => {
+    builder.addCase(getClusterBookings.fulfilled, (state, action) => {
       state.loading = false;
       state.bookings = action.payload.bookings;
     });
-    builder.addCase(getAllBookings.rejected, (state, action) => {
+    builder.addCase(getClusterBookings.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
     });

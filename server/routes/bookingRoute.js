@@ -12,6 +12,7 @@ const {
   getUserBookings,
   getBookingDetailForUser,
   setScheduledTime,
+  getBookingByNameAndPhone,
 } = require("../controllers/bookingController");
 const {
   isAuthenticatedUser,
@@ -59,4 +60,5 @@ router
 router
   .route("/reschedule/:bookingId")
   .put(isAuthenticatedUser, setScheduledTime);
+router.route("/checkForBooking", isAuthenticatedUser, getBookingByNameAndPhone)
 module.exports = router;

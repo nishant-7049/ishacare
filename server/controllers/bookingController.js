@@ -255,3 +255,21 @@ exports.setScheduledTime = catchAsyncError(async (req, res, next) => {
     message: "Treatment is Rescheduled successfully.",
   });
 });
+
+exports.getBookingByNameAndPhone = catchAsyncError(async (req, res, next)=>{
+  const {name, phone } = req.body
+  if(!name || !phone){
+    return next(new ErrorHandler("Please Enter name and phone number", 400))
+  }
+  const booking = await Booking.findOne({name, phone}) 
+  if(!booking){
+    res.status(200).json({
+      success: true,
+      message: "No booking found with given name and phone"
+    })
+  }
+  res.status(200).json({
+    success: true,
+    booking
+  })
+})

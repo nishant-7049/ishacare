@@ -62,6 +62,35 @@ exports.getPatientMeterData = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getCentreData = catchAsyncError(async (req, res, next) => {
+  let startDate,endDate;
+  const interval = req.body.interval;
+  const cluster = req.body.cluster;
+  const year = req.body.year;
+  const month = req.body.month;
+
+  switch(interval){
+    case "year":
+      break;
+    case "month":
+      if(!year) return res.status(403).json({success: false,message:"year not specified"});
+      startDate = `${year}-01-01`;
+      endDate = `${parseInt(year)+1}-01-01`;
+      break;
+    case "day":
+      if(!year) return res.status(403).json({success: false,message:"year not specified"});
+      if(!month) return res.status(403).json({success: false,message:"month not specified"});
+      startDate = `${year}-${month}-01`;
+      endDate = `${year}-${month+1}-01`;
+      break;
+    default:
+      return res.status(403).json({success: false,message:"invalid interval"});
+  }
+
+  const dateFilter = {
+    $gte: new Date(startDate),
+    $lt: new Date(endDate)
+  };
+
   const bookings = await Booking.aggregate([
     {
       $lookup: {
@@ -89,17 +118,38 @@ exports.getCentreData = catchAsyncError(async (req, res, next) => {
       $sort: { createdAt: -1 },
     },
     {
-      $project: {
-        _id: "$_id",
-        createdAt: "$createdAt",
-        paymentType: "$paymentType",
-        payment: "$payment",
-        sessions: "$treatmentSessions",
-        price: "$price",
-        location: "$personal.location",
-        cluster: "$personal.city",
+      $match: {
+        createdAt: interval==="year" ? {$exists: true} : dateFilter
       },
     },
+    {
+      $addFields: {
+        lastTreatmentSession: {
+          $arrayElemAt: [
+            {
+              $filter: {
+                input: "$treatmentSessions",
+                cond: { $eq: ["$$this.isOutcomeFormSent", true] }
+              }
+            },
+            -1
+          ]
+        }
+      }
+    },
+    {
+      $match: cluster ? {
+        "personal.city" : cluster
+      } : {}
+    },
+    {
+      $group: {
+        _id: "$personal.location",
+        count: { $sum: 1 },
+        collectionAmt:{$sum:"$price"},
+        usersLeft: { $sum: { $cond: { if: { $eq: [ { $type: "$lastTreatmentSession" }, "object" ] }, then: 1, else: 0 } }},
+      }
+    }
   ]);
   res.status(200).json({
     success: true,
@@ -368,6 +418,69 @@ exports.getTherapistAllSessions = catchAsyncError(async (req, res, next) => {
   });
 });
 exports.getFacilitatorAllSessions = catchAsyncError(async (req, res, next) => {
+  const sessions = await Booking.aggregate([
+    {
+      $match: {
+        assignFacilitator: { $eq: req.user._id },
+      },
+    },
+    {
+      $lookup: {
+        from: "treatments",
+        localField: "_id",
+        foreignField: "booking",
+        as: "treatments",
+      },
+    },
+    {
+      $unwind: "$treatments",
+    },
+    {
+      $lookup: {
+        from: "sessions",
+        localField: "treatments._id",
+        foreignField: "treatmentId",
+        as: "treatmentSessions",
+      },
+    },
+    {
+      $unwind: "$treatmentSessions",
+    },
+    {
+      $group: {
+        _id: {
+          name: "$personal.name",
+          phone: "$personal.phone",
+        },
+        sessions: { $push: "$treatmentSessions" },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        name: "$_id.name",
+        phone: "$_id.phone",
+        sessions: "$sessions",
+      },
+    },
+  ]);
+  res.status(200).json({
+    success: true,
+    sessions,
+  });
+});
+
+// statistics to show clusters progress in admin dashboard.
+// input -> cluster name or all
+// output -> patient count by disease
+// output -> improvement of patients in cluster
+// problem
+// Pain and Stiffness - MD
+// Lifestyle and Habits - LD
+// rest - ND
+
+
+exports.getClusterProgress = catchAsyncError(async (req, res, next) => {
   const sessions = await Booking.aggregate([
     {
       $match: {

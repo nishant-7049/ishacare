@@ -248,6 +248,7 @@ exports.setScheduledTime = catchAsyncError(async (req, res, next) => {
       new ErrorHandler("You are not authorized to interfare with booking.", 403)
     );
   }
+  // only facilitator assigned to booking and cluster incharge and admins can change the schedule
   booking.packageAndDate.dateAndTime = req.body.dateAndTime;
   await booking.save();
   res.status(200).json({

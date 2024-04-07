@@ -1,5 +1,6 @@
 const catchAsyncError = require("../middleware/catchAsyncFunc");
 const Booking = require("../models/booking");
+const sessionModel = require("../models/session");
 
 exports.getPatientMeterData = catchAsyncError(async (req, res, next) => {
   const patientsData = await Booking.aggregate([
@@ -526,6 +527,55 @@ exports.getClusterProgress = catchAsyncError(async (req, res, next) => {
         sessions: "$sessions",
       },
     },
+  ]);
+  res.status(200).json({
+    success: true,
+    sessions,
+  });
+});
+
+exports.getUserSessions = catchAsyncError(async (req, res, next) => {
+  const {name,phone} = req.query;
+  if(!(name && phone)) throw new Error("name and phone number required");
+  let sessions = await Booking.aggregate([
+    [
+      {
+        $match:{
+          "personal.phone":parseInt(phone),
+          "personal.name":name
+        }
+      },
+      {
+          $lookup: {
+            from: "treatments",
+            localField: "_id",
+            foreignField: "booking",
+            as: "treatments",
+          },
+        },
+        {
+          $sort: { "treatments.createdAt": -1 },
+        },
+        {
+          $lookup: {
+            from: "sessions",
+            localField: "treatments._id",
+            foreignField: "treatmentId",
+            as: "treatmentSessions",
+          },
+        },
+        {
+          $sort: { "treatmentSessions.createdAt": -1 },
+        },
+        {
+          $sort: { createdAt: -1 },
+        },
+        {
+          $project:{
+            treatmentSessions:1
+          }
+        }
+    ]
   ]);
   res.status(200).json({
     success: true,

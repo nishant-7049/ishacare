@@ -9,8 +9,17 @@ const {
   getFacilitatorPerformance,
   getDropoutsForFacilitator,
   getFacilitatorAllSessions,
+  getUserSessions,
 } = require("../controllers/dashboardController");
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+const {
+  isAuthenticatedUser,
+  authorizeRoles,
+  notUser,
+} = require("../middleware/auth");
+
+router
+  .route("/admin/getUserSessions")
+  .get(isAuthenticatedUser, notUser, getUserSessions);
 
 router
   .route("/admin/patientMeter")

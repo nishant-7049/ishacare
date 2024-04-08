@@ -156,7 +156,7 @@ const OrderList = () => {
     }
   }, [isBookingDeleted, isUpdated]);
   return (
-    <div className="w-full mt-[6vmax]">
+    <div className="w-full mt-[6vmax] sm:mt-20">
       <h1 className="text-3xl border-b-4 border-[#00286b] text-[#00286b] pb-2 font-bold w-fit text-center mx-auto sm:text-2xl sm:w-4/5">
         Appointments
       </h1>

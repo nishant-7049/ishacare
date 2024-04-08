@@ -112,7 +112,7 @@ const UserOrders = () => {
   }, [dispatch]);
   return (
     <div className="w-full mt-[6vmax]">
-      <h1 className="text-3xl border-b-4 border-[#00286b] text-[#00286b] pb-2 font-bold w-fit text-center mx-auto sm:text-2xl sm:w-4/5">
+      <h1 className="text-3xl border-b-4 border-[#00286b] text-[#00286b] pb-2 font-bold w-fit text-center mx-auto sm:text-2xl sm:w-4/5 sm:mt-20">
         My Orders
       </h1>
       <DataGrid

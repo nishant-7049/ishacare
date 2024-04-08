@@ -16,7 +16,7 @@ const Dashboard = () => {
     dispatch(getCentreData());
   }, []);
   return (
-    <div className="flex sm:flex-col">
+    <div className="mt-20">
       <Sidebar />
       <div className="w-full">
         <div className="bg-[#F0F0F0]">

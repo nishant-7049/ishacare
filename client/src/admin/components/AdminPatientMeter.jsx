@@ -221,7 +221,7 @@ const AdminPatientMeter = () => {
             Patient Meter
             <Link
               to="/admin/enquiry"
-              className="absolute right-24 text-[#00286b] font-semibold text-base"
+              className="absolute right-24 text-[#00286b] font-semibold text-base sm:static sm:pl-4"
             >
               visit enquiries
             </Link>

@@ -10,12 +10,17 @@ const {
   getDropoutsForFacilitator,
   getFacilitatorAllSessions,
   getUserSessions,
+  getUserStats,
 } = require("../controllers/dashboardController");
 const {
   isAuthenticatedUser,
   authorizeRoles,
   notUser,
 } = require("../middleware/auth");
+
+router
+  .route("/userStats")
+  .get(getUserStats);
 
 router
   .route("/admin/getUserSessions")

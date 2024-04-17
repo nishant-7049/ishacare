@@ -12,6 +12,7 @@ const cron = require("node-cron");
 const { getLatestSession } = require("./controllers/sessionController");
 const Session = require("./models/session");
 const sendEmail = require("./utils/sendEmail");
+const { getClusterProgress } = require("./controllers/dashboardController");
 
 // Connnect DB
 connectDB();

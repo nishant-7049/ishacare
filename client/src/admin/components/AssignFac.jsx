@@ -34,15 +34,15 @@ const AssignFac = () => {
   };
   useEffect(() => {
     if (booking) {
-      if (booking.assignFacilitator && booking.assignFacilitator[0]) {
-        setFac(booking.assignFacilitator[0]._id);
+      if (booking?.assignFacilitator && booking?.assignFacilitator[0]) {
+        setFac(booking?.assignFacilitator[0]._id);
 
-        if (booking.assignFacilitator) {
-          setFacName(booking.assignFacilitator[0].name);
+        if (booking?.assignFacilitator) {
+          setFacName(booking?.assignFacilitator[0]?.name);
         }
       }
       if (!facilitators) {
-        dispatch(getFacilitators(booking.personal.city));
+        dispatch(getFacilitators(booking?.personal?.city));
       }
     }
     if (isUpdated) {

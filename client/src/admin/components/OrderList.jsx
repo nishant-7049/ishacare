@@ -107,7 +107,6 @@ const OrderList = () => {
       headerName: "Actions",
       minWidth: 100,
       flex: 0.3,
-      type: "number",
       headerClassName: "text-[#00286b] font-semibold",
       renderCell: (cellValues) => (
         <div className="flex text-2xl  justify-end">
@@ -156,16 +155,19 @@ const OrderList = () => {
     }
   }, [isBookingDeleted, isUpdated]);
   return (
-    <div className="w-full mt-[6vmax] sm:mt-20">
+    <div className="w-full my-8 ">
       <h1 className="text-3xl border-b-4 border-[#00286b] text-[#00286b] pb-2 font-bold w-fit text-center mx-auto sm:text-2xl sm:w-4/5">
         Appointments
       </h1>
+      <div className="flex justify-center">
+
       <Link
         to="/enquiry"
-        className="text-[#00286b] cursor-pointer absolute right-24 font-bold"
-      >
+        className="text-[#00286b] cursor-pointer absolute right-24 font-bold sm:static sm:p-2"
+        >
         view enquiries
       </Link>
+        </div>
       <DataGrid
         rows={rows}
         columns={cols}

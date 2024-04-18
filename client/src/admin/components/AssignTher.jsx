@@ -26,15 +26,15 @@ const AssignTherAndFac = () => {
   };
   useEffect(() => {
     if (booking) {
-      if (booking.assignTherapist) {
-        setTher(booking.assignTherapist[0]._id);
+      if (booking?.assignTherapist) {
+        setTher(booking?.assignTherapist[0]?._id);
 
-        if (booking.assignTherapist) {
-          setTherName(booking.assignTherapist[0].name);
+        if (booking?.assignTherapist) {
+          setTherName(booking?.assignTherapist[0]?.name);
         }
       }
       if (!therapists) {
-        dispatch(getTherapists(booking.personal.city));
+        dispatch(getTherapists(booking?.personal?.city));
       }
     }
 

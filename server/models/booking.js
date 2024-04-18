@@ -306,7 +306,7 @@ const bookingSchema = new mongoose.Schema({
   },
   paymentType: {
     type: String,
-    enum: ['cash','online'],
+    enum: ["Cash", "Online"],
     required: true,
   },
   bookedBy: mongoose.Schema.Types.ObjectId,

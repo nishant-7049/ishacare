@@ -37,6 +37,10 @@ const Profile = () => {
                 <p className="text-gray-400">{user.email}</p>
               </div>
               <div className="flex flex-col">
+                <h4 className="text-xl font-semibold">Role</h4>
+                <p className="text-gray-400">{user.role}</p>
+              </div>
+              <div className="flex flex-col">
                 <h4 className="text-xl font-semibold">Joined At</h4>
                 <p className="text-gray-400">
                   {String(user.createdAt).substring(0, 10)}

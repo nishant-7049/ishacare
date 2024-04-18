@@ -1,5 +1,6 @@
 const catchAsyncError = require("../middleware/catchAsyncFunc");
 const Booking = require("../models/booking");
+const sessionModel = require("../models/session");
 
 exports.getPatientMeterData = catchAsyncError(async (req, res, next) => {
   const patientsData = await Booking.aggregate([
@@ -61,7 +62,7 @@ exports.getPatientMeterData = catchAsyncError(async (req, res, next) => {
   });
 });
 
-eexports.getCentreData = catchAsyncError(async (req, res, next) => {
+exports.getCentreData = catchAsyncError(async (req, res, next) => {
   let startDate, endDate;
   const interval = req.body.interval;
   const cluster = req.body.cluster;
@@ -484,6 +485,117 @@ exports.getFacilitatorAllSessions = catchAsyncError(async (req, res, next) => {
         sessions: "$sessions",
       },
     },
+  ]);
+  res.status(200).json({
+    success: true,
+    sessions,
+  });
+});
+
+// statistics to show clusters progress in admin dashboard.
+// input -> cluster name or all
+// output -> patient count by disease
+// output -> improvement of patients in cluster
+// problem
+// Pain and Stiffness - MD
+// Lifestyle and Habits - LD
+// rest - ND
+
+exports.getClusterProgress = catchAsyncError(async (req, res, next) => {
+  const sessions = await Booking.aggregate([
+    {
+      $match: {
+        assignFacilitator: { $eq: req.user._id },
+      },
+    },
+    {
+      $lookup: {
+        from: "treatments",
+        localField: "_id",
+        foreignField: "booking",
+        as: "treatments",
+      },
+    },
+    {
+      $unwind: "$treatments",
+    },
+    {
+      $lookup: {
+        from: "sessions",
+        localField: "treatments._id",
+        foreignField: "treatmentId",
+        as: "treatmentSessions",
+      },
+    },
+    {
+      $unwind: "$treatmentSessions",
+    },
+    {
+      $group: {
+        _id: {
+          name: "$personal.name",
+          phone: "$personal.phone",
+        },
+        sessions: { $push: "$treatmentSessions" },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        name: "$_id.name",
+        phone: "$_id.phone",
+        sessions: "$sessions",
+      },
+    },
+  ]);
+  res.status(200).json({
+    success: true,
+    sessions,
+  });
+});
+
+exports.getUserSessions = catchAsyncError(async (req, res, next) => {
+  const { name, phone } = req.query;
+  if (!(name && phone)) throw new Error("name and phone number required");
+  let sessions = await Booking.aggregate([
+    [
+      {
+        $match: {
+          "personal.phone": parseInt(phone),
+          "personal.name": name,
+        },
+      },
+      {
+        $lookup: {
+          from: "treatments",
+          localField: "_id",
+          foreignField: "booking",
+          as: "treatments",
+        },
+      },
+      {
+        $sort: { "treatments.createdAt": -1 },
+      },
+      {
+        $lookup: {
+          from: "sessions",
+          localField: "treatments._id",
+          foreignField: "treatmentId",
+          as: "treatmentSessions",
+        },
+      },
+      {
+        $sort: { "treatmentSessions.createdAt": -1 },
+      },
+      {
+        $sort: { createdAt: -1 },
+      },
+      {
+        $project: {
+          treatmentSessions: 1,
+        },
+      },
+    ],
   ]);
   res.status(200).json({
     success: true,

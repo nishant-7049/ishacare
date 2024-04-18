@@ -640,7 +640,7 @@ const ConfirmBooking = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[80vh] sticky right-0 top-[5rem] flex flex-col  justify-center items-center sm:static md:h-[50vh] sm:h-[60vh]">
+        <div className="w-full h-[80vh] sticky right-0 top-[5rem] flex flex-col  justify-center items-center sm:static md:h-[50vh] sm:h-fit">
           <h1 className="det-head">Order Details</h1>
 
           <OrderCard pac={dateAndTime.package} />

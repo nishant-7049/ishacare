@@ -52,21 +52,24 @@ app.use("/api/dashboard", require("./routes/dashboardRoute"));
 app.use("/api/enquiry", require("./routes/enquiryRoute"));
 
 cron.schedule(
-  "42 21 * * *",
+  "15 13 * * *",
   async function () {
     console.log("sending outcome messages .....");
     const sessions = await getLatestSession();
+    console.log(sessions);
     for (let session of sessions) {
       if (
         new Date(session.latestSession).getTime() + 1 * 1000 * 60 <
           Date.now() &&
         (session.isOutcomeFormSent == null ||
-          session.isOutcomeFormSent == false)
+          session.isOutcomeFormSent == false) &&
+        session.sessionid !== null
       ) {
         console.log(session);
         const ses = await Session.findById(session.sessionId);
         const outcomeToken = await ses.getOutcomeToken();
         const link = `http://localhost:5173/book/outcome/${outcomeToken}`;
+        console.log(link);
         const options = {
           body: `From IWC, \n Dear ${session.name}, \nYou have not attended any session between ten days, we would like to get your response. Please fill this outcome form to get to know the reason of dropout. \n ${link} \n Click aboce link to fill outcome form.`,
           to: session.phone,

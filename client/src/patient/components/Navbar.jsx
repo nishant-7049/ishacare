@@ -13,7 +13,7 @@ function Navbar() {
   },[user])
   return (
     // <Contain className={`${user?.role !== "user" && user?.isIncharge == false &&'hidden'}`}>
-    <Contain className={`${user?.role !== "user" && user?.isIncharge == true &&  'hidden'}`}>
+    <Contain className={`${(user?.role === "user" && user?.isIncharge === false)?'':'hidden'}`}>
       <Nav>
         <Link to="/">
           <Logo

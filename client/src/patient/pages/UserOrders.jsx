@@ -71,7 +71,6 @@ const UserOrders = () => {
       headerName: "Actions",
       minWidth: 100,
       flex: 0.3,
-      type: "number",
       headerClassName: "text-[#00286b] font-semibold",
       renderCell: (cellValues) => (
         <div className="flex text-2xl  justify-end">

@@ -100,66 +100,27 @@ exports.getCentreData = catchAsyncError(async (req, res, next) => {
     $lt: new Date(endDate)
   };
 
+  const matchOptions = {}
+  if(cluster){
+    matchOptions["personal.city"] = cluster;
+  }
+
+  if(interval!=="year"||interval!=="all"){
+    matchOptions.createdAt = dateFilter;
+  }
+  
   const bookings = await Booking.aggregate([
-    {
-      $match: {
-        createdAt: (interval==="year"||interval==="all") ? {$exists: true} : dateFilter
-      },
-    },
-    {
-      $lookup: {
-        from: "treatments",
-        localField: "_id",
-        foreignField: "booking",
-        as: "treatments",
-      },
-    },
-    {
-      $sort: { "treatments.createdAt": -1 },
-    },
-    {
-      $lookup: {
-        from: "sessions",
-        localField: "treatments._id",
-        foreignField: "treatmentId",
-        as: "treatmentSessions",
-      },
-    },
-    {
-      $sort: { "treatmentSessions.createdAt": -1 },
-    },
-    {
-      $sort: { createdAt: -1 },
-    },
-    {
-      $addFields: {
-        lastTreatmentSession: {
-          $arrayElemAt: [
-            {
-              $filter: {
-                input: "$treatmentSessions",
-                cond: { $eq: ["$$this.isOutcomeFormSent", true] }
-              }
-            },
-            -1
-          ]
-        }
-      }
-    },
-    {
-      $match: cluster ? {
-        "personal.city" : cluster
-      } : {}
+  	{
+      $match: matchOptions,
     },
     {
       $group: {
         _id: groupFilter,
         count: { $sum: 1 },
         collectionAmt:{$sum:"$price"},
-        usersLeft: { $sum: { $cond: { if: { $eq: [ { $type: "$lastTreatmentSession" }, "object" ] }, then: 1, else: 0 } }},
       }
     }
-  ]);
+  ])
   res.status(200).json({
     success: true,
     bookings,

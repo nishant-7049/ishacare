@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import NoOfPatientChart from "./NoOfPatientChart";
 import PatientNumberLineChart from "./PatientNumberLineChart";
 import CollectionLineChart from "./CollectionLineChart";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../auth/Loader";
+import { getCentreData } from "../../store/slices/dashboardSlice";
 
 const months = [
   "Jan",
@@ -21,8 +22,8 @@ const months = [
 ];
 
 const CenterReport = () => {
-  const [cluster, setCluster] = useState("");
-  const [interval, setInterval] = useState("Day");
+  const [cluster, setCluster] = useState("All");
+  const [interval, setInterval] = useState("year");
   const [month, setMonth] = useState();
   const [years, setyears] = useState();
   const [year, setYear] = useState(2023);
@@ -208,7 +209,16 @@ const CenterReport = () => {
       setData(cd);
     }
   }, [cluster, interval, month, year, centreData]);
-  useEffect(() => {}, [centreData]);
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    const options = {
+      interval,
+      cluster,
+      year,
+      month,
+    }
+    dispatch(getCentreData(options))
+  },[cluster, interval, month, year])
   return (
     <div className="shadow-xl w-4/5 mx-auto mt-4 mb-12 p-4 sm:w-[90%] sm:p-0">
       {loading == true ? (

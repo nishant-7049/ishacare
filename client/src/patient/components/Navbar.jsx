@@ -8,12 +8,10 @@ function Navbar() {
   const location = useLocation();
   const [toggle, setToggle] = useState(true);
 
-  useEffect(()=>{
-    console.log(user)
-  },[user])
   return (
-    // <Contain className={`${user?.role !== "user" && user?.isIncharge == false &&'hidden'}`}>
-    <Contain className={`${(user?.role === "user" && user?.isIncharge === false)?'':'hidden'}`}>
+    // <Contain className={`${(user.role === "user" && user?.isIncharge === false)?'':'hidden'}`}>
+    <Contain className={`${(!user || (user.role === "user" && !user.isIncharge)) ? '' : 'hidden'}`}>
+
       <Nav>
         <Link to="/">
           <Logo

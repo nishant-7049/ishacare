@@ -10,12 +10,16 @@ const {
   getDropoutsForFacilitator,
   getFacilitatorAllSessions,
   getUserSessions,
+  getUserStats,
+  getClusterProgress,
 } = require("../controllers/dashboardController");
 const {
   isAuthenticatedUser,
   authorizeRoles,
   notUser,
 } = require("../middleware/auth");
+
+router.route("/userStats").get(getUserStats);
 
 router
   .route("/admin/getUserSessions")
@@ -28,6 +32,10 @@ router
 router
   .route("/admin/centreData")
   .get(isAuthenticatedUser, authorizeRoles("admin"), getCentreData);
+
+router
+  .route("/admin/clusterProgress")
+  .get(isAuthenticatedUser, authorizeRoles("admin"), getClusterProgress);
 
 router
   .route("/therapist/performance")

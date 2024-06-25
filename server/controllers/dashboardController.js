@@ -63,15 +63,17 @@ exports.getPatientMeterData = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getCentreData = catchAsyncError(async (req, res, next) => {
+  const { interval, cluster, year, month } = req.query;
   let startDate, endDate;
-  console.log(req.query);
-  const interval = req.query.interval;
-  const cluster = req.query.cluster;
-  const year = req.query.year;
-  const month = req.query.month;
+  let groupFilter = {
+    location: "$personal.location",
+  };
 
   switch (interval) {
+    case "all":
+      break;
     case "year":
+      groupFilter.year = { $year: "$createdAt" };
       break;
     case "month":
       if (!year)
@@ -80,6 +82,8 @@ exports.getCentreData = catchAsyncError(async (req, res, next) => {
           .json({ success: false, message: "year not specified" });
       startDate = `${year}-01-01`;
       endDate = `${parseInt(year) + 1}-01-01`;
+      groupFilter.month = { $month: "$createdAt" };
+      groupFilter.year = { $year: "$createdAt" };
       break;
     case "day":
       if (!year)
@@ -91,7 +95,18 @@ exports.getCentreData = catchAsyncError(async (req, res, next) => {
           .status(403)
           .json({ success: false, message: "month not specified" });
       startDate = `${year}-${month}-01`;
-      endDate = `${year}-${month + 1}-01`;
+      let dateMonth = parseInt(month);
+      let dateYear = year;
+      if (dateMonth == 12) {
+        dateMonth = 1;
+        dateYear++;
+      } else {
+        dateMonth++;
+      }
+      endDate = `${dateYear}-${dateMonth}-01`;
+      groupFilter.day = { $dayOfMonth: "$createdAt" };
+      groupFilter.month = { $month: "$createdAt" };
+      groupFilter.year = { $year: "$createdAt" };
       break;
     default:
       return res
@@ -104,73 +119,24 @@ exports.getCentreData = catchAsyncError(async (req, res, next) => {
     $lt: new Date(endDate),
   };
 
+  const matchOptions = {};
+  if (cluster) {
+    matchOptions["personal.city"] = cluster;
+  }
+
+  if (!(interval === "year" || interval === "all")) {
+    matchOptions.createdAt = dateFilter;
+  }
+
   const bookings = await Booking.aggregate([
     {
-      $lookup: {
-        from: "treatments",
-        localField: "_id",
-        foreignField: "booking",
-        as: "treatments",
-      },
-    },
-    {
-      $sort: { "treatments.createdAt": -1 },
-    },
-    {
-      $lookup: {
-        from: "sessions",
-        localField: "treatments._id",
-        foreignField: "treatmentId",
-        as: "treatmentSessions",
-      },
-    },
-    {
-      $sort: { "treatmentSessions.createdAt": -1 },
-    },
-    {
-      $sort: { createdAt: -1 },
-    },
-    {
-      $match: {
-        createdAt: interval === "year" ? { $exists: true } : dateFilter,
-      },
-    },
-    {
-      $addFields: {
-        lastTreatmentSession: {
-          $arrayElemAt: [
-            {
-              $filter: {
-                input: "$treatmentSessions",
-                cond: { $eq: ["$$this.isOutcomeFormSent", true] },
-              },
-            },
-            -1,
-          ],
-        },
-      },
-    },
-    {
-      $match: cluster
-        ? {
-            "personal.city": cluster,
-          }
-        : {},
+      $match: matchOptions,
     },
     {
       $group: {
-        _id: "$personal.location",
+        _id: groupFilter,
         count: { $sum: 1 },
         collectionAmt: { $sum: "$price" },
-        usersLeft: {
-          $sum: {
-            $cond: {
-              if: { $eq: [{ $type: "$lastTreatmentSession" }, "object"] },
-              then: 1,
-              else: 0,
-            },
-          },
-        },
       },
     },
   ]);

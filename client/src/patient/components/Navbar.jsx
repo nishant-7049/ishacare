@@ -134,7 +134,7 @@ function Navbar() {
                 onClick={() => {
                   setToggle(!toggle);
                 }}
-                to="/personalform"
+                to="/book/personalform"
                 className={
                   location.pathname == "/book/personalform" ? "active" : ""
                 }

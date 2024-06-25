@@ -35,7 +35,7 @@ export const getCentreData = createAsyncThunk("getCentreData", async (options) =
   const config = {
     withCredentials: true,
   };
-  const { data } = await axios.get(`/api/dashboard/admin/centreData?interval=${options.interval}&cluster=${options.cluster}&year=${options.year}&month=${options.month}&days=${options.day}`, config);
+  const { data } = await axios.get(`/api/dashboard/admin/centreData?interval=${options.interval}&cluster=${options.cluster}&year=${options.year}&month=${options.month}`, config);
   return data;
 });
 

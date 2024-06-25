@@ -241,7 +241,7 @@ const AdminPatientMeter = () => {
               />
             </div>
           </div>
-            <div className="flex gap-8 w-full justify-center">
+            <div className="flex gap-8 w-full justify-center md:flex-col">
               
             <div className="w-2/5 h-[50vh] md:w-full md:h-[40vh]">
               <Bar

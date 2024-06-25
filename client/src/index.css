@@ -90,3 +90,7 @@ body {
   text-align: center;
   margin: 0.5rem 0;
 }
+
+input:focus{
+  border: none;
+}

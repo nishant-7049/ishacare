@@ -31,11 +31,17 @@ export const createBooking = createAsyncThunk(
   }
 );
 
-export const getClusterBookings = createAsyncThunk("getClusterBookings", async () => {
-  const config = { withCredentials: true };
-  const { data } = await axios.get("/api/booking/all", config);
-  return data;
-});
+export const getClusterBookings = createAsyncThunk(
+  "getClusterBookings",
+  async (options) => {
+    const config = { withCredentials: true };
+    const { data } = await axios.get(
+      `/api/booking/all?keyword=${options.keyword}&page=${options.page}&limit=${options.limit}`,
+      config
+    );
+    return data;
+  }
+);
 
 export const getPaymentDetail = createAsyncThunk(
   "getPaymentDetail",
@@ -130,19 +136,22 @@ export const setFacilitator = createAsyncThunk(
 
 export const getBookingForTherapist = createAsyncThunk(
   "getBookingForTherapist",
-  async () => {
+  async (options) => {
     const config = { withCredentials: true };
-    const { data } = await axios.get("/api/booking/therapist/bookings", config);
+    const { data } = await axios.get(
+      `/api/booking/therapist/bookings?keyword=${options.keyword}&page=${options.page}&limit=${options.limit}`,
+      config
+    );
     return data;
   }
 );
 
 export const getBookingForFacilitator = createAsyncThunk(
   "getBookingForFacilitator",
-  async () => {
+  async (options) => {
     const config = { withCredentials: true };
     const { data } = await axios.get(
-      "/api/booking/facilitator/bookings",
+      `/api/booking/facilitator/bookings?keyword=${options.keyword}&page=${options.page}&limit=${options.limit}`,
       config
     );
     return data;
@@ -251,10 +260,15 @@ const BookingSlice = createSlice({
         : [],
     info: null,
     payment: null,
+    bookingsCount: null,
+    therapistBookingCount: null,
   },
   reducers: {
     clearError: (state) => {
       state.error = null;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
     },
     updateBookingDetails: (state) => {
       state.bookingDetails = JSON.parse(localStorage.getItem("bookingDetails"));
@@ -364,6 +378,7 @@ const BookingSlice = createSlice({
     builder.addCase(getClusterBookings.fulfilled, (state, action) => {
       state.loading = false;
       state.bookings = action.payload.bookings;
+      state.bookingsCount = action.payload.bookingsCount;
     });
     builder.addCase(getClusterBookings.rejected, (state, action) => {
       state.loading = false;
@@ -461,6 +476,7 @@ const BookingSlice = createSlice({
     builder.addCase(getBookingForTherapist.fulfilled, (state, action) => {
       state.loading = false;
       state.therapistBooking = action.payload.bookings;
+      state.therapistBookingCount = action.payload.bookingsCount;
     });
     builder.addCase(getBookingForTherapist.rejected, (state, action) => {
       state.loading = false;
@@ -472,6 +488,7 @@ const BookingSlice = createSlice({
     builder.addCase(getBookingForFacilitator.fulfilled, (state, action) => {
       state.loading = false;
       state.facilitatorBooking = action.payload.bookings;
+      state.facilitatorBookingCount = action.payload.bookingsCount;
     });
     builder.addCase(getBookingForFacilitator.rejected, (state, action) => {
       state.loading = false;
@@ -536,4 +553,5 @@ export const {
   resetIsStatusUpdated,
   setConsent,
   resetIsRescheduled,
+  setError,
 } = BookingSlice.actions;

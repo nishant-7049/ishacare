@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 import Loader from "../../auth/Loader";
 import MyPerformance from "./MyPerformance";
 import MyReports from "./MyReports";
-import SearchAppointment from "../../admin/components/SearchAppointment";
 
 const TherapistOrders = () => {
   const dispatch = useDispatch();
-  const { loading, error, therapistBooking, therapistBookingCount } =
-    useSelector((state) => state.booking);
+  const { loading, error, therapistBooking } = useSelector(
+    (state) => state.booking
+  );
   const { user } = useSelector((state) => state.user);
   const cols = [
     {
@@ -101,7 +101,6 @@ const TherapistOrders = () => {
     {
       field: "action",
       headerName: "Actions",
-      type: "number",
       minWidth: 100,
       flex: 0.3,
       headerClassName: "text-[#00286b] font-semibold",
@@ -140,29 +139,9 @@ const TherapistOrders = () => {
         id: ther._id,
       });
     });
-  const [keyword, setKeyword] = useState("");
-  const [results, setResults] = useState("");
-  const [paginationModel, setPaginationModel] = useState({
-    pageSize: 15,
-    page: 0,
-  });
-  const submitHandler = () => {
-    const options = {
-      keyword,
-      page: paginationModel.page + 1 || 1,
-      limit: paginationModel.pageSize,
-    };
-    dispatch(getBookingForTherapist(options));
-    setResults(keyword);
-  };
   useEffect(() => {
-    const options = {
-      keyword,
-      page: paginationModel.page + 1 || 1,
-      limit: paginationModel.pageSize,
-    };
-    dispatch(getBookingForTherapist(options));
-  }, [dispatch, paginationModel]);
+    dispatch(getBookingForTherapist());
+  }, [dispatch]);
 
   return (
     <div className="w-full my-8">
@@ -174,7 +153,7 @@ const TherapistOrders = () => {
             Therapist Panel
           </h1>
 
-          <div className="w-[90%] px-4 shadow-lg mx-auto my-8 relative sm:my-4">
+          <div className="w-[90%] p-4 shadow-lg mx-auto my-8 relative">
             <h1 className="text-[#00286b] text-xl text-center font-semibold mb-4">
               My Patients
             </h1>
@@ -185,29 +164,19 @@ const TherapistOrders = () => {
               >
                 view enquiries
               </Link>
+              <Link
+                to="/book/personalForm"
+                className="my-2 text-white cursor-pointer bg-[#00286b] border-2 border-[#00286b] hover:bg-white hover:text-[#00286b]  font-bold sm:static sm:mx-auto p-2"
+              >
+                Book for Patient
+              </Link>
             </div>
-            <SearchAppointment
-              keyword={keyword}
-              setKeyword={setKeyword}
-              submitHandler={submitHandler}
-            />
-            {results && (
-              <p className="w-[90%] mx-auto text-gray-400 text-sm">
-                Showing Results for '{results}'
-              </p>
-            )}
-            <div className="h-[80vh] w-fit mt-4 sm:w-full">
+            <div className="h-[80vh] w-full">
               <DataGrid
                 rows={rows}
                 columns={cols}
                 getRowHeight={() => "auto"}
                 className=" mx-auto "
-                rowCount={therapistBookingCount}
-                loading={loading}
-                pageSizeOptions={[15]}
-                paginationModel={paginationModel}
-                paginationMode="server"
-                onPaginationModelChange={setPaginationModel}
               />
             </div>
           </div>

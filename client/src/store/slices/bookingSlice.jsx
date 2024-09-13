@@ -262,6 +262,7 @@ const BookingSlice = createSlice({
     payment: null,
     bookingsCount: null,
     therapistBookingCount: null,
+    facilitatorBookingCount: null,
   },
   reducers: {
     clearError: (state) => {
